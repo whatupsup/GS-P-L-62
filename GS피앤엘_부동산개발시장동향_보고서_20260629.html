@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4 landscape; margin: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 10.5pt;
+    color: #333;
+    background: #e8ecf0;
+  }
+
+  /* ===== PAGE ===== */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    overflow: visible;
+    background: #ffffff;
+    margin: 0 auto 6mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      height: 210mm;
+      min-height: unset;
+      overflow: hidden;
+      margin: 0;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: avoid; }
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: #1B3A6B;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 8px; }
+
+  .header-badge {
+    background: #C9A84C;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .report-title {
+    font-size: 13.5pt;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .report-meta {
+    text-align: right;
+    font-size: 9pt;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  /* ===== PAGE BODY ===== */
+  .page-body {
+    padding: 6px 8px 4px;
+    flex: 1;
+  }
+
+  /* ===== SNAPSHOT ROW ===== */
+  .snapshot-row {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+
+  .snapshot-card {
+    flex: 1;
+    background: #F4F6FB;
+    border-radius: 5px;
+    padding: 4px 6px;
+    text-align: center;
+    border-top: 3px solid #1B3A6B;
+  }
+
+  .snapshot-label { font-size: 8.5pt; color: #666; margin-bottom: 1px; line-height: 1.2; }
+  .snapshot-value { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.0; }
+  .snapshot-change { font-size: 8.5pt; margin-top: 0px; font-weight: 600; line-height: 1.3; }
+  .snapshot-sub { font-size: 8.5pt; color: #999; margin-top: 0px; line-height: 1.2; }
+  .up { color: #C53030; }
+  .down { color: #2B6CB0; }
+  .flat { color: #718096; }
+
+  /* ===== TWO COL ===== */
+  .two-col {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .col-55 { flex: 55; }
+  .col-45 { flex: 45; }
+  .col-half { flex: 1; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    border-left: 4px solid #C9A84C;
+    padding-left: 7px;
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+
+  /* ===== NEWS ===== */
+  .news-item {
+    border-bottom: 1px solid #E8ECF2;
+    padding: 5px 0;
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .news-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    margin-bottom: 2px;
+  }
+
+  .news-tag {
+    flex-shrink: 0;
+    display: inline-block;
+    color: white;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+  .tag-hotel  { background: #6B3FA0; }
+  .tag-dc     { background: #1A5276; }
+  .tag-office { background: #1E6C3F; }
+  .tag-fund   { background: #9A3412; }
+
+  .news-title { font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+  .news-body  { font-size: 10.5pt; color: #555; line-height: 1.5; margin-bottom: 2px; }
+  .news-point { font-size: 10pt; color: #B8860B; font-weight: 600; line-height: 1.4; }
+  .news-source { font-size: 8.5pt; color: #bbb; margin-top: 2px; }
+  .news-source a { color: #999; text-decoration: underline; }
+
+  /* ===== DEAL CARDS ===== */
+  .deal-card {
+    background: #FAFBFD;
+    border: 1px solid #D5E0F0;
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-bottom: 5px;
+    border-left: 3px solid #C9A84C;
+  }
+  .deal-card:last-child { margin-bottom: 0; }
+
+  .deal-tag {
+    display: inline-block;
+    background: #EBF0FB;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }
+
+  .deal-name { font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3; margin-bottom: 4px; }
+
+  .deal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 6px;
+    font-size: 10pt;
+    margin-bottom: 3px;
+  }
+  .deal-meta-item { color: #777; line-height: 1.4; }
+  .deal-meta-item strong { color: #333; }
+
+  .deal-desc { font-size: 10pt; color: #555; line-height: 1.5; }
+
+  /* ===== TERM BOX ===== */
+  .term-box {
+    background: linear-gradient(135deg, rgba(27,58,107,0.04), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 8px;
+    padding: 7px 10px;
+    margin-bottom: 5px;
+  }
+
+  .term-word { font-size: 14pt; font-weight: 900; color: #1B3A6B; }
+  .term-eng  { font-size: 10pt; color: #C9A84C; font-weight: 700; margin-left: 5px; }
+  .term-sub  { font-size: 12pt; font-weight: 700; color: #1B3A6B; margin-top: 3px; }
+
+  .term-desc {
+    font-size: 10.5pt;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  .term-example {
+    font-size: 10pt;
+    color: #555;
+    background: #fff;
+    border-left: 3px solid #C9A84C;
+    padding: 4px 7px;
+    margin-top: 5px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+  }
+
+  /* ===== GRADE TABLE ===== */
+  .subsection-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin: 5px 0 4px;
+  }
+
+  .grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5px;
+  }
+
+  .grade-table th {
+    background: #1B3A6B;
+    color: white;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 3px 5px;
+    text-align: left;
+  }
+
+  .grade-table td {
+    font-size: 9.5pt;
+    padding: 3px 5px;
+    border-bottom: 1px solid #E8ECF2;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .grade-table tr:nth-child(even) td { background: #F8F9FC; }
+
+  .gbadge {
+    display: inline-block;
+    color: white;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .g-trophy { background: #7D5A1E; }
+  .g-prime  { background: #1B3A6B; }
+  .g-a      { background: #1E6C3F; }
+  .g-b      { background: #718096; }
+  .g-c      { background: #A0AEC0; }
+
+  /* ===== SOCIAL CLUB BOX ===== */
+  .club-box {
+    background: #F8F9FC;
+    border-left: 3px solid #C9A84C;
+    border-radius: 0 6px 6px 0;
+    padding: 5px 8px;
+    margin-bottom: 4px;
+  }
+  .club-title { font-size: 10.5pt; font-weight: 700; color: #1B3A6B; margin-bottom: 4px; }
+  .club-body  { font-size: 10pt; color: #444; line-height: 1.55; }
+
+  /* ===== ANALYSIS BOX ===== */
+  .analysis-box {
+    background: #F6F8FC;
+    border: 1px solid #D5E0F0;
+    border-radius: 6px;
+    padding: 6px 9px;
+    margin-bottom: 5px;
+  }
+
+  .analysis-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin-bottom: 4px;
+    padding-left: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+
+  .analysis-body { font-size: 10.5pt; color: #444; line-height: 1.6; }
+
+  .conflict-row {
+    display: flex;
+    gap: 7px;
+    margin: 4px 0;
+    align-items: stretch;
+  }
+
+  .conflict-party {
+    flex: 1;
+    background: white;
+    border: 1px solid #D5E0F0;
+    border-radius: 5px;
+    padding: 4px 6px;
+  }
+
+  .conflict-party-name { font-size: 10pt; font-weight: 700; color: #1B3A6B; margin-bottom: 3px; }
+  .conflict-party-body { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    font-weight: 900;
+    color: #C9A84C;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  /* ===== TREND GRID ===== */
+  .trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+
+  .trend-card {
+    background: #fff;
+    border: 1px solid #E0E8F0;
+    border-radius: 5px;
+    padding: 4px 6px;
+  }
+
+  .trend-card-label {
+    font-size: 9pt;
+    color: #888;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+
+  .trend-card-text { font-size: 10.5pt; color: #333; line-height: 1.45; }
+
+  /* ===== NEXT WEEK BOX ===== */
+  .next-week-box {
+    background: linear-gradient(135deg, rgba(27,58,107,0.06), rgba(201,168,76,0.06));
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 5px;
+  }
+
+  .next-week-title { font-size: 10.5pt; font-weight: 700; color: #1B3A6B; margin-bottom: 4px; }
+  .next-week-item  { font-size: 10pt; color: #444; line-height: 1.5; margin-bottom: 3px; padding-left: 12px; text-indent: -12px; }
+
+  /* ===== GS P&L BOX ===== */
+  .gspnl-box {
+    background: #1B3A6B;
+    border-radius: 7px;
+    padding: 6px 10px;
+  }
+
+  .gspnl-title { font-size: 10.5pt; font-weight: 700; color: #C9A84C; margin-bottom: 5px; }
+  .gspnl-item  {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.55;
+    padding-left: 13px;
+    text-indent: -13px;
+    margin-bottom: 3px;
+  }
+  .gspnl-item:last-child { margin-bottom: 0; }
+  .gspnl-body { font-size: 10.5pt; color: rgba(255,255,255,0.92); line-height: 1.7; }
+  .gspnl-body strong { color: #C9A84C; }
+  .gspnl-item strong { color: #C9A84C; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    padding: 3px 8px;
+    border-top: 1px solid #E8ECF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-source { font-size: 8.5pt; color: #bbb; line-height: 1.5; }
+  .footer-page   { font-size: 8.5pt; color: #aaa; font-weight: 700; white-space: nowrap; }
+
+
+  a.news-title {
+    font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35;
+    text-decoration: none; display: block;
+  }
+  a.news-title:hover { color: #1B3A6B; text-decoration: underline; }
+  a.deal-name {
+    font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3;
+    margin-bottom: 4px; text-decoration: none; display: block;
+  }
+  a.deal-name:hover { text-decoration: underline; }
+  a { color: inherit; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 6월 4주차 (Vol.13)<br>발행일: 2026.06.29
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- SNAPSHOT ROW -->
+    <div class="snapshot-row">
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 A급 오피스 공실률</div>
+        <div class="snapshot-value">4.0%</div>
+        <div class="snapshot-change flat">→ 7분기 연속 상승세 마감</div>
+        <div class="snapshot-sub">2026 Q1 기준 · JLL Korea</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 오피스 1분기 거래금액</div>
+        <div class="snapshot-value">8,926억</div>
+        <div class="snapshot-change down">▼ 전분기 대비 약 50% 감소</div>
+        <div class="snapshot-sub">거래 건수 23건 · 스마트비즈</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">GBD 프라임 오피스 공실률</div>
+        <div class="snapshot-value">&lt;1%</div>
+        <div class="snapshot-change up">▲ 역대 최저 수준 유지</div>
+        <div class="snapshot-sub">강남권 최고급 빌딩 기준 · Colliers</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">국내 리츠 총 운용자산(AUM)</div>
+        <div class="snapshot-value">123.4조</div>
+        <div class="snapshot-change up">▲ 운용 리츠 461개</div>
+        <div class="snapshot-sub">2026년 4월 기준 · 한국리츠협회</div>
+      </div>
+    </div>
+
+    <!-- TWO COL: 뉴스 | 딜 -->
+    <div class="two-col">
+
+      <!-- LEFT: NEWS -->
+      <div class="col-55">
+        <div class="section-title">📰 이번 주 주요 뉴스</div>
+
+        <!-- N1 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-hotel">호텔</span>
+            <a class="news-title" href="https://paxnetnews.com/articles/74749" target="_blank">롯데시티호텔 명동 매각, 운용사-수익자 갈등으로 중단 🔗</a>
+          </div>
+          <div class="news-body">
+            미래에셋 계열 <strong>멀티에셋자산운용</strong>이 부동산펀드로 보유 중인 롯데시티호텔 명동(추정 매각가 <strong>약 2,500억원</strong>)의 매각 절차를 추진했으나, 수익자(LP)인 <strong>호텔롯데</strong>가 강하게 반발해 매각이 중단됐다. 롯데그룹은 롯데렌탈 매각(1.6조원) 역시 공정위 제동으로 불발된 상태여서 유동성 확보에 비상이 걸렸다.
+          </div>
+          <div class="news-point">👉 GP·LP 이해충돌의 전형적 사례 — 2페이지 심층 분석 참조.</div>
+          <div class="news-source">출처: <a href="https://paxnetnews.com/articles/74749" target="_blank">팍스넷뉴스</a> · <a href="http://bdin.dungzi.com/news/view/4532" target="_blank">ERA매매팀</a></div>
+        </div>
+
+        <!-- N2 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-dc">데이터센터</span>
+            <a class="news-title" href="https://www.betanews.net/article/view/beta202606280002" target="_blank">용산 포르쉐센터 부지, 도심형 데이터센터 전환 추진 · 주민 반발 🔗</a>
+          </div>
+          <div class="news-body">
+            서울 용산구 이촌동 212-1(포르쉐 전시장 건물 부지, 대지 1,748㎡)에 <strong>지하4층~지상5층, 연면적 8,919㎡ 규모의 데이터센터</strong> 신축이 건축위원회 심의에 올라왔다. 지은 지 얼마 안 된 상업시설을 철거하고 24시간 가동 데이터센터를 주거지 인근에 세우겠다는 계획에 주민 반발이 거세다. 사업 시행·운영 주체도 미공개 상태다.
+          </div>
+          <div class="news-point">👉 도심 유휴 상업 부지를 데이터센터로 전환하는 '컨버전 트렌드' 확산 속, 주거지 인접 입지 문제가 신규 리스크로 부상.</div>
+          <div class="news-source">출처: <a href="https://www.betanews.net/article/view/beta202606280002" target="_blank">베타뉴스 (2026.06.28)</a></div>
+        </div>
+
+        <!-- N3 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">오피스</span>
+            <a class="news-title" href="https://news.nate.com/view/20260504n11983" target="_blank">서울 오피스 '플라이 투 퀄리티' 심화 — 프라임 vs B급 양극화 뚜렷 🔗</a>
+          </div>
+          <div class="news-body">
+            2026 Q1 서울 A급 오피스 공실률 4.0%로 안정됐지만 내부는 극명히 갈린다. GBD(강남) 프라임 빌딩은 공실 <strong>1% 미만</strong>인 반면, CBD(도심)에는 2026년 약 211,000㎡ 신규 공급이 예정돼 공실률 <strong>8~10%</strong>까지 치솟을 전망. 임차인들이 입지·브랜드·시설 모두 최상급인 "트로피 에셋"으로 집중 이동하는 현상이 뚜렷하다. A급 오피스 임대료도 3.3㎡당 14만원을 돌파했다.
+          </div>
+          <div class="news-point">👉 '플라이 투 퀄리티'와 '트로피 에셋'은 이번 주 핵심 용어 — 2페이지에서 상세 설명.</div>
+          <div class="news-source">출처: <a href="https://news.nate.com/view/20260504n11983" target="_blank">네이트뉴스(2026.05.04)</a> · <a href="https://smatch.kr/insight/posts/central-business-districts-in-seoul-gbd-cbd-ybd-2026" target="_blank">스매치 인사이트</a> · <a href="https://www.savills.co.kr/insight-and-opinion/savills-news/234117/" target="_blank">세빌스코리아</a></div>
+        </div>
+
+
+        <!-- 시장 데이터 플래시 -->
+        <div style="background:#F4F6FB;border-radius:6px;padding:6px 9px;margin-top:4px;border-top:2px solid #C9A84C;">
+          <div style="font-size:11pt;font-weight:700;color:#1B3A6B;margin-bottom:5px;">📊 이번 주 시장 데이터 플래시</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:4px;padding:5px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:2px;">🏨 호텔</div>
+              <div style="font-size:10.5pt;color:#333;line-height:1.5;">서울 호텔 평균 점유율 <strong>82%</strong>(2026.05). 명동 중저가 호텔 리포지셔닝 매물 다수 출회 중</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:4px;padding:5px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:2px;">🛍️ 리테일</div>
+              <div style="font-size:10.5pt;color:#333;line-height:1.5;">성수·홍대 팝업 상권 공실 <strong>1% 미만</strong>. 명동 외국인 회복으로 공실 12%→<strong>8%</strong>로 감소</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:4px;padding:5px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:2px;">📦 물류</div>
+              <div style="font-size:10.5pt;color:#333;line-height:1.5;">수도권 물류센터 공실 <strong>9.8%</strong>로 반등(JLL). 이커머스 조정·신규 공급 과잉 동시 작용</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:4px;padding:5px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:2px;">🏦 리츠</div>
+              <div style="font-size:10.5pt;color:#333;line-height:1.5;">2026 상반기 공모리츠 4개 상장, 총 <strong>1.2조원</strong> 조달. AUM 123.4조 (한국리츠협회)</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- col-55 -->
+
+      <!-- RIGHT: DEAL -->
+      <div class="col-45">
+        <div class="section-title">🏗️ 이번 주 주목할 딜</div>
+
+        <div class="deal-card">
+          <div class="deal-tag">도심형 엣지 DC · 컨버전</div>
+          <a class="deal-name" href="https://www.betanews.net/article/view/beta202606280002" target="_blank">용산 이촌동 포르쉐센터 부지 → 도심형 데이터센터 신축 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>서울 용산구 이촌동 212-1</strong></div>
+            <div class="deal-meta-item">📐 연면적 <strong>8,919㎡</strong> (지하4~지상5층)</div>
+            <div class="deal-meta-item">📋 건폐율 57.99% / 용적률 236.30%</div>
+            <div class="deal-meta-item">📅 건축위원회 심의 중 <strong>(2026.06)</strong></div>
+          </div>
+          <div class="deal-desc">포르쉐 전시장(대지 1,748㎡) 철거 후 방송통신시설(DC) 신축 추진. 사업 시행·운영 주체 비공개. 도심 상업 부지의 DC 컨버전 트렌드를 보여주는 최신 사례.</div>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-tag">엣지 DC · 운용사 직접 개발 최초</div>
+          <a class="deal-name" href="https://www.etoday.co.kr/news/view/2515661" target="_blank">마스턴투자운용 — 서울 영등포 10MW급 엣지 데이터센터 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>서울 영등포동2가</strong></div>
+            <div class="deal-meta-item">⚡ <strong>10MW</strong> (IT 부하 6.5MW)</div>
+            <div class="deal-meta-item">📐 연면적 9,733㎡ (대지 1,385㎡)</div>
+            <div class="deal-meta-item">🏗️ 시공: <strong>한화건설부문</strong></div>
+          </div>
+          <div class="deal-desc">자산운용사 최초 도심형 엣지 DC 직접 개발. IT 부하 6.5MW 선임차 고객 확보. 2028년 하반기 준공 목표. PFV 시행, 한화건설 시공.</div>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-tag">대형 IDC · PF</div>
+          <a class="deal-name" href="http://www.e2news.com/news/articleView.html?idxno=329178" target="_blank">한국대체투자운용(AIM) — 용인 기흥 60MW 데이터센터 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>경기 기흥구 지곡동 236-6</strong></div>
+            <div class="deal-meta-item">⚡ <strong>60MW</strong> (IT 40MW, 교외형)</div>
+            <div class="deal-meta-item">💰 브릿지론 <strong>600억원</strong> 조달 완료</div>
+            <div class="deal-meta-item">🎯 본PF: <strong>약 1조원</strong> (2026 하반기)</div>
+          </div>
+          <div class="deal-desc">롯데이노베이트 선임차 계약(695억원, 2030~2035년). 현대건설 주요 투자자 참여. 착공 목표 2026년 10월. 대규모 교외형(하이퍼스케일) 사례.</div>
+        </div>
+
+      </div><!-- col-45 -->
+    </div><!-- two-col -->
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 딜사이트·파이낸셜뉴스·베타뉴스·JLL Korea·Colliers Korea·서울파이낸스·머니S·이투데이·한국리츠협회 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">1 / 2</div>
+  </div>
+
+</div><!-- page 1 -->
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 6월 4주차 (Vol.13)<br>발행일: 2026.06.29
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="two-col">
+
+      <!-- LEFT: TERM + GRADE TABLE + CLUB BOX -->
+      <div class="col-half">
+        <div class="section-title">📚 이번 주 부동산 개발 용어</div>
+
+        <div class="term-box">
+          <div>
+            <span class="term-word">플라이 투 퀄리티</span>
+            <span class="term-eng">Flight to Quality</span>
+          </div>
+          <div style="margin-top:3px;">
+            <span class="term-sub">트로피 에셋</span>
+            <span class="term-eng">Trophy Asset</span>
+          </div>
+          <div class="term-desc">
+            <strong>플라이 투 퀄리티(FTQ)</strong>는 불확실성이 클 때 투자자·임차인이 "더 좋은" 자산으로 몰리는 현상입니다. 주식 위기 때 국채로 피신하듯, 오피스 시장에서는 노후 빌딩을 떠나 최고급 빌딩으로 이동합니다. 그 최종 목적지가 바로 <strong>트로피 에셋</strong> — 마치 스포츠 트로피처럼 "누구나 탐내지만 소수만 가질 수 있는" 최상급 부동산입니다. 입지·설계·임차인 구성 모두 최고여서, 경기침체 때도 가치를 지킵니다.
+          </div>
+          <div class="term-example">
+            💡 <strong>비유:</strong> 동네 맛집이 생기면 주변 평범한 식당들이 타격을 받듯, 초고급 오피스가 들어서면 인근 B급 빌딩 임차인들이 이탈합니다. 이 이동이 바로 "플라이 투 퀄리티"이고, 임차인이 향하는 그 최고급 건물이 "트로피 에셋"입니다.
+          </div>
+        </div>
+
+        <div class="subsection-title">🏢 오피스 등급 체계</div>
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:20%;">등급</th>
+              <th style="width:45%;">주요 특징</th>
+              <th style="width:35%;">서울 대표 사례</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gbadge g-trophy">트로피</span></td>
+              <td>도시 랜드마크, 역사·브랜드·독보적 입지. 부동산의 "명품"</td>
+              <td>파르나스타워, 롯데월드타워</td>
+            </tr>
+            <tr>
+              <td><span class="gbadge g-prime">프라임/A+</span></td>
+              <td>3만㎡↑, 최신 스마트빌딩, 업무지구 핵심 위치</td>
+              <td>을지트윈타워, 서울스퀘어</td>
+            </tr>
+            <tr>
+              <td><span class="gbadge g-a">A급</span></td>
+              <td>우수 입지·시설, 1만㎡↑, 대형 임차인 유치 가능</td>
+              <td>강남권 대부분 업무용 오피스</td>
+            </tr>
+            <tr>
+              <td><span class="gbadge g-b">B급</span></td>
+              <td>구형 설비·평균 입지, 중소 임차인 위주</td>
+              <td>노후 오피스·비핵심 업무지구</td>
+            </tr>
+            <tr>
+              <td><span class="gbadge g-c">C급</span></td>
+              <td>소규모·노후·비업무지구, 관리 미흡</td>
+              <td>이면도로 소형 사무실</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: ANALYSIS + TREND + GS -->
+      <div class="col-half">
+        <div class="section-title">🔍 심층 분석 — 운용사(GP) vs 수익자(LP) 갈등은 왜 반복되나?</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">부동산펀드 구조에서 이해충돌이 발생하는 이유</div>
+          <div class="analysis-body">
+            부동산펀드는 투자자(LP, 수익자)가 돈을 대면, 운용사(GP)가 부동산을 매입·관리·매각하는 구조입니다. 두 당사자의 이해관계는 본질적으로 다릅니다.
+          </div>
+          <div class="conflict-row">
+            <div class="conflict-party">
+              <div class="conflict-party-name">🏦 GP — 운용사</div>
+              <div class="conflict-party-body">
+                • 매각 완료 시 <strong>성과보수</strong> 수령<br>
+                • 펀드 만기 내 처리 의무 (늦으면 불이익)<br>
+                • 빠른 청산 → 다음 펀드 결성 유리
+              </div>
+            </div>
+            <div class="conflict-vs">VS</div>
+            <div class="conflict-party">
+              <div class="conflict-party-name">💼 LP — 수익자</div>
+              <div class="conflict-party-body">
+                • 매각 <strong>가격·타이밍</strong>에 민감<br>
+                • 저가 매각 = 수익률 직격탄<br>
+                • 직접 사용 목적 있을 수 있음 (예: 호텔롯데)
+              </div>
+            </div>
+          </div>
+          <div class="analysis-body">
+            <strong>롯데시티호텔 명동</strong>: GP 멀티에셋이 RFP 발송 후 매각 주관사 선정 추진 → LP 호텔롯데 강력 반발 → <span style="color:#B8860B; font-weight:600;">착수 일주일 만에 매각 전면 철회</span><br><br>
+            자본시장법상 GP에게 독립적 매각 권한이 있으나, LP는 GP 교체권으로 맞서 거버넌스 갈등이 반복. 금융당국이 부동산펀드 거버넌스 규정 강화에 나설 전망.
+          </div>
+        </div>
+
+        <!-- TREND GRID -->
+        <div style="margin-bottom:5px;">
+          <div style="font-size:10pt; font-weight:700; color:#1B3A6B; margin-bottom:5px; border-left:4px solid #C9A84C; padding-left:7px;">📊 시장 흐름 한눈에 보기</div>
+          <div class="trend-grid">
+            <div class="trend-card">
+              <div class="trend-card-label">🏢 오피스</div>
+              <div class="trend-card-text">프라임 독주, CBD B급 공실 위기. 2026년 CBD 신규 공급 211,000㎡ → 공실률 8~10% 전망</div>
+            </div>
+            <div class="trend-card">
+              <div class="trend-card-label">💻 데이터센터</div>
+              <div class="trend-card-text">도심형 엣지 DC 봇물. 마스턴·AIM·동양 등 진입. 도심 주거지 갈등 신규 리스크 부상</div>
+            </div>
+            <div class="trend-card">
+              <div class="trend-card-label">🏨 호텔 자산</div>
+              <div class="trend-card-text">롯데시티호텔·하이드파크 명동 등 중가 호텔 매각 시도 이어짐. 시장 회복기 매각 타이밍 경쟁</div>
+            </div>
+            <div class="trend-card">
+              <div class="trend-card-label">⚖️ 펀드 거버넌스</div>
+              <div class="trend-card-text">GP-LP 갈등 반복 → 거버넌스 제도화 논의 부상. 표준내부통제기준(2026.03) 발표 후 추가 제도 개선 예고</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEXT WEEK -->
+        <div class="next-week-box">
+          <div class="next-week-title">🔭 다음 주 주목할 이슈</div>
+          <div class="next-week-item">▶ 롯데시티호텔 명동 — 매각 재개 또는 펀드 만기 연장 협의 방향 공개 여부</div>
+          <div class="next-week-item">▶ 용산 이촌동 데이터센터 — 건축위원회 심의 결과 및 사업 주체 공개 여부</div>
+          <div class="next-week-item">▶ 한국대체투자운용 — 용인 기흥 DC 본PF 1조원 착수 여부 (하반기 예정)</div>
+        </div>
+
+      </div><!-- col-half right -->
+    </div><!-- two-col -->
+
+    <!-- ── 전체폭 GS P&L 시사점 ── -->
+    <div class="gspnl-box" style="margin-top:6px;padding:8px 12px;">
+      <div class="gspnl-title" style="font-size:11.5pt;margin-bottom:6px;">🔑 GS P&amp;L 신사업 관점 시사점</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+        <div style="background:rgba(255,255,255,0.08);border-radius:5px;padding:7px 9px;border-top:2px solid #C9A84C;">
+          <div style="font-size:10.5pt;font-weight:700;color:#C9A84C;margin-bottom:4px;">① 호텔 자산 전략적 인수 기회</div>
+          <div class="gspnl-item" style="margin-bottom:0;">LP 갈등으로 매각되는 펀드 보유 호텔 — 롯데시티호텔 명동(약 2,500억), 하이드파크 명동 등이 잠재 인수 대상. 파르나스 운영 노하우 접목한 <strong>리포지셔닝 전략</strong> 검토 유효. 시장 불확실성 구간이 매수 기회.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:5px;padding:7px 9px;border-top:2px solid #C9A84C;">
+          <div style="font-size:10.5pt;font-weight:700;color:#C9A84C;margin-bottom:4px;">② 파르나스 "오피스 호스피탈리티"</div>
+          <div class="gspnl-item" style="margin-bottom:0;">FTQ로 트로피 오피스 수요 폭발. 파르나스타워 등 프라임 빌딩 입주사 대상 <strong>라운지·케이터링·소셜클럽 위탁운영 모델</strong> 개발 가능. 소셜클럽 딥다이브는 3페이지 참조.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:5px;padding:7px 9px;border-top:2px solid #C9A84C;">
+          <div style="font-size:10.5pt;font-weight:700;color:#C9A84C;margin-bottom:4px;">③ 프로젝트리츠 + 도심형 엣지 DC</div>
+          <div class="gspnl-item" style="margin-bottom:0;">GS 계열 유휴 도심 부지에 <strong>프로젝트리츠 구조</strong>로 엣지 DC 개발. 마스턴(영등포)·AIM(기흥) 사례 참고, 자산 운용 수익 + DC 임대 수익 <strong>이중 구조</strong> 설계 가능.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 딜사이트·JLL Korea·Colliers Korea·CBRE Korea·베타뉴스·서울파이낸스·인베스트조선·이데일리·한국리츠협회 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">2 / 3</div>
+  </div>
+
+</div><!-- page 2 -->
+
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 6월 4주차 (Vol.13) — 딥다이브<br>라운지 &amp; 소셜클럽 × 부동산 개발
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- 페이지 주제 인트로 -->
+    <div style="background:linear-gradient(90deg,#1B3A6B,#2A5298);border-radius:6px;padding:6px 12px;margin-bottom:6px;display:flex;align-items:center;gap:12px;">
+      <div style="font-size:14pt;font-weight:900;color:#C9A84C;white-space:nowrap;">딥다이브</div>
+      <div>
+        <div style="font-size:12pt;font-weight:700;color:#fff;line-height:1.3;">라운지 &amp; 소셜클럽 × 부동산 개발 — 왜 세계 최고의 시행사들은 소셜클럽을 개발의 핵심 앵커로 삼는가?</div>
+        <div style="font-size:10pt;color:rgba(255,255,255,0.75);margin-top:2px;">글로벌(Soho House·OCA Tokyo) → 일본(모리빌딩 Hills) → 한국 현황 → GS P&amp;L 전략 순으로 분석합니다</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT: 글로벌 벤치마크 + 한국 현황 -->
+      <div class="col-half">
+
+        <div class="section-title">🌐 글로벌 벤치마크 — Soho House &amp; OCA Tokyo</div>
+
+        <div style="display:flex;gap:5px;margin-bottom:6px;">
+          <!-- Soho House -->
+          <div style="flex:1;background:#F6F8FC;border:1px solid #D5E0F0;border-radius:6px;padding:6px 8px;border-top:3px solid #C9A84C;">
+            <div style="font-size:11pt;font-weight:700;color:#1B3A6B;margin-bottom:2px;">Soho House <span style="font-size:9pt;font-weight:400;color:#888;">(1995, 런던)</span></div>
+            <div style="font-size:10pt;color:#444;line-height:1.5;">
+              전 세계 <strong>45개 도시</strong> 클럽하우스. 연회비 $1,500~$3,000. 창의직군(미디어·패션·테크) 중심 멤버십.<br>
+              <strong>전략:</strong> 노후 건물 임차 → 소셜클럽으로 리포지셔닝 → 주변 젠트리피케이션 견인.<br>
+              <span style="color:#C9A84C;font-weight:600;">부동산 효과: 입점 지역 임대료 15~30% 상승 (런던·뉴욕·LA 사례)</span>
+            </div>
+          </div>
+          <!-- OCA Tokyo -->
+          <div style="flex:1;background:#F6F8FC;border:1px solid #D5E0F0;border-radius:6px;padding:6px 8px;border-top:3px solid #1B3A6B;">
+            <div style="font-size:11pt;font-weight:700;color:#1B3A6B;margin-bottom:2px;">OCA Tokyo <span style="font-size:9pt;font-weight:400;color:#888;">(2023, 긴자)</span></div>
+            <div style="font-size:10pt;color:#444;line-height:1.5;">
+              일본 최초 글로벌 스탠다드 소셜클럽. 긴자 2개 층 전용 + 루프탑. 입회금 50만엔, 연회비 40만엔.<br>
+              <strong>전략:</strong> 긴자 프라임 오피스 빌딩과 연계, 입주사 임직원·외국계 비즈니스맨 타깃.<br>
+              <span style="color:#C9A84C;font-weight:600;">DYAD 청담 창업팀이 OCA Tokyo를 직접 벤치마킹하여 한국 론칭</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">🇰🇷 한국 현황 — 글로벌 대비 5~10년 격차, 지금이 진입 타이밍</div>
+
+        <div style="font-size:10.5pt;color:#444;line-height:1.6;margin-bottom:5px;padding:5px 8px;background:#fff8ee;border-left:3px solid #C9A84C;border-radius:0 4px 4px 0;">
+          한국은 <strong>재벌 폐쇄 사교 문화·"유흥 공간" 낙인</strong>으로 글로벌 소셜클럽 개념 확산이 늦었다. MZ 고자산가층이 Soho House·OCA Tokyo를 경험하며 수요가 생성됐고, <strong>2026~2028년이 한국의 소셜클럽 골든타임</strong>이다.
+        </div>
+
+        <table class="grade-table" style="width:100%;margin-bottom:5px;">
+          <thead>
+            <tr>
+              <th style="width:24%;">클럽명</th>
+              <th style="width:18%;">위치·시기</th>
+              <th style="width:28%;">회비 구조</th>
+              <th style="width:30%;">특이점</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>서울클럽</strong></td>
+              <td>중구 (1904)</td>
+              <td>입회금 約1억, 연회비 500만원</td>
+              <td>한국 최초, 외국인 중심 멤버십. 스쿼시·레스토랑 복합</td>
+            </tr>
+            <tr>
+              <td><strong>DYAD 청담</strong></td>
+              <td>강남구 (2026.7)</td>
+              <td>보증금 1억, 연회비 1,000만원</td>
+              <td>OCA Tokyo 벤치마킹, 국내 최초 글로벌 스탠다드 표방</td>
+            </tr>
+            <tr>
+              <td><strong>카펠라 레지던스 클럽</strong></td>
+              <td>한남동 (2025.10)</td>
+              <td>레지던스 구매자 전용</td>
+              <td>C. Liaigre 설계, 한강뷰 프라이빗 라운지+살롱</td>
+            </tr>
+            <tr>
+              <td><strong>시그니엘 클럽 블랙</strong></td>
+              <td>송파구</td>
+              <td>초청제·비공개</td>
+              <td>롯데 VIP 전용, MICE 연계 라운지</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="background:#f0f4ff;border-left:3px solid #1B3A6B;border-radius:0 5px 5px 0;padding:5px 9px;font-size:10pt;color:#333;line-height:1.6;">
+          <strong style="color:#1B3A6B;">핵심 공백:</strong> 한국에는 <strong>오피스 복합개발 앵커형 소셜클럽이 전무</strong>. Soho House식 젠트리피케이션 견인 사례도 없음. DYAD 성공 여부가 GS P&amp;L 진입 타이밍의 바로미터.
+        </div>
+
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: 일본 + GS 전략 -->
+      <div class="col-half">
+
+        <div class="section-title">🇯🇵 일본 선진 사례 — 모리빌딩 "Hills 소셜 패러다임"</div>
+
+        <div class="analysis-box" style="margin-bottom:5px;">
+          <div class="analysis-title">Soho House→OCA가 독립형이라면, Hills는 "복합개발 통합형"</div>
+          <div style="display:flex;gap:5px;margin-top:4px;">
+            <div style="flex:1;background:#fff;border:1px solid #d0d8e8;border-radius:4px;padding:5px 7px;">
+              <div style="font-size:10.5pt;font-weight:700;color:#1B3A6B;margin-bottom:2px;">롯폰기힐스 클럽 <span style="font-weight:400;color:#888;font-size:9.5pt;">(2003)</span></div>
+              <div style="font-size:10pt;color:#444;line-height:1.5;">51층 전층 / 회원제<br>입회금 130만엔, 연회비 19.8만엔<br>레스토랑·바·스파 통합<br><span style="color:#C9A84C;font-weight:600;">→ 빌딩 가치 상승 앵커</span></div>
+            </div>
+            <div style="flex:1;background:#fff;border:1px solid #d0d8e8;border-radius:4px;padding:5px 7px;">
+              <div style="font-size:10.5pt;font-weight:700;color:#1B3A6B;margin-bottom:2px;">아자부다이 Hills House <span style="font-weight:400;color:#888;font-size:9.5pt;">(2023)</span></div>
+              <div style="font-size:10pt;color:#444;line-height:1.5;">33~34층 / 임차사 B2B 라이선스<br>Aman 셰프 레스토랑 운영<br>회원제 아닌 임직원 복지 클럽<br><span style="color:#C9A84C;font-weight:600;">→ 프리미엄 테넌트 유인</span></div>
+            </div>
+          </div>
+          <div style="font-size:10pt;margin-top:4px;color:#444;line-height:1.5;"><strong>시사점:</strong> 모리빌딩은 소셜클럽을 ①직접 수익(롯폰기, 회원제)과 ②자산 밸류업 도구(아자부다이, 오피스 임대료 +15~20%)로 이중 활용. 오피스 연계형이 핵심 차별점.</div>
+        </div>
+
+        <div class="section-title" style="margin-bottom:4px;">GS P&amp;L 적용 전략 — 4가지 진입 모델</div>
+        <div class="trend-grid" style="grid-template-columns:1fr 1fr;gap:4px;margin-bottom:5px;">
+          <div class="trend-card">
+            <div class="trend-card-label">🅐 위탁운영 (단기)</div>
+            <div class="trend-card-text">파르나스 유휴 F&amp;B 공간 → 소셜클럽 전환. DYAD·글로벌 오퍼레이터 위탁. 초기 투자 최소, 노하우 선습득.</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">🅑 독립 개발 (중기)</div>
+            <div class="trend-card-text">"PARNAS CLUB" 자체 브랜드 론칭. 파르나스타워 전용층 확보. 회원권 선수금 활용 가능.</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">🅒 개발 연계 (중장기)</div>
+            <div class="trend-card-text">신규 복합개발에 소셜클럽 앵커 설계. Soho House식 지역 밸류업 + 롯폰기힐스식 분양가 프리미엄.</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">🅓 플랫폼 (장기)</div>
+            <div class="trend-card-text">GS 전국 자산망(GS25·GS칼텍스) 활용, 멀티 로케이션 멤버십. 경쟁사 진입 장벽 선점.</div>
+          </div>
+        </div>
+
+        <div class="gspnl-box" style="padding:6px 10px;">
+          <div class="gspnl-title">💡 GS P&amp;L 인사이트 — 왜 지금인가</div>
+          <div class="gspnl-body">
+            <strong>① 타이밍 우위:</strong> DYAD 청담(2026.7) 론칭이 시장을 열지만, 오피스 연계 복합형은 한국에 전무. 파르나스 브랜드 + GS 자산 네트워크 결합 시 <strong>퍼스트 무버 포지션.</strong><br>
+            <strong>② 이중 수익:</strong> 입회금·연회비 직접 수익 + 인근 오피스·레지던스 임대료 프리미엄 환류. Soho House 입점 지역 +15~30%, 아자부다이 오피스 +15~20% 효과.<br>
+            <strong>③ 자산 시너지:</strong> 파르나스타워 유휴층 활용 = 토지비 Zero. 호텔 F&amp;B·케이터링 즉시 연동. <strong>권장: 🅐 위탁운영 파일럿 → 🅑/🅒 전환.</strong>
+          </div>
+        </div>
+
+      </div><!-- col-half right -->
+
+    </div><!-- two-col -->
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 모리빌딩 IR·힐스하우스 공식사이트·DYAD Seoul·카펠라호텔 공식·JLL Korea 오피스보고서·Nikkei Real Estate·서울클럽 공식 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">3 / 3</div>
+  </div>
+
+</div><!-- page 3 -->
+
+</body>
+</html>
