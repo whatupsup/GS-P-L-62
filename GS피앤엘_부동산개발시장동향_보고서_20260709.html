@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4 landscape; margin: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 10.5pt;
+    color: #333;
+    background: #e8ecf0;
+    padding: 16px 0;
+  }
+
+  /* ===== PAGE ===== */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    overflow: visible;
+    background: #ffffff;
+    margin: 0 auto 10mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 22px rgba(0,0,0,0.12);
+  }
+
+  @media screen {
+    .page { zoom: 1.22; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      height: 210mm;
+      min-height: unset;
+      overflow: hidden;
+      margin: 0;
+      page-break-after: always;
+      zoom: 1;
+    }
+    .page:last-child { page-break-after: avoid; }
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: #1B3A6B;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 8px; }
+
+  .header-badge {
+    background: #C9A84C;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .report-title {
+    font-size: 13.5pt;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .report-meta {
+    text-align: right;
+    font-size: 9pt;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  /* ===== PAGE BODY ===== */
+  .page-body {
+    padding: 6px 10mm 6px 10mm;
+    flex: 1;
+  }
+
+  /* ===== SNAPSHOT ROW ===== */
+  .snapshot-row {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+
+  .snapshot-card {
+    flex: 1;
+    background: #F4F6FB;
+    border-radius: 7px;
+    padding: 6px 9px;
+    text-align: center;
+    border-top: 3px solid #1B3A6B;
+  }
+
+  .snapshot-label { font-size: 8.5pt; color: #666; margin-bottom: 1px; line-height: 1.2; }
+  .snapshot-value { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.0; }
+  .snapshot-change { font-size: 8.5pt; margin-top: 0px; font-weight: 600; line-height: 1.3; }
+  .snapshot-sub { font-size: 8.5pt; color: #999; margin-top: 0px; line-height: 1.2; }
+  .up { color: #C53030; }
+  .down { color: #2B6CB0; }
+  .flat { color: #718096; }
+
+  /* ===== TWO COL ===== */
+  .two-col {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+
+  .col-55 { flex: 55; }
+  .col-45 { flex: 45; }
+  .col-half { flex: 1; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    border-left: 4px solid #C9A84C;
+    padding-left: 8px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  /* ===== NEWS ===== */
+  .news-item {
+    border-bottom: 1px solid #E8ECF2;
+    padding: 6px 0;
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .news-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
+  .news-tag {
+    flex-shrink: 0;
+    display: inline-block;
+    color: white;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+  .tag-hotel  { background: #6B3FA0; }
+  .tag-dc     { background: #1A5276; }
+  .tag-office { background: #1E6C3F; }
+  .tag-fund   { background: #9A3412; }
+
+  .news-title { font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+  .news-body  { font-size: 10.5pt; color: #555; line-height: 1.5; margin-bottom: 2px; }
+  .news-point { font-size: 10pt; color: #B8860B; font-weight: 600; line-height: 1.4; }
+  .news-source { font-size: 8.5pt; color: #bbb; margin-top: 2px; }
+  .news-source a { color: #999; text-decoration: underline; }
+
+  /* ===== DEAL CARDS ===== */
+  .deal-card {
+    background: #FAFBFD;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+  .deal-card:last-child { margin-bottom: 0; }
+
+  .deal-tag {
+    display: inline-block;
+    background: #EBF0FB;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }
+
+  .deal-name { font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3; margin-bottom: 4px; }
+
+  .deal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 9px;
+    font-size: 10pt;
+    margin-bottom: 4px;
+  }
+  .deal-meta-item { color: #777; line-height: 1.4; }
+  .deal-meta-item strong { color: #333; }
+
+  .deal-desc { font-size: 10pt; color: #555; line-height: 1.5; }
+
+  /* ===== TERM BOX ===== */
+  .term-box {
+    background: linear-gradient(135deg, rgba(27,58,107,0.04), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 7px;
+  }
+
+  .term-word { font-size: 14pt; font-weight: 900; color: #1B3A6B; }
+  .term-eng  { font-size: 10pt; color: #C9A84C; font-weight: 700; margin-left: 5px; }
+  .term-sub  { font-size: 12pt; font-weight: 700; color: #1B3A6B; margin-top: 3px; }
+
+  .term-desc {
+    font-size: 10.5pt;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  .term-example {
+    font-size: 10pt;
+    color: #555;
+    background: #fff;
+    border-left: 3px solid #C9A84C;
+    padding: 4px 7px;
+    margin-top: 5px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+  }
+
+  /* ===== GRADE TABLE ===== */
+  .subsection-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin: 5px 0 4px;
+  }
+
+  .grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7px;
+  }
+
+  .grade-table th {
+    background: #1B3A6B;
+    color: white;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 4px 7px;
+    text-align: left;
+  }
+
+  .grade-table td {
+    font-size: 9.5pt;
+    padding: 3.5px 7px;
+    border-bottom: 1px solid #E8ECF2;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .grade-table tr:nth-child(even) td { background: #F8F9FC; }
+
+  .grade-table-compact th { padding: 2.5px 6px; }
+  .grade-table-compact td { padding: 2px 6px; line-height: 1.25; }
+
+  .gbadge {
+    display: inline-block;
+    color: white;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .g-trophy { background: #7D5A1E; }
+  .g-prime  { background: #1B3A6B; }
+  .g-a      { background: #1E6C3F; }
+  .g-b      { background: #718096; }
+  .g-c      { background: #A0AEC0; }
+
+  /* ===== ANALYSIS BOX ===== */
+  .analysis-box {
+    background: #F6F8FC;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+  }
+
+  .analysis-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin-bottom: 4px;
+    padding-left: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+
+  .analysis-body { font-size: 10.5pt; color: #444; line-height: 1.6; }
+
+  .conflict-row {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0;
+    align-items: stretch;
+  }
+
+  .conflict-party {
+    flex: 1;
+    background: white;
+    border: 1px solid #D5E0F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .conflict-party-name { font-size: 10pt; font-weight: 700; color: #1B3A6B; margin-bottom: 3px; }
+  .conflict-party-body { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    font-weight: 900;
+    color: #C9A84C;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  /* ===== TREND GRID ===== */
+  .trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
+  .trend-card {
+    background: #fff;
+    border: 1px solid #E0E8F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .trend-card-label {
+    font-size: 9pt;
+    color: #888;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+
+  .trend-card-text { font-size: 10.5pt; color: #333; line-height: 1.45; }
+
+  /* ===== GS P&L BOX ===== */
+  .gspnl-box {
+    background: #1B3A6B;
+    border-radius: 7px;
+    padding: 7px 10px;
+  }
+
+  .gspnl-title { font-size: 10.5pt; font-weight: 700; color: #C9A84C; margin-bottom: 5px; }
+  .gspnl-item  {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.55;
+    padding-left: 13px;
+    text-indent: -13px;
+    margin-bottom: 3px;
+  }
+  .gspnl-item:last-child { margin-bottom: 0; }
+  .gspnl-body { font-size: 10.5pt; color: rgba(255,255,255,0.92); line-height: 1.7; }
+  .gspnl-body strong { color: #C9A84C; }
+  .gspnl-item strong { color: #C9A84C; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    padding: 4px 10mm;
+    border-top: 1px solid #E8ECF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-source { font-size: 8.5pt; color: #bbb; line-height: 1.5; }
+  .footer-page   { font-size: 8.5pt; color: #aaa; font-weight: 700; white-space: nowrap; }
+
+
+  a.news-title {
+    font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35;
+    text-decoration: none; display: block;
+  }
+  a.news-title:hover { color: #1B3A6B; text-decoration: underline; }
+  a.deal-name {
+    font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3;
+    margin-bottom: 4px; text-decoration: none; display: block;
+  }
+  a.deal-name:hover { text-decoration: underline; }
+  a { color: inherit; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 2주차 (Vol.15)<br>발행일: 2026.07.09
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- SNAPSHOT ROW -->
+    <div class="snapshot-row">
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 호텔 객실점유율(OCC)</div>
+        <div class="snapshot-value">79.2%</div>
+        <div class="snapshot-change up">▲ 외국인 숙박객 비중 71.2%</div>
+        <div class="snapshot-sub">2025년 기준 · 쿠시먼앤드웨이크필드</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 호텔 RevPAR</div>
+        <div class="snapshot-value">20.7만원</div>
+        <div class="snapshot-change up">▲ 2019년 대비 +67%</div>
+        <div class="snapshot-sub">공급부족 속 ADR 주도 상승 · C&amp;W</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">2025 서울 호텔 거래규모</div>
+        <div class="snapshot-value">2.1조원</div>
+        <div class="snapshot-change up">▲ 4성급 비중 1.3조(62%)</div>
+        <div class="snapshot-sub">거래자산 100% 호텔용도 유지</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">센터필드 자산이관</div>
+        <div class="snapshot-value">무산</div>
+        <div class="snapshot-change down">▼ 국민연금 대투위서 부결</div>
+        <div class="snapshot-sub">4조원 규모 슈퍼코어 오피스</div>
+      </div>
+    </div>
+
+    <!-- TWO COL: 뉴스 | 딜 -->
+    <div class="two-col">
+
+      <!-- LEFT: NEWS -->
+      <div class="col-55">
+        <div class="section-title">📰 이번 주 메인 뉴스</div>
+
+        <!-- N1 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">오피스</span>
+            <a class="news-title" href="https://www.sedaily.com/article/20064226" target="_blank">국민연금이 흔들고, 국민연금이 되돌린 '센터필드' … 자산이관 결국 무산 🔗</a>
+          </div>
+          <div class="news-body">
+            역삼 슈퍼코어 오피스 '센터필드'(4조원)를 <strong>이지스자산운용→코람코자산운용</strong>으로 넘기는 자산이관 안건이, 이관을 주도했던 <strong>국민연금 내부 반대</strong>로 대체투자위원회에서 부결됐다. GP만 교체하며 기존 GP(이지스)에 <strong>약 750억원</strong> 성과보수를 지급하는 구조가 "배임 소지"라는 내부 반발이 결정적이었다.
+          </div>
+          <div class="news-point">👉 1월 매각 추진 → LP(신세계프라퍼티) 반발로 자산이관 선회 → 4월 코람코 우협 선정까지 6개월 끌어온 딜이 좌초. 이지스는 만기(9월) 연장 후 2027년 재매각 추진 전망.</div>
+          <div class="news-source">출처: <a href="https://www.sedaily.com/article/20064226" target="_blank">서울경제</a> · 한국경제 · 파이낸셜뉴스</div>
+        </div>
+
+        <!-- N2 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-hotel">호텔</span>
+            <span class="news-title">그래비티자산운용, '우리금융디지털타워' 우선협상대상자 선정 — 60% 호텔 컨버전</span>
+          </div>
+          <div class="news-body">
+            보코 서울 명동을 2년 3개월 만에 엑시트한 <strong>그래비티자산운용</strong>이, 우리은행이 매각하는 '우리금융디지털타워'(중구 소공로, 연면적 3만 3,023㎡) 우협에 선정됐다. 5곳이 참여한 입찰에서 KKR과 손잡은 크리에이트자산운용(오피스 존속안)을 제치고 <strong>평당 3,300만원</strong>에 낙찰, 건물의 약 60%(150실)를 '패밀리·장기체류' 상품으로 컨버전할 계획이다.
+          </div>
+          <div class="news-point">👉 서울 호텔 시장에 "넓은 객실 + 장기체류" 상품이 부족하다는 판단에서 나온 전략 — 3페이지 딥다이브에서 그래비티의 트랙레코드와 함께 상세 분석.</div>
+          <div class="news-source">출처: 업계 소식통 종합(2026.7.3 우협 선정) · 파이낸셜뉴스(입찰 배경)</div>
+        </div>
+
+        <!-- 시장 데이터 플래시 -->
+        <div style="background:#F4F6FB;border-radius:7px;padding:6px 9px;margin-top:5px;border-top:2px solid #C9A84C;">
+          <div style="font-size:10.5pt;font-weight:700;color:#1B3A6B;margin-bottom:5px;">📊 이번 주 시장 데이터 플래시</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🏨 서울 호텔</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">매물 품귀 심화 — 도심 4성급 객실당 4.5억~6억원</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🌏 지방 호텔</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">신라스테이 해운대(2,100억) 등 부산권 거래 재개 — 2p 상세</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🏢 오피스</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">센터필드 이관 무산, 대형 오피스 유동화 거버넌스 리스크 재조명</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🔁 거래구조</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">구로 상권 호텔·복합자산 잇달아 '셰어딜'로 거래 — 4p 참조</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- col-55 -->
+
+      <!-- RIGHT: DEAL -->
+      <div class="col-45">
+        <div class="section-title">🏗️ 이번 주 주목할 딜</div>
+
+        <div class="deal-card">
+          <div class="deal-tag">셰어딜 · 호텔 인수</div>
+          <span class="deal-name">캡스톤자산운용, '신라스테이 구로' 객실당 2.75억에 인수</span>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>서울 동작구 시흥대로</strong></div>
+            <div class="deal-meta-item">🛏️ 총 <strong>309실</strong> · 2016년 개관</div>
+            <div class="deal-meta-item">💰 총액 <strong>약 940억원</strong></div>
+            <div class="deal-meta-item">📊 캡레이트 <strong>5.9%</strong></div>
+          </div>
+          <div class="deal-desc">2016년 유진자산운용이 724억원에 인수한 자산을 <strong>셰어딜(펀드 이관)</strong> 방식으로 인수, 7.10 이관 완료 예정. 호텔신라가 2032년까지 장기책임임차 중이라 운영은 안정적. 인근 롯데시티호텔 구로(3.4억)·포포인츠 구로(4.25억) 대비 저평가된 가격이며, 인기 매물 캡레이트(4%대 초반) 대비 5.9%로 매수인 입장에서 합리적인 딜.</div>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-tag">셰어딜 참고 사례</div>
+          <span class="deal-name">이지스자산운용, '지밸리비즈플라자' GIC와 셰어딜로 인수</span>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>서울 구로디지털로</strong></div>
+            <div class="deal-meta-item">💰 약 <strong>4,160억원</strong></div>
+            <div class="deal-meta-item">🏢 롯데시티호텔 구로 포함 복합자산</div>
+            <div class="deal-meta-item">🤝 <strong>싱가포르투자청(GIC)</strong> 지분 참여</div>
+          </div>
+          <div class="deal-desc">신라스테이 구로와 함께 구로 상권에서 '셰어딜'이 연달아 등장 — 취득세 절감 목적의 지분 거래가 호텔·복합자산 딜의 표준 구조로 확산되는 신호.</div>
+        </div>
+
+        <div class="deal-card">
+          <div class="deal-tag">엑시트 사례 · 파르나스 연계</div>
+          <span class="deal-name">캡스톤, '나인트리호텔 명동' 750억에 엑시트 (2018년 660억 매입)</span>
+          <div class="deal-meta">
+            <div class="deal-meta-item">🛏️ 144실 · 2012년 개관</div>
+            <div class="deal-meta-item">💰 매각가 <strong>750억원</strong></div>
+            <div class="deal-meta-item">🏨 <strong>파르나스호텔</strong> 장기 마스터리스</div>
+            <div class="deal-meta-item">👤 매수인 SDB인베스트먼트</div>
+          </div>
+          <div class="deal-desc">SD바이오센서 조영식 의장 개인 투자사가 인수. 파르나스호텔이 마스터리스로 운영 중인 자산이라 GS P&amp;L과도 연결고리가 있는 트랙레코드 — 캡스톤은 이번 신라스테이 구로 인수 전부터 호텔 엑시트 역량을 착실히 쌓아온 운용사.</div>
+        </div>
+
+      </div><!-- col-45 -->
+    </div><!-- two-col -->
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울경제·한국경제·파이낸셜뉴스·이데일리(마켓인)·뉴스1·쿠시먼앤드웨이크필드 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">1 / 4</div>
+  </div>
+
+</div><!-- page 1 -->
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 2주차 (Vol.15)<br>발행일: 2026.07.09
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="two-col">
+
+      <!-- LEFT: 지방 호텔 확산 -->
+      <div class="col-half">
+        <div class="section-title">🌏 서울 호텔 매물 품귀 → 지방·수도권으로 확산</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            코로나19 이후 서울(활황)-지방(회복 지연)으로 갈렸던 한국 호텔 시장에 새 국면이 나타났다. 서울 핵심 권역 매물이 동나면서 대형사에 밀린 <strong>중소형 운용사들이 부산·수도권으로 눈을 돌리는 흐름</strong>이 뚜렷하다. 다만 "우협 선정 = 거래 완결"은 아니라는 점도 함께 봐야 한다.
+          </div>
+        </div>
+
+        <div class="subsection-title">🏨 지방·수도권 호텔 거래 현황</div>
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:26%;">자산</th>
+              <th style="width:40%;">현황</th>
+              <th style="width:34%;">비고</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>신라스테이 해운대</strong><br>407실·4성급</td>
+              <td>NH농협리츠운용이 <strong>약 2,100억원</strong>에 인수 추진(우협·실사 중)</td>
+              <td>이지스가 작년 입찰했으나 참여자 0명이었던 자산</td>
+            </tr>
+            <tr>
+              <td>신라스테이 서대문<br>319실 (참고)</td>
+              <td>NH농협리츠운용, <strong>1,460억원</strong>(객실당 4.61억)에 인수 완료</td>
+              <td>NH농협금융 'NH타운' 조성 완결판</td>
+            </tr>
+            <tr>
+              <td>해운대 L7호텔</td>
+              <td>2023년 말부터 매각 추진, 우선주 투자자 모집 난항으로 지연</td>
+              <td>신라스테이 해운대 거래 성사 시 속도 붙을 전망</td>
+            </tr>
+            <tr>
+              <td>베스트웨스턴 해운대<br>134실·구분소유</td>
+              <td>다원자산운용이 우선협상대상자로 선정</td>
+              <td>JB자산운용이 매도 추진</td>
+            </tr>
+            <tr>
+              <td>호텔 스카이파크 서울 판교</td>
+              <td>스퀘어자산운용 우협, 제안가 약 1,000억원(객실당 약 5억원)</td>
+              <td>케이리츠투자운용이 매도 추진</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div class="analysis-title">초보자를 위한 포인트</div>
+          <div class="analysis-body">대형 운용사는 자금력으로 서울 핵심 매물을 선점하고, 중소형 운용사는 경쟁이 덜한 지방·수도권에서 기회를 찾는 구도다. "매물이 늘었다"는 사실만으로 거래가 순조롭다고 단정하기보다 실제 투자자(FI·SI) 확보 여부까지 확인하는 습관이 필요하다.</div>
+        </div>
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: 왜 지금 가족형/장기체류 호텔인가 -->
+      <div class="col-half">
+        <div class="section-title">🧳 왜 지금 '가족형·장기체류' 호텔인가</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            코로나19 이후 일하고 여행하는 방식이 바뀌면서, 출장(Business)과 여행(Leisure)을 결합한 <strong>'블레저(Bleisure)'</strong> 여행객이 늘고 체류 기간이 길어지는 추세다. 넓은 공간을 원하는 가족 단위 여행객도 증가했지만 정작 국내 호텔 시장엔 에어비앤비를 제외하곤 마땅한 상품이 없었다는 게 업계 판단이다. 그래비티·현대하임 등 국내 운용사뿐 아니라 글로벌 체인들도 발 빠르게 대응 중이다.
+          </div>
+        </div>
+
+        <div class="trend-grid">
+          <div class="trend-card">
+            <div class="trend-card-label">Hyatt Studios</div>
+            <div class="trend-card-text">하얏트의 28번째 브랜드(2023 출시). 중소도시 겨냥 어퍼미드스케일 장기체류, 2025년 초 美 앨라배마 1호점</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">LivSmart Studios by Hilton</div>
+            <div class="trend-card-text">2024.1월 출시. 기존 Home2 Suites보다 하위 포지션의 아파트형 장기체류 브랜드</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">Marriott StudioRes</div>
+            <div class="trend-card-text">프로젝트명 'MidX Studios'. 2024년 말 1호점, 2025년 美·加 35개 파이프라인</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">캐피탈마켓 동조</div>
+            <div class="trend-card-text">블랙스톤·스타우드캐피탈, 2021년 중저가 장기숙박 체인 '익스텐디드 스테이 아메리카' 대규모 인수</div>
+          </div>
+        </div>
+
+        <div class="deal-card" style="margin-top:0;">
+          <div class="deal-tag">포트폴리오 확장</div>
+          <span class="deal-name">현대하임, '청량리 L7호텔' 우협 선정 — 275실로 증축 계획</span>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 청량리 롯데캐슬 Sky-L65 내</div>
+            <div class="deal-meta-item">💰 약 <strong>900억원</strong>(객실당 3억원 초반)</div>
+            <div class="deal-meta-item">🛏️ 260실→<strong>275실</strong> 리모델링</div>
+            <div class="deal-meta-item">📐 객실 <strong>8.5평</strong> (서울 평균 상회)</div>
+          </div>
+          <div class="deal-desc">현대해상 계열 신생 운용사 현대하임이 주거·시니어하우징에 이어 호텔로 포트폴리오 확장. 메리어트·조선호텔앤리조트와 컨소시엄, 장기체류 가족 단위 외국인 관광객 타깃으로 ADR 16만~18만원 목표.</div>
+        </div>
+      </div><!-- col-half right -->
+    </div><!-- two-col -->
+
+    <!-- 전체폭 이번 주 딜 인덱스 -->
+    <div style="margin-top:5px;">
+      <div class="section-title" style="margin-bottom:4px;">📋 이번 주 딜 한눈에 보기</div>
+      <table class="grade-table grade-table-compact" style="margin-bottom:0;">
+        <thead>
+          <tr>
+            <th style="width:20%;">자산</th>
+            <th style="width:18%;">매수사</th>
+            <th style="width:14%;">금액</th>
+            <th style="width:16%;">구조/성격</th>
+            <th style="width:32%;">비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>센터필드</td>
+            <td>코람코(무산)</td>
+            <td>4조원</td>
+            <td>자산이관</td>
+            <td>국민연금 대투위 부결로 무산, 2027년 재매각 전망</td>
+          </tr>
+          <tr>
+            <td>신라스테이 구로</td>
+            <td>캡스톤자산운용</td>
+            <td>940억원</td>
+            <td>셰어딜</td>
+            <td>객실당 2.75억, 캡레이트 5.9%</td>
+          </tr>
+          <tr>
+            <td>나인트리호텔 명동</td>
+            <td>SDB인베스트먼트</td>
+            <td>750억원</td>
+            <td>에셋딜(엑시트)</td>
+            <td>캡스톤 2018년 660억 매입 후 엑시트, 파르나스 마스터리스</td>
+          </tr>
+          <tr>
+            <td>우리금융디지털타워</td>
+            <td>그래비티자산운용</td>
+            <td>평당 3,300만원</td>
+            <td>오피스→호텔 60% 컨버전</td>
+            <td>5곳 경쟁, 3p 딥다이브 상세</td>
+          </tr>
+          <tr>
+            <td>보코 서울 명동</td>
+            <td>캐피탈랜드투자운용</td>
+            <td>3,686억원</td>
+            <td>에셋딜(엑시트)</td>
+            <td>그래비티 2,282억 매입 후 +61% 엑시트</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울경제·업계 소식통 종합·The Points Guy·Hotel Management·다음뉴스 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">2 / 4</div>
+  </div>
+
+</div><!-- page 2 -->
+
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 2주차 (Vol.15) — 딥다이브<br>그래비티자산운용의 호텔 투자 전략
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- 페이지 주제 인트로 -->
+    <div style="background:linear-gradient(90deg,#1B3A6B,#2A5298);border-radius:7px;padding:7px 13px;margin-bottom:7px;display:flex;align-items:center;gap:12px;">
+      <div style="font-size:14pt;font-weight:900;color:#C9A84C;white-space:nowrap;">딥다이브</div>
+      <div>
+        <div style="font-size:12pt;font-weight:700;color:#fff;line-height:1.3;">그래비티자산운용의 '더 디테일해진' 호텔 투자 전략 — 우리금융디지털타워 컨버전 &amp; 보코 서울 명동 엑시트</div>
+        <div style="font-size:10pt;color:rgba(255,255,255,0.75);margin-top:2px;">딜 개요 → 트랙레코드(보코 서울 명동 타임라인) → GS P&amp;L 인사이트 순으로 분석합니다</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT: 딜 개요 -->
+      <div class="col-half">
+        <div class="section-title">🏢 딜 개요 — '우리금융디지털타워' 60% 호텔 컨버전</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            <strong>자산개요:</strong> 서울 중구 소공로 48, 대지 2,462㎡·연면적 33,023㎡, 지하2~지상22층. 우리은행이 을지로 신사옥(2030 준공) 이전에 맞춰 매각, <strong>4년 세일즈앤리스백(SLB)</strong> 조건.<br>
+            <strong>입찰 경쟁:</strong> 총 5곳 참여, 최종 2파전은 그래비티(호텔 컨버전) vs 크리에이트자산운용(KKR 컨소시엄, 오피스 존속).<br>
+            <strong>낙찰 조건:</strong> 평당 약 3,300만원, 매도인도 약 200억원 보통주 출자.<br>
+            <strong>컨버전 계획:</strong> 전체의 <strong>약 60%(150실)는 호텔, 40%는 오피스 유지</strong> — 전체 전환 시 캐펙스 급증을 피하기 위함. 편심 코어 구조라 제약은 있으나 넓은 객실의 '패밀리·장기체류' 상품으로 설계.
+          </div>
+        </div>
+
+        <div class="section-title">🔁 부분 컨버전이 합리적인 이유</div>
+        <div style="background:#f0f4ff;border-left:3px solid #1B3A6B;border-radius:0 6px 6px 0;padding:6px 10px;font-size:10pt;color:#333;line-height:1.55;">
+          오피스·호텔은 배관·소방·동선 기준이 달라 전환 가능한 건물이 제한적이다. <strong>일부만 전환</strong>하면 초기 투자 부담을 낮추며 신규 상품군에 진입할 수 있다 — 신축 대비 짧은 인허가·공사기간 장점도 유지.
+        </div>
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: 트랙레코드 -->
+      <div class="col-half">
+        <div class="section-title">📈 트랙레코드 — '보코 서울 명동' 2년 3개월 만의 엑시트</div>
+
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:20%;">시점</th>
+              <th style="width:80%;">내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2016</td>
+              <td>하나대체투자자산운용, 티마크그랜드호텔 명동을 2,132억원에 인수(개인투자자 공모펀드, 5년 만기 설계)</td>
+            </tr>
+            <tr>
+              <td>2019~23</td>
+              <td>매각 시도 → 무산, 코로나19로 업황 악화, 만기 수차례 연장</td>
+            </tr>
+            <tr>
+              <td><strong>2024.3</strong></td>
+              <td>그래비티+TPG안젤로고든, <strong>2,282억원</strong>에 인수(중도금 1,592억+42개월 후 잔금 690억 구조)</td>
+            </tr>
+            <tr>
+              <td>2024.9</td>
+              <td>576객실 '보코 서울 명동'(IHG 브랜드)으로 리브랜딩</td>
+            </tr>
+            <tr>
+              <td><strong>2026.6</strong></td>
+              <td>캐피탈랜드투자운용에 <strong>3,686억원</strong>(객실당 6.4억)에 SPA 체결 — <strong>약 1,400억원(+61%) 차익</strong> 엑시트</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div class="analysis-body">
+            10년 전 개인 공모펀드 투자자들도 이번 매각으로 마침내 원금을 회수했다. 그래비티는 현재 '호텔 카푸치노' 인수전에서도 캐피탈랜드투자운용과 경쟁 중이며, 2025년 2월엔 DL그룹의 <strong>'글래드 여의도·코엑스·제주'</strong> 포트폴리오(6,000억원+)를 인수하는 등 호텔 전문 운용사로 입지를 굳히고 있다.
+          </div>
+        </div>
+      </div><!-- col-half right -->
+
+    </div><!-- two-col -->
+
+    <!-- 전체폭 GS P&L 인사이트 -->
+    <div class="gspnl-box" style="margin-top:7px;padding:8px 11px;">
+      <div class="gspnl-title" style="font-size:11.5pt;margin-bottom:6px;">💡 GS P&amp;L 인사이트 — 부분 컨버전 모델과 파르나스 포트폴리오</div>
+      <div class="gspnl-body">
+        <strong>① 파르나스 포트폴리오 벤치마크:</strong> 우리금융디지털타워처럼 "건물 전체가 아닌 일부만 용도 전환"하는 부분 컨버전은 캐펙스 부담을 낮추면서 신상품을 실험할 수 있는 현실적 접근법 — GS P&amp;L 보유·인접 오피스·상업 자산에서도 유사한 부분 컨버전 여지를 스크리닝해볼 필요가 있다.<br>
+        <strong>② 패밀리·장기체류 상품 기회:</strong> 그래비티·현대하임 모두 "넓은 객실 + 장기체류"를 겨냥한다. 파르나스타워·파르나스 계열 유휴 공간이나 신규 개발 파이프라인에서 가족 단위·장기체류 특화 라인업을 검토할 시점.<br>
+        <strong>③ 마스터리스 자산의 매각 매력:</strong> 나인트리호텔 명동(파르나스 마스터리스) 엑시트 사례처럼, 안정적 임차 구조를 갖춘 자산은 매각 시장에서도 매력적으로 평가받는다 — 파르나스 계열 자산의 밸류업·엑시트 전략에 참고할 지점.
+      </div>
+    </div>
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 코어비트·파이낸셜뉴스·업계 소식통 종합 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">3 / 4</div>
+  </div>
+
+</div><!-- page 3 -->
+
+
+<!-- ==================== PAGE 4 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 2주차 (Vol.15)<br>발행일: 2026.07.09
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="two-col">
+
+      <!-- LEFT: TERM -->
+      <div class="col-half">
+        <div class="section-title">📚 이번 주 부동산 개발 용어 — 셰어딜 vs 에셋딜</div>
+
+        <div class="term-box">
+          <div>
+            <span class="term-word">셰어딜</span>
+            <span class="term-eng">Share Deal</span>
+          </div>
+          <div class="term-desc">
+            부동산 거래는 크게 두 가지입니다. <strong>에셋딜</strong>은 건물·토지 자체를 사고파는 일반 매매이고, <strong>셰어딜</strong>은 그 부동산을 담은 펀드·리츠·SPC의 <strong>지분</strong>을 사고파는 방식입니다. 그릇은 그대로 둔 채 주인만 바뀌는 셈 — 신라스테이 구로, 지밸리비즈플라자 모두 셰어딜로 거래됐습니다.
+          </div>
+          <div class="term-example">
+            💡 셰어딜의 가장 큰 장점은 <strong>취득세 면제</strong>(통상 4.6%)입니다. 지분 취득이라 부동산 취득세가 발생하지 않기 때문입니다. 다만 매수인은 펀드 안 우발채무까지 함께 인수하는 리스크를 지므로 정밀실사가 훨씬 중요해집니다.
+          </div>
+        </div>
+
+        <div class="subsection-title">🔀 에셋딜 vs 셰어딜 비교</div>
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:22%;">구분</th>
+              <th style="width:39%;">에셋딜(Asset Deal)</th>
+              <th style="width:39%;">셰어딜(Share Deal)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>거래 대상</td>
+              <td>부동산(건물·토지) 자체</td>
+              <td>펀드·리츠·SPC의 <strong>지분</strong></td>
+            </tr>
+            <tr>
+              <td>취득세</td>
+              <td>발생 (통상 4.6%)</td>
+              <td><strong>비발생</strong> — 지분 취득이라 면제</td>
+            </tr>
+            <tr>
+              <td>절차</td>
+              <td>감정평가·소유권 이전등기 등 정식 매매</td>
+              <td>지분양수도계약(SPA) 체결로 상대적 간소</td>
+            </tr>
+            <tr>
+              <td>국내 연기금 선호</td>
+              <td>선호 (의사결정 단순, 대금 즉시 수취)</td>
+              <td>상대적 기피 (우발채무 인수 리스크)</td>
+            </tr>
+            <tr>
+              <td>대표 사례</td>
+              <td>일반적인 오피스·호텔 개별 매매</td>
+              <td>신라스테이 구로, 지밸리비즈플라자(GIC)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: 시장흐름 + 다음주 예고 -->
+      <div class="col-half">
+        <div class="section-title">🔍 이번 주 시장 흐름 한눈에 보기</div>
+
+        <div class="trend-grid">
+          <div class="trend-card">
+            <div class="trend-card-label">🏨 서울 호텔</div>
+            <div class="trend-card-text">매물 품귀 지속, 도심 4성급 객실당 4.5억~6억원. RevPAR 2019년 대비 +67%</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">🌏 지방 호텔</div>
+            <div class="trend-card-text">신라스테이 해운대(2,100억) 등 부산권 거래 재개 — 중소형 운용사 진입 확대</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">🏢 오피스</div>
+            <div class="trend-card-text">센터필드 자산이관 무산으로 대형 연기금 LP 거버넌스 리스크 재조명</div>
+          </div>
+          <div class="trend-card">
+            <div class="trend-card-label">🔁 거래구조</div>
+            <div class="trend-card-text">구로 상권 중심 셰어딜 확산, 오피스→호텔 부분 컨버전 트렌드 부상</div>
+          </div>
+        </div>
+
+        <div class="term-box" style="margin-top:0;">
+          <div>
+            <span class="term-sub">부동산 컨버전</span>
+            <span class="term-eng">Conversion</span>
+          </div>
+          <div class="term-desc" style="margin-top:4px;">
+            기존 건물의 골조·구조를 유지한 채 용도를 바꾸는 것을 '컨버전'이라 합니다. 우리금융디지털타워(오피스→호텔 60%)가 대표 사례입니다. 신축 대비 인허가·공사기간이 짧지만, 오피스·호텔은 배관·소방·동선 기준이 달라 전환 가능한 건물이 제한적이라는 게 실무상 걸림돌입니다.
+          </div>
+        </div>
+
+        <div style="background:#F4F6FB;border-radius:7px;padding:6px 10px;border-top:2px solid #C9A84C;">
+          <div style="font-size:10.5pt;font-weight:700;color:#1B3A6B;margin-bottom:4px;">🔗 지난 보고서 개념과 연결하기</div>
+          <div style="font-size:10pt;color:#333;line-height:1.6;">
+            · <strong>자산이관</strong>(4월 3주차) — 센터필드는 "자산이관도 수익자 전원 동의가 필요"함을 보여준 실전 케이스<br>
+            · <strong>캡레이트</strong>(7월 1주차) — 신라스테이 구로(5.9%) vs 인기매물(4%대 초반) 비교로 가격 매력 확인<br>
+            · <strong>GP·LP</strong>(4월 2주차) — 센터필드 부결의 본질은 GP(이지스)-LP(국민연금) 신뢰 균열
+          </div>
+        </div>
+      </div><!-- col-half right -->
+    </div><!-- two-col -->
+
+    <!-- 전체폭 GS P&L 시사점 -->
+    <div class="gspnl-box" style="margin-top:7px;padding:8px 11px;">
+      <div class="gspnl-title" style="font-size:11.5pt;margin-bottom:6px;">🔑 GS P&amp;L 신사업 관점 시사점</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;">
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">① 거버넌스 리스크 재확인</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">대형 연기금 LP가 낀 딜은 절차 리스크를 초기부터 반영 — <strong>기관 LP 협업</strong> 시 의사결정 기구를 전제로 설계.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">② 셰어딜 구조 활용</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">취득세 절감 큰 셰어딜은 <strong>계열사 간 자산 재편</strong> 시 검토 옵션 — 우발채무 실사 역량 필요.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">③ 장기체류 신상품</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">"넓은 객실+장기체류" 겨냥 흐름 — 파르나스 유휴공간·신규 파이프라인에 <strong>가족형 라인업</strong> 검토.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">④ 부분 컨버전 현실성</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">일부만 전환하면 캐펙스 부담 절감 — GS P&amp;L 자산 내 <strong>부분 컨버전 기회</strong> 스크리닝 필요.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">⑤ 마스터리스 밸류업</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">나인트리 명동 엑시트처럼 안정적 임차 구조는 매각 시 매력적 — <strong>파르나스 자산 밸류업</strong>에 참고.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: SPI(서울인사이트프라퍼티, 배경 확인용)·서울경제·한국경제·파이낸셜뉴스·코어비트·쿠시먼앤드웨이크필드 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">4 / 4</div>
+  </div>
+
+</div><!-- page 4 -->
+
+</body>
+</html>
