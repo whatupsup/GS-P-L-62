@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4 landscape; margin: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 10.5pt;
+    color: #333;
+    background: #e8ecf0;
+    padding: 16px 0;
+  }
+
+  /* ===== PAGE ===== */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    overflow: visible;
+    background: #ffffff;
+    margin: 0 auto 10mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 22px rgba(0,0,0,0.12);
+  }
+
+  @media screen {
+    .page { zoom: 1.22; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      height: 210mm;
+      min-height: unset;
+      overflow: hidden;
+      margin: 0;
+      page-break-after: always;
+      zoom: 1;
+    }
+    .page:last-child { page-break-after: avoid; }
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: #1B3A6B;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 8px; }
+
+  .header-badge {
+    background: #C9A84C;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .report-title {
+    font-size: 13.5pt;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .report-meta {
+    text-align: right;
+    font-size: 9pt;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  /* ===== PAGE BODY ===== */
+  .page-body {
+    padding: 6px 10mm 6px 10mm;
+    flex: 1;
+  }
+
+  /* ===== SNAPSHOT ROW ===== */
+  .snapshot-row {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+
+  .snapshot-card {
+    flex: 1;
+    background: #F4F6FB;
+    border-radius: 7px;
+    padding: 6px 9px;
+    text-align: center;
+    border-top: 3px solid #1B3A6B;
+  }
+
+  .snapshot-label { font-size: 8.5pt; color: #666; margin-bottom: 1px; line-height: 1.2; }
+  .snapshot-value { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.0; }
+  .snapshot-change { font-size: 8.5pt; margin-top: 0px; font-weight: 600; line-height: 1.3; }
+  .snapshot-footnote { font-size: 8.5pt; color: #999; line-height: 1.3; margin-top: -3px; margin-bottom: 7px; }
+  .snapshot-sub { font-size: 8.5pt; color: #999; margin-top: 0px; line-height: 1.2; }
+  .up { color: #C53030; }
+  .down { color: #2B6CB0; }
+  .flat { color: #718096; }
+
+  /* ===== TWO COL ===== */
+  .two-col {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+
+  .col-55 { flex: 55; }
+  .col-45 { flex: 45; }
+  .col-half { flex: 1; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    border-left: 4px solid #C9A84C;
+    padding-left: 8px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  /* ===== NEWS ===== */
+  .news-item {
+    border-bottom: 1px solid #E8ECF2;
+    padding: 6px 0;
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .news-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
+  .news-tag {
+    flex-shrink: 0;
+    display: inline-block;
+    color: white;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+  .tag-hotel  { background: #6B3FA0; }
+  .tag-dc     { background: #1A5276; }
+  .tag-office { background: #1E6C3F; }
+  .tag-fund   { background: #9A3412; }
+
+  .news-title { font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+  .news-body  { font-size: 10.5pt; color: #555; line-height: 1.5; margin-bottom: 2px; }
+  .news-point { font-size: 10pt; color: #B8860B; font-weight: 600; line-height: 1.4; }
+  .news-source { font-size: 8.5pt; color: #bbb; margin-top: 2px; }
+  .news-source a { color: #999; text-decoration: underline; }
+
+  /* ===== DEAL CARDS ===== */
+  .deal-card {
+    background: #FAFBFD;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+  .deal-card:last-child { margin-bottom: 0; }
+
+  .deal-tag {
+    display: inline-block;
+    background: #EBF0FB;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }
+
+  .deal-name { font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3; margin-bottom: 4px; }
+
+  .deal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 9px;
+    font-size: 10pt;
+    margin-bottom: 4px;
+  }
+  .deal-meta-item { color: #777; line-height: 1.4; }
+  .deal-meta-item strong { color: #333; }
+
+  .deal-desc { font-size: 10pt; color: #555; line-height: 1.5; }
+
+  /* ===== TERM BOX ===== */
+  .term-box {
+    background: linear-gradient(135deg, rgba(27,58,107,0.04), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 7px;
+  }
+
+  .term-word { font-size: 14pt; font-weight: 900; color: #1B3A6B; }
+  .term-eng  { font-size: 10pt; color: #C9A84C; font-weight: 700; margin-left: 5px; }
+  .term-sub  { font-size: 12pt; font-weight: 700; color: #1B3A6B; margin-top: 3px; }
+
+  .term-desc {
+    font-size: 10.5pt;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  .term-example {
+    font-size: 10pt;
+    color: #555;
+    background: #fff;
+    border-left: 3px solid #C9A84C;
+    padding: 4px 7px;
+    margin-top: 5px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+  }
+
+  /* ===== GRADE TABLE ===== */
+  .subsection-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin: 5px 0 4px;
+  }
+
+  .grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7px;
+  }
+
+  .grade-table th {
+    background: #1B3A6B;
+    color: white;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 4px 7px;
+    text-align: left;
+  }
+
+  .grade-table td {
+    font-size: 9.5pt;
+    padding: 3.5px 7px;
+    border-bottom: 1px solid #E8ECF2;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .grade-table tr:nth-child(even) td { background: #F8F9FC; }
+
+  .grade-table-compact th { padding: 2.5px 6px; }
+  .grade-table-compact td { padding: 2px 6px; line-height: 1.25; }
+
+  .gbadge {
+    display: inline-block;
+    color: white;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .g-trophy { background: #7D5A1E; }
+  .g-prime  { background: #1B3A6B; }
+  .g-a      { background: #1E6C3F; }
+  .g-b      { background: #718096; }
+  .g-c      { background: #A0AEC0; }
+
+  /* ===== ANALYSIS BOX ===== */
+  .analysis-box {
+    background: #F6F8FC;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+  }
+
+  .analysis-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin-bottom: 4px;
+    padding-left: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+
+  .analysis-body { font-size: 10.5pt; color: #444; line-height: 1.6; }
+
+  .conflict-row {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0;
+    align-items: stretch;
+  }
+
+  .conflict-party {
+    flex: 1;
+    background: white;
+    border: 1px solid #D5E0F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .conflict-party-name { font-size: 10pt; font-weight: 700; color: #1B3A6B; margin-bottom: 3px; }
+  .conflict-party-body { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    font-weight: 900;
+    color: #C9A84C;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  /* ===== TREND GRID ===== */
+  .trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
+  .trend-card {
+    background: #fff;
+    border: 1px solid #E0E8F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .trend-card-label {
+    font-size: 9pt;
+    color: #888;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+
+  .trend-card-text { font-size: 10.5pt; color: #333; line-height: 1.45; }
+
+  /* ===== GS P&L BOX ===== */
+  .gspnl-box {
+    background: #1B3A6B;
+    border-radius: 7px;
+    padding: 7px 10px;
+  }
+
+  .gspnl-title { font-size: 10.5pt; font-weight: 700; color: #C9A84C; margin-bottom: 5px; }
+  .gspnl-item  {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.55;
+    padding-left: 13px;
+    text-indent: -13px;
+    margin-bottom: 3px;
+  }
+  .gspnl-item:last-child { margin-bottom: 0; }
+  .gspnl-body { font-size: 10.5pt; color: rgba(255,255,255,0.92); line-height: 1.7; }
+  .gspnl-body strong { color: #C9A84C; }
+  .gspnl-item strong { color: #C9A84C; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    padding: 4px 10mm;
+    border-top: 1px solid #E8ECF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-source { font-size: 8.5pt; color: #bbb; line-height: 1.5; }
+  .footer-page   { font-size: 8.5pt; color: #aaa; font-weight: 700; white-space: nowrap; }
+
+
+  a.news-title {
+    font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35;
+    text-decoration: none; display: block;
+  }
+  a.news-title:hover { color: #1B3A6B; text-decoration: underline; }
+  a.deal-name {
+    font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3;
+    margin-bottom: 4px; text-decoration: none; display: block;
+  }
+  a.deal-name:hover { text-decoration: underline; }
+  a { color: inherit; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 3주차 (Vol.16)<br>발행일: 2026.07.16
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- SNAPSHOT ROW -->
+    <div class="snapshot-row">
+      <div class="snapshot-card">
+        <div class="snapshot-label">7월 상반월 CBD 대형 오피스 3건 합계</div>
+        <div class="snapshot-value">약 3.3조원</div>
+        <div class="snapshot-change up">▲ G1서울+케이트윈타워+신한카드 사옥 동시 클로징·MOU</div>
+        <div class="snapshot-sub">2026.7.10 · Claude 자체 집계(개별 보도 합산)</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">G1서울 딜 클로징</div>
+        <div class="snapshot-value">1.5조원</div>
+        <div class="snapshot-change flat">평당 3,700만원 · 공실률 80%</div>
+        <div class="snapshot-sub">2026.7.10 · 미래에셋자산운용</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 오피스 공실률 (CBD/GBD)</div>
+        <div class="snapshot-value">5.5% / 1.7~2.5%</div>
+        <div class="snapshot-change flat">GBD(강남)가 가장 견조</div>
+        <div class="snapshot-sub">2026년 기준 · 스매치인사이트</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">센터필드 정산 규모(부결)</div>
+        <div class="snapshot-value">약 1,000억</div>
+        <div class="snapshot-change down">▼ 성과보수 750억+지분이익 200억</div>
+        <div class="snapshot-sub">국민연금 대투위 부결 후속</div>
+      </div>
+    </div>
+    <div class="snapshot-footnote">* "7월 상반월 CBD 대형 오피스 3건 합계"는 G1서울(1조 5,000억원)·더케이트윈타워(1조 500억원)·신한카드 사옥(8,000억원, 명목가 기준) 3건을 Claude가 개별 보도를 근거로 합산한 참고용 수치입니다. 서울 오피스 공실률은 스매치인사이트·세빌스코리아 등 복수 리서치 자료를 종합한 2026년 기준 추정치입니다.</div>
+
+    <!-- TWO COL: 뉴스 | 딜 -->
+    <div class="two-col">
+
+      <!-- LEFT: NEWS -->
+      <div class="col-55">
+        <div class="section-title">📰 이번 주 메인 뉴스 — "CBD 오피스 슈퍼위크"</div>
+
+        <!-- N1 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">오피스</span>
+            <a class="news-title" href="https://news.mtn.co.kr/news-detail/2026020310365225654" target="_blank">종각 'G1서울', 미래에셋에 1조 5,000억원 딜 클로징 🔗</a>
+          </div>
+          <div class="news-body">
+            시행사 <strong>랜스퍼트AMC</strong>가 종로구 공평 15·16지구를 재개발한 오피스 'G1서울'(연면적 14만 3,432㎡, A동 지하8~지상25층+B동 지하8~지상12층)을 <strong>미래에셋자산운용</strong>이 평당 3,700만원, 총 <strong>1조 5,000억원</strong>에 인수 완료했다. 매수 자금은 <strong>우정사업본부</strong>가 출자한 코어 부동산 펀드(약 6,500억원 규모).
+          </div>
+          <div class="news-point">👉 지난 1월 입찰 당시 매도자 희망가(평당 4,000만원 이상)에서 3,700만원까지 조정 — 확정 임차인이 메트라이프뿐이라 공실률 80%인데도, <strong>매도인의 2년 임대료 보장</strong> 조건으로 코어 자금 유치에 성공했다.</div>
+          <div class="news-source">출처: <a href="https://news.mtn.co.kr/news-detail/2026020310365225654" target="_blank">MTN뉴스</a> · <a href="https://www.sedaily.com/article/20037116" target="_blank">서울경제</a></div>
+        </div>
+
+        <!-- N2 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-hotel">호텔</span>
+            <a class="news-title" href="https://www.fnnews.com/news/202605290909036592" target="_blank">그래비티×UHC, '우리금융디지털타워' 컨버전 파트너 확정 — '시리즈 바이 메리어트' 🔗</a>
+          </div>
+          <div class="news-body">
+            지난주 우협으로 선정된 그래비티자산운용이 컨버전 파트너로 호텔 운영사 <strong>UHC</strong>와 손을 잡았다. 상층부 약 150실을 종로 파고다빌딩과 같은 <strong>'시리즈 바이 메리어트'</strong> 브랜드로 운영할 계획 — 두 회사가 손잡는 건 올해 초 '옛 서울백병원' 인수에 이어 <strong>두 번째</strong>다.
+          </div>
+          <div class="news-point">👉 UHC는 기획 단계부터 참여해 수익 구조를 함께 설계하는 것으로 유명한 '컨버전 전문 오퍼레이터' — 2p에서 회사 소개와 3건의 트랙레코드를 깊이 다룬다.</div>
+          <div class="news-source">출처: <a href="https://www.fnnews.com/news/202605290909036592" target="_blank">파이낸셜뉴스</a>(매각 배경) · <a href="https://seoulpi.io/article/00573245116883415040" target="_blank">SPI 단독</a>(2026.7.13, 파트너 확정)</div>
+        </div>
+
+        <!-- 시장 데이터 플래시 -->
+        <div style="background:#F4F6FB;border-radius:7px;padding:6px 9px;margin-top:5px;border-top:2px solid #C9A84C;">
+          <div style="font-size:10.5pt;font-weight:700;color:#1B3A6B;margin-bottom:5px;">📊 같은 날 함께 움직인 CBD 오피스 2건 더</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🏢 더케이트윈타워(광화문)</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">이지스운용, 1조 500억원(평당 4,130만원) MOU — 우협 선정 일주일만에 초고속 체결</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🏢 신한카드 사옥(을지로)</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">MDM자산운용, 8,000억원 MOU — 하드디파짓 100억, 10+2.5년 책임임차</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🏛️ 센터필드 후속</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">대투위 부결 이후 인사조치·재감사 파장 — 2p 상세</div>
+            </div>
+            <div style="background:#fff;border:1px solid #E0E8F0;border-radius:5px;padding:4px 7px;">
+              <div style="font-size:9pt;color:#888;font-weight:700;margin-bottom:1px;">🔁 거래구조 딥다이브</div>
+              <div style="font-size:10pt;color:#333;line-height:1.4;">에셋딜·셰어딜 후속 Q&amp;A — 3p 딥다이브</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- col-55 -->
+
+      <!-- RIGHT: DEAL -->
+      <div class="col-45">
+        <div class="section-title">🏗️ G1서울 A to Z — 종각 마지막 대형 재개발 오피스</div>
+
+        <div class="deal-card">
+          <div class="deal-tag">에셋딜 · 코어 오피스</div>
+          <a class="deal-name" href="https://www.sedaily.com/article/20037116" target="_blank">"1조 실탄" 미래에셋, 우정사업본부 코어펀드로 승부 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>종로구 인사동 87 (공평 15·16지구)</strong></div>
+            <div class="deal-meta-item">🏢 A동 25층+B동 12층 · 2026.4 준공</div>
+            <div class="deal-meta-item">💰 <strong>1조 5,000억원</strong>(평당 3,700만원)</div>
+            <div class="deal-meta-item">📊 선순위 대출금리 <strong>4%대 중반</strong></div>
+          </div>
+          <div class="deal-desc">지난 1월 13일 본입찰에 3곳 참여, 최종적으로 <strong>미래에셋(우정사업본부 코어펀드)</strong> vs <strong>퍼시픽자산운용(국민연금 밸류애드펀드, 약 4,000억원)</strong> 2파전이었다. 둘 다 드라이파우더가 풍부했지만, 공실 많은 준공 초기 자산 특성상 안정적 현금흐름을 우선하는 코어 전략의 미래에셋이 최종 승자가 됐다. 선순위 대출은 농협중앙회·단위농협 600곳 이상이 참여해 4%대 중반의 경쟁력 있는 금리를 확보했다(최근 우량 오피스 대출금리 5% 육박과 비교).</div>
+          <div class="news-source">출처: <a href="https://www.sedaily.com/article/20037116" target="_blank">서울경제</a> · <a href="https://news.mtn.co.kr/news-detail/2026020310365225654" target="_blank">MTN뉴스</a></div>
+        </div>
+
+        <div class="analysis-box" style="margin-top:0;">
+          <div style="font-size:10pt;font-weight:700;color:#1B3A6B;margin-bottom:3px;">📌 관련 참고 사례 (이번 주 딜 아님 — 배경 맥락용)</div>
+          <div class="analysis-body" style="font-size:9.5pt;">
+            미래에셋이 도심 오피스를 인수한 건 <strong>2023년 3분기</strong> '타워8'(종각역 인근, DWS자산운용 매각, 신협과 공동 5,490억원 인수) 이후 3년 만이다. 이번 베팅은 그때보다 훨씬 큰 규모다. 또한 G1서울은 <strong>2018년</strong> 준공된 인근 랜드마크 '종각역 센트로폴리스' 이후 도심에 오랜만에 공급되는 대형 오피스라는 프리미엄이 있었지만, "위치·규모 대비 자산 퀄리티가 아쉽다"는 시장 평가가 가격 조정(평당 4,000만원 이상→3,700만원)에 영향을 미쳤다.
+          </div>
+        </div>
+
+      </div><!-- col-45 -->
+    </div><!-- two-col -->
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: MTN뉴스·서울경제·한국경제·파이낸셜뉴스·인베스트조선·이투데이·SPI(단독) | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">1 / 4</div>
+  </div>
+
+</div><!-- page 1 -->
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 3주차 (Vol.16)<br>발행일: 2026.07.16
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="two-col">
+
+      <!-- LEFT: 센터필드 후속 -->
+      <div class="col-half">
+        <div class="section-title">🏛️ 센터필드 후속 — 대투위 부결의 후폭풍</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">정산 구조가 더 정확히 드러났다</div>
+          <div class="analysis-body">
+            국민연금 대체투자위원회(대투위, CIO 위원장+내부위원 3명+외부전문가 3명=7명)가 부결시킨 핵심 근거는, 실제 매각 없이 기존 GP(이지스)에 <strong>성공보수 약 750억원+지분이익 약 200억원=총 1,000억원 안팎</strong>을 정산해주는 구조의 법적 적정성이었다. (지난주 보고서의 "약 750억원"에서 지분이익 항목까지 포함한 전체 규모가 이번 주 후속 취재로 확인됐다.) (<a href="https://www.sedaily.com/article/20064226" target="_blank">서울경제 🔗</a>)
+          </div>
+        </div>
+
+        <div class="subsection-title">🔎 예상 밖의 후폭풍 — 인사 조치와 재감사</div>
+        <div class="analysis-box">
+          <div class="analysis-body">
+            국민연금 부동산투자실은 지난해 12월, GP 교체에 신중론을 폈던 실무 총괄(팀장)을 정기 인사철이 아닌 시점에 전격 교체하는 <strong>'원포인트 인사'</strong>를 단행한 바 있다. 대투위가 결국 부결시키면서 "애초에 무리하게 강행한 것 아니냐"는 시장의 뒷말이 커지고 있다. 국민연금 감사실은 부동산투자실 업무권한 관련 의혹에 대해 <strong>재감사에 착수</strong>한 것으로 파악된다. (<a href="https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=01889286645513208" target="_blank">이데일리 마켓인 🔗</a> · <a href="https://www.edaily.co.kr/News/Read?mediaCodeNo=257&newsId=05589126645514848" target="_blank">이데일리(인사) 🔗</a>)
+          </div>
+        </div>
+
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div style="font-size:10pt;font-weight:700;color:#1B3A6B;margin-bottom:3px;">📌 관련 참고 사례 (이번 주 딜 아님 — 배경 맥락용)</div>
+          <div class="analysis-body" style="font-size:9.5pt;">
+            국민연금이 투자한 종각역 '그랑서울'(코람코와 <strong>2011년</strong> 공동 인수, 연면적 17만 5,537㎡)에서도 유사한 갈등이 있었다. <strong>2024년 초</strong> 위탁관리회사 계약 만기 때 자산가치 상승분 중간 정산을 논의했으나 입장차를 좁히지 못해 2년 연장 후 다시 3년 연장했다. 차이는 — 그랑서울은 계약서에 '만기 연장 시 중간 정산' 조항 자체가 없어 근거가 없었던 반면, 센터필드는 조항은 있으나 "매각 없는 정산의 적정성"이 문제가 됐다는 점이다. 시장에서는 센터필드도 일단 <strong>2년 단기 연장</strong>으로 시간을 벌 것이라는 전망이 우세하다.
+          </div>
+        </div>
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: UHC 딥다이브 -->
+      <div class="col-half">
+        <div class="section-title">🏨 UHC(Urban Host Company) — 컨버전 전문 오퍼레이터</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            2017년 설립. 박성재 대표가 2010년대 초 에어비앤비 상륙 시기 강남 삼성동 고급 맨션을 빌려 숙박업을 시작한 것이 출발점이다. UH SUITE(16개)·UH CONTINENTAL(2개)·UH FLAT(8개) 브랜드로 국내외(일본 오사카 포함)에서 호텔을 운영하며, MSO(병원경영지원회사) 역량까지 갖췄다. 박 대표는 "호텔은 잠을 파는 산업이 아니라 <strong>체류 경험을 설계하는 비즈니스</strong>"라고 정의하며, 자체 앱 'STATION by UHC'로 투숙객 데이터를 직접 보유해 OTA 의존도를 낮춘다. (<a href="https://www.forbeskorea.co.kr/news/articleView.html?idxno=401302" target="_blank">포브스코리아 🔗</a>)
+          </div>
+        </div>
+
+        <div class="subsection-title">📋 대표 트랙레코드 3건</div>
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:22%;">프로젝트</th>
+              <th style="width:78%;">내용</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>파고다빌딩</strong><br>(종로)</td>
+              <td>포스트자산운용과 공동 인수. 상층 10개층(51실)은 'UH 인사동, 시리즈 바이 메리어트', 저층 6개층은 메디빌더 '오블리브 서울 오리진' 피부과 — <strong>호텔+K메디컬</strong> 복합. 계약 후 3개월 만에 오픈. (<a href="https://biz.heraldcorp.com/article/10592792" target="_blank">헤럴드경제 🔗</a>)</td>
+            </tr>
+            <tr>
+              <td><strong>서울센터빌딩</strong><br>(시청 앞)</td>
+              <td>오피스를 'UH 컨티넨탈 서울'(117실, 12개층)로 컨버전. 1층 F&amp;B·2층 피부과·최상층 라운지. 건물주가 시설비를 대고 UHC가 위탁운영+일부 임차하는 파트너십 구조.</td>
+            </tr>
+            <tr>
+              <td><strong>옛 서울백병원</strong><br>(중구 저동)</td>
+              <td>2023년 폐업한 서울 유일 중구 대학병원 부지. 그래비티·포스트운용(공동GP)·UHC·메디빌더·건축가 스티븐 장 컨소시엄이 인수 계약. 응급실 존치 조건 하에 180~200실 <strong>'메디컬 레지던스'</strong>로 컨버전 계획.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="deal-card" style="margin-top:0;margin-bottom:0;">
+          <div class="deal-tag">컨버전 파트너십 구조</div>
+          <div style="font-size:10pt;color:#555;line-height:1.5;">UHC는 통상 부동산 개발의 "자산은 디벨로퍼가, 운영은 호텔 체인이" 분업 구조와 달리, <strong>기획 단계부터 참여</strong>해 용도 구성·동선·객실 타입·수익 구조를 함께 설계한다. ADR·OCC·체류시간 데이터로 건물 전체 수익 설계를 역산하는 방식이 자산운용사들의 러브콜을 받는 이유다.</div>
+          <div class="news-source">출처: SPI 단독(그래비티×UHC 협업·서울백병원 인수 상세)</div>
+        </div>
+      </div><!-- col-half right -->
+    </div><!-- two-col -->
+
+    <!-- 전체폭 이번 주 딜 인덱스 -->
+    <div style="margin-top:5px;">
+      <div class="section-title" style="margin-bottom:4px;">📋 이번 주 딜 한눈에 보기</div>
+      <table class="grade-table grade-table-compact" style="margin-bottom:0;">
+        <thead>
+          <tr>
+            <th style="width:18%;">자산</th>
+            <th style="width:18%;">매수사</th>
+            <th style="width:13%;">금액</th>
+            <th style="width:19%;">구조/성격</th>
+            <th style="width:32%;">비고</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>G1서울</td>
+            <td>미래에셋자산운용</td>
+            <td>1조 5,000억원</td>
+            <td>에셋딜(코어펀드)</td>
+            <td>평당 3,700만원, 공실률 80%, 매도자 2년 임대료 보장</td>
+          </tr>
+          <tr>
+            <td>더케이트윈타워</td>
+            <td>이지스자산운용</td>
+            <td>1조 500억원</td>
+            <td>에셋딜(MOU)</td>
+            <td>평당 4,130만원, 하드디파짓 50억원</td>
+          </tr>
+          <tr>
+            <td>신한카드 사옥</td>
+            <td>MDM자산운용</td>
+            <td>8,000억원</td>
+            <td>에셋딜(MOU)</td>
+            <td>하드디파짓 100억원, 10+2.5년 책임임차</td>
+          </tr>
+          <tr>
+            <td>우리금융디지털타워</td>
+            <td>그래비티×UHC</td>
+            <td>평당 3,300만원</td>
+            <td>오피스→호텔 60% 컨버전</td>
+            <td>'시리즈 바이 메리어트' 익스텐디드 스테이</td>
+          </tr>
+          <tr>
+            <td>센터필드</td>
+            <td>이지스(연장 전망)</td>
+            <td>약 4조원(추정)</td>
+            <td>자산이관 무산</td>
+            <td>2년 단기 연장 유력, 인사조치·재감사 진행 중</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울경제·이데일리(마켓인)·포브스코리아·헤럴드경제·SPI(단독) | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">2 / 4</div>
+  </div>
+
+</div><!-- page 2 -->
+
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 3주차 (Vol.16) — 딥다이브<br>에셋딜·셰어딜 후속 Q&amp;A
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- 페이지 주제 인트로 -->
+    <div style="background:linear-gradient(90deg,#1B3A6B,#2A5298);border-radius:7px;padding:7px 13px;margin-bottom:7px;display:flex;align-items:center;gap:12px;">
+      <div style="font-size:14pt;font-weight:900;color:#C9A84C;white-space:nowrap;">딥다이브</div>
+      <div>
+        <div style="font-size:12pt;font-weight:700;color:#fff;line-height:1.3;">왜 국민연금과 자산운용사(GP)는 딜 구조 선호가 다를까 — 에셋딜·셰어딜 후속 Q&amp;A</div>
+        <div style="font-size:10pt;color:rgba(255,255,255,0.75);margin-top:2px;">지난주 팀원들 질문이 많았던 대목입니다. 법적 개념 → 왜 연기금이 기피하나 → 투자자군별 선호 순으로 정리합니다. 앞 페이지 센터필드 사례와 같은 맥락에서 읽으면 이해가 쉽습니다.</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT: 법적개념 -->
+      <div class="col-half">
+        <div class="section-title">⚖️ 핵심 법적 개념 — 포괄승계(셰어딜) vs 특정승계(에셋딜)</div>
+
+        <div class="conflict-row">
+          <div class="conflict-party">
+            <div class="conflict-party-name">셰어딜 = 포괄승계</div>
+            <div class="conflict-party-body">부동산을 담은 법인(SPC·펀드) 지분 자체를 인수 — 그 법인이 과거에 맺은 <strong>모든 법률관계를 포괄적으로</strong> 승계한다.</div>
+          </div>
+          <div class="conflict-vs">VS</div>
+          <div class="conflict-party">
+            <div class="conflict-party-name">에셋딜 = 특정승계</div>
+            <div class="conflict-party-body">특정된 부동산만 이전 — 매도인 법인은 그대로 존속하고 그 법인의 채무는 원칙적으로 매수인에게 넘어오지 않는다.</div>
+          </div>
+        </div>
+
+        <div class="subsection-title">🧾 셰어딜에서 실제로 승계되는 우발채무</div>
+        <div class="analysis-box">
+          <div class="analysis-body">
+            과거 계약 분쟁, 세무 추징, 하자소송, 근로자 승계, 채무보증 등 — <strong>부동산과 무관한 법인의 전체 활동 이력</strong>까지 포함되는 게 핵심이다. 진술·보증(R&amp;W) 조항으로 매도인이 1~3년 정도는 하자를 책임지지만, 이후 리스크는 매수인이 전액 부담한다. 에셋딜도 리스크가 제로는 아니지만, 승계 범위가 "물건에 결부된" 것(등기부·존속 임대차·토양오염 등)으로 좁혀져 표준 부동산 실사로 상당 부분 사전 발견이 가능하다. 반면 셰어딜의 추가 리스크(법인의 계약·세무·고용 이력)는 부동산 실사만으로 발견 불가 — <strong>법인 전체에 대한 법률·회계 포렌식 실사</strong>가 별도로 필요하다.
+          </div>
+        </div>
+
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div class="analysis-title">왜 국민연금은 특히 셰어딜을 기피할까</div>
+          <div class="analysis-body">
+            공적기금은 손실이 나면 국정감사·감사원 감사·언론 조명이라는 정치적 비용을 치르지만, 이익이 나도 상대적으로 주목받지 못하는 <strong>비대칭적 유인구조</strong>를 갖는다. 취득세 절감(약 4.6%p, 확정적 이익) vs 우발채무(확률은 낮지만 손실 상한 없음)의 비대칭을 놓고 보면, 리스크 회피 성향이 강한 연기금일수록 확정 이익보다 꼬리위험 회피를 우선시하는 이유가 설명된다. 앞 페이지의 센터필드 사례(성과보수 750억원을 절차 문제로 부결시킨 것) 역시 같은 패턴이다.
+          </div>
+        </div>
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: 투자자군별 선호 -->
+      <div class="col-half">
+        <div class="section-title">🧭 그래서 어떤 투자자가 어느 구조를 선호하나</div>
+
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:38%;">투자자군</th>
+              <th style="width:18%;">선호 구조</th>
+              <th style="width:44%;">이유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>연기금(국민연금 등)·공제회·보험사(RBC 관리)·상장리츠</td>
+              <td><strong>에셋딜</strong></td>
+              <td>신인의무가 공적이거나 규제상 확실성을 증명해야 하는 주체</td>
+            </tr>
+            <tr>
+              <td>민간 운용사(캡스톤·이지스·마스턴·그래비티 등)·GIC 등 해외 국부펀드</td>
+              <td><strong>셰어딜</strong></td>
+              <td>리스크를 스스로 평가·감내할 실사 역량 + 손실 시 공적 책임추궁 없음</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            <strong>GP(자산운용사)의 입장은 조금 다르다.</strong> LP 자금을 굴리는 입장이라 "LP가 누구냐"에 따라 유동적이지만, 대체로 연기금보다 셰어딜에 훨씬 열려있다 — ①자체 법률·회계 실사 역량으로 리스크를 가격에 반영 가능 ②민간 회사라 지배구조가 유연해 손실이 나도 펀드 내에서 종결 ③취득세 절감이 IRR에 기여하는 정도가 크기 때문이다.<br><br>
+            <strong>홀딩 기간과도 연결된다.</strong> 짧은 홀딩(3~5년, 오퍼튜니스틱·밸류애드)일수록 취득세 절감의 IRR 기여도가 커서 셰어딜을 선호하고, 장기 보유(코어 전략)일수록 취득세 부담은 희석되고 우발채무 누적 확률이 커져 에셋딜을 선호한다.<br><br>
+            <strong>해외 기관이 셰어딜을 선호하는 이유가 하나 더 있다.</strong> 외국인이 한국 부동산을 직접(에셋딜) 취득하면 외국인투자신고 등 절차가 복잡한데, 이미 설립된 한국 SPC·펀드 지분만 인수하면 기존 인허가·계약·세무구조를 그대로 유지한 채 주인만 바뀌는 국경 간 거래 효율성이 있다(지난 2주차 보고서의 지밸리비즈플라자 GIC 참여 사례가 대표적).
+          </div>
+        </div>
+
+        <div class="analysis-box" style="margin-bottom:0;background:#FBF8EE;border-color:rgba(201,168,76,0.5);">
+          <div class="analysis-body" style="font-weight:700;color:#7D5A1E;">한 줄 요약: 신인의무가 공적이냐 사적이냐, 그리고 실사 역량과 지배구조 유연성의 크기 — 이 두 축이 딜 구조 선호를 가른다.</div>
+        </div>
+      </div><!-- col-half right -->
+
+    </div><!-- two-col -->
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 지난주(7월 2주차) 팀 Q&amp;A 정리·업계 일반론 종합 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">3 / 4</div>
+  </div>
+
+</div><!-- page 3 -->
+
+
+<!-- ==================== PAGE 4 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 3주차 (Vol.16) — 딥다이브<br>데이터센터, 상업용 부동산의 새 축
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- 페이지 주제 인트로 -->
+    <div style="background:linear-gradient(90deg,#1B3A6B,#2A5298);border-radius:7px;padding:7px 13px;margin-bottom:7px;display:flex;align-items:center;gap:12px;">
+      <div style="font-size:14pt;font-weight:900;color:#C9A84C;white-space:nowrap;">딥다이브</div>
+      <div>
+        <div style="font-size:12pt;font-weight:700;color:#fff;line-height:1.3;">데이터센터, 상업용 부동산의 새로운 축으로 — 왜 지금 자금이 몰리는가</div>
+        <div style="font-size:10pt;color:rgba(255,255,255,0.75);margin-top:2px;">이번 주 용어사전 대신, 지금 꼭 알아둬야 할 시장 전환점을 다룹니다. 실물거래 시장의 태동 → 매수자 풀 구조 → 이번 주 신규 관심 매물 순으로 정리합니다.</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT: 데이터센터 실물거래 시장 -->
+      <div class="col-half">
+        <div class="section-title">🏭 데이터센터 실물거래 시장, 이제 막 열렸다</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            2024년 <strong>하남 데이터센터</strong>(이지스자산운용이 개발)를 상장 인프라펀드 맥쿼리인프라가 <strong>7,340억원</strong>에 인수한 것이 한국 최초의 하이퍼스케일 데이터센터 매각 이정표였다. 최근 CBRE코리아가 낸 「한국 데이터센터 투자」 보고서는 "프라임 코로케이션 자산의 대형 거래가 포착되며 시장 확장의 중요한 전환점을 맞고 있다"며, 물류센터가 지난 10년간 그랬듯 데이터센터도 상업용 부동산의 핵심 자산군으로 비중을 빠르게 확대할 것으로 진단했다.
+          </div>
+        </div>
+
+        <div class="subsection-title">👛 잠재 매수자 풀 3분류 (CBRE코리아)</div>
+        <table class="grade-table">
+          <thead>
+            <tr>
+              <th style="width:26%;">자본 성격</th>
+              <th style="width:34%;">투자 성향</th>
+              <th style="width:40%;">대표 사례</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>국내 기관 자본</td>
+              <td>단기, 5~7년 만기 프로젝트 펀드</td>
+              <td>에포크 안양센터(코람코·LF·GS건설·키움)</td>
+            </tr>
+            <tr>
+              <td>글로벌 인프라 자본</td>
+              <td>단기~중장기, 10년 이상 장기 보유 선호</td>
+              <td>맥쿼리인프라, KKR, 블랙스톤</td>
+            </tr>
+            <tr>
+              <td>글로벌 데이터센터 전문 자본</td>
+              <td>중장기~영속 투자</td>
+              <td>케펠DC리츠(싱가포르), 에퀴닉스(美 상장리츠)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div class="analysis-body" style="font-size:9.5pt;">
+            코람코·퍼시픽자산운용도 장기적으로 <strong>데이터센터 리츠 상장</strong>을 추진 중이라 잠재 매수자 풀은 더 넓어질 전망이다. 최근 <strong>수도권 전력 규제 강화</strong>로 이미 준공됐거나 준공을 앞둔 자산의 희소가치는 갈수록 높아지고 있다.
+          </div>
+        </div>
+      </div><!-- col-half left -->
+
+      <!-- RIGHT: 이번주 신규 관심 매물 -->
+      <div class="col-half">
+        <div class="section-title">🎯 이번 주 신규 관심 매물 — 가산 'STT Seoul 1'</div>
+
+        <div class="deal-card">
+          <div class="deal-tag">잠재 매물 · 하이퍼스케일 DC</div>
+          <a class="deal-name" href="https://seoulpi.io/article/00573955154535538688" target="_blank">삼성SRA×STT GDC 합작 개발, 시장의 관심이 쏠리다 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">📍 <strong>서울 가산동</strong> (프라임 DC 클러스터)</div>
+            <div class="deal-meta-item">🏢 연면적 약 <strong>4만㎡</strong></div>
+            <div class="deal-meta-item">⚡ 수전 <strong>40MW</strong> · IT용량 <strong>30MW</strong></div>
+            <div class="deal-meta-item">📅 작년 준공 · 지난달 상업운영 개시</div>
+          </div>
+          <div class="deal-desc"><strong>삼성SRA자산운용</strong>이 싱가포르계 <strong>STT GDC</strong>와 손잡고 개발했다. 운영은 STT GDC(60%)와 효성중공업(40%)이 세운 합작법인 STT GDC코리아가 <strong>100% 마스터리스</strong>로 맡고 있다 — 6월 2주차에 다룬 마스터리스 구조(운영사가 임차인이 되어 고정임차료를 지급하는 방식)가 데이터센터에도 그대로 적용된 사례다. 준공 후 안정적으로 운영되기 시작한 자산이라 시장에서는 잠재 매물로 보고 관심을 나타내고 있다.</div>
+          <div class="news-source">출처: <a href="https://seoulpi.io/article/00573955154535538688" target="_blank">SPI</a>(단독)</div>
+        </div>
+
+        <div class="analysis-box" style="margin-top:0;">
+          <div style="font-size:10pt;font-weight:700;color:#1B3A6B;margin-bottom:3px;">📌 관련 참고 사례 (이번 주 딜 아님 — 배경 맥락용)</div>
+          <div class="analysis-body" style="font-size:9.5pt;">
+            7월 1주차 보고서에서 다룬 <strong>액티스 '에포크 안양센터'</strong>(코람코·LF·GS건설·키움증권 컨소, 8,400억원 인수)도 현재 진행 중인 대표적 국내 기관 자본 거래다. 하남IDC(맥쿼리인프라, 7,340억)·에포크 안양센터(8,400억)에 이어 STT Seoul 1까지 잠재 매물로 거론되면서, 하이퍼스케일 데이터센터 거래가 단발성이 아니라 <strong>연속적인 트렌드</strong>로 자리잡는 모습이다. 7월 1주차 KPI에서 다룬 "데이터센터 캡레이트 6.7%→5%대 압축" 흐름과 같은 맥락이다.
+          </div>
+        </div>
+      </div><!-- col-half right -->
+    </div><!-- two-col -->
+
+    <!-- 전체폭 GS P&L 시사점 -->
+    <div class="gspnl-box" style="margin-top:7px;padding:8px 11px;">
+      <div class="gspnl-title" style="font-size:11.5pt;margin-bottom:6px;">🔑 GS P&amp;L 신사업 관점 시사점</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;">
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">① 기획형 오퍼레이터 파트너십</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">UHC처럼 <strong>기획 단계부터 참여</strong>하는 오퍼레이터와의 협업은 파르나스 컨버전 후보 자산 검토 시 참고할 프레임.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">② 공적 LP 절차 리스크</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">국민연금 등 <strong>공적 LP</strong>와 자산 재편 논의 시, 정산 구조·내부 절차를 계약 초기부터 명확히 설계.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">③ 파트너 성격별 딜 구조</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">상대방이 <strong>공적 성격이면 에셋딜, 민간·해외면 셰어딜</strong>을 협상 출발점으로 삼으면 유리.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">④ 임대료 보장 카드</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">G1서울처럼 <strong>매도자 임대료 보장</strong> 조건은 공실 있는 자산 매각·투자유치 시 협상 카드로 활용 가능.</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:6px;padding:6px 8px;border-top:2px solid #C9A84C;">
+          <div style="font-size:9.5pt;font-weight:700;color:#C9A84C;margin-bottom:3px;line-height:1.3;">⑤ 데이터센터 신사업 스크리닝</div>
+          <div class="gspnl-item" style="margin-bottom:0;font-size:9.5pt;line-height:1.45;">하이퍼스케일 DC 거래가 <strong>연속 트렌드화</strong> — GS건설(에포크 안양) 등 그룹 내 접점을 살펴 신사업 편입 가능성 검토.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: SPI(단독, 데이터센터 시장·STT Seoul 1)·CBRE코리아 리서치 | 본 보고서는 정보 제공 목적이며 투자 권유가 아닙니다.</div>
+    <div class="footer-page">4 / 4</div>
+  </div>
+
+</div><!-- page 4 -->
+
+</body>
+</html>
