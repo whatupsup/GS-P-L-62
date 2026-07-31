@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서 (2026-07-31)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4 landscape; margin: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 10.5pt;
+    color: #333;
+    background: #e8ecf0;
+    padding: 16px 0;
+  }
+
+  /* ===== PAGE ===== */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    overflow: visible;
+    background: #ffffff;
+    margin: 0 auto 10mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 22px rgba(0,0,0,0.12);
+  }
+
+  @media screen {
+    .page { zoom: 1.22; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .page {
+      height: 210mm;
+      min-height: unset;
+      overflow: hidden;
+      margin: 0;
+      page-break-after: always;
+      zoom: 1;
+    }
+    .page:last-child { page-break-after: avoid; }
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: #1B3A6B;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 8px; }
+
+  .header-badge {
+    background: #C9A84C;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .report-title {
+    font-size: 13.5pt;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .report-meta {
+    text-align: right;
+    font-size: 9pt;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  /* ===== PAGE BODY ===== */
+  .page-body {
+    padding: 6px 10mm 6px 10mm;
+    flex: 1;
+  }
+
+  /* ===== SNAPSHOT ROW ===== */
+  .snapshot-row {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+
+  .snapshot-card {
+    flex: 1;
+    background: #F4F6FB;
+    border-radius: 7px;
+    padding: 6px 9px;
+    text-align: center;
+    border-top: 3px solid #1B3A6B;
+  }
+
+  .snapshot-label { font-size: 8.5pt; color: #666; margin-bottom: 1px; line-height: 1.2; }
+  .snapshot-value { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.0; }
+  .snapshot-change { font-size: 8.5pt; margin-top: 0px; font-weight: 600; line-height: 1.3; }
+  .snapshot-footnote { font-size: 8.5pt; color: #999; line-height: 1.3; margin-top: -3px; margin-bottom: 7px; }
+  .snapshot-sub { font-size: 8.5pt; color: #999; margin-top: 0px; line-height: 1.2; }
+  .up { color: #C53030; }
+  .down { color: #2B6CB0; }
+  .flat { color: #718096; }
+
+  /* ===== TWO COL ===== */
+  .two-col {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+
+  .col-55 { flex: 55; }
+  .col-45 { flex: 45; }
+  .col-half { flex: 1; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    border-left: 4px solid #C9A84C;
+    padding-left: 8px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  /* ===== NEWS ===== */
+  .news-item {
+    border-bottom: 1px solid #E8ECF2;
+    padding: 6px 0;
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .news-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
+  .news-tag {
+    flex-shrink: 0;
+    display: inline-block;
+    color: white;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+  .tag-hotel  { background: #6B3FA0; }
+  .tag-dc     { background: #1A5276; }
+  .tag-office { background: #1E6C3F; }
+  .tag-fund   { background: #9A3412; }
+  .tag-retail { background: #7B5800; }
+
+  .news-title { font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+  .news-body  { font-size: 10.5pt; color: #555; line-height: 1.5; margin-bottom: 2px; }
+  .news-point { font-size: 10pt; color: #B8860B; font-weight: 600; line-height: 1.4; }
+  .news-source { font-size: 8.5pt; color: #bbb; margin-top: 2px; }
+  .news-source a { color: #999; text-decoration: underline; }
+
+  /* ===== DEAL CARDS ===== */
+  .deal-card {
+    background: #FAFBFD;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+  .deal-card:last-child { margin-bottom: 0; }
+
+  .deal-tag {
+    display: inline-block;
+    background: #EBF0FB;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }
+
+  .deal-name { font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3; margin-bottom: 4px; }
+
+  .deal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 9px;
+    font-size: 10pt;
+    margin-bottom: 4px;
+  }
+  .deal-meta-item { color: #777; line-height: 1.4; }
+  .deal-meta-item strong { color: #333; }
+
+  .deal-desc { font-size: 10pt; color: #555; line-height: 1.5; }
+
+  /* ===== TERM BOX ===== */
+  .term-box {
+    background: linear-gradient(135deg, rgba(27,58,107,0.04), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 7px;
+  }
+
+  .term-word { font-size: 14pt; font-weight: 900; color: #1B3A6B; }
+  .term-eng  { font-size: 10pt; color: #C9A84C; font-weight: 700; margin-left: 5px; }
+  .term-sub  { font-size: 12pt; font-weight: 700; color: #1B3A6B; margin-top: 3px; }
+
+  .term-desc {
+    font-size: 10.5pt;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  .term-example {
+    font-size: 10pt;
+    color: #555;
+    background: #fff;
+    border-left: 3px solid #C9A84C;
+    padding: 4px 7px;
+    margin-top: 5px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+  }
+
+  /* ===== TABLE ===== */
+  .subsection-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin: 5px 0 4px;
+  }
+
+  .grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7px;
+  }
+
+  .grade-table th {
+    background: #1B3A6B;
+    color: white;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 4px 7px;
+    text-align: left;
+  }
+
+  .grade-table td {
+    font-size: 9.5pt;
+    padding: 3.5px 7px;
+    border-bottom: 1px solid #E8ECF2;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .grade-table tr:nth-child(even) td { background: #F8F9FC; }
+
+  .grade-table-compact th { padding: 2.5px 6px; }
+  .grade-table-compact td { padding: 2px 6px; line-height: 1.25; }
+
+  .gbadge {
+    display: inline-block;
+    color: white;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .g-trophy { background: #7D5A1E; }
+  .g-prime  { background: #1B3A6B; }
+  .g-a      { background: #1E6C3F; }
+  .g-b      { background: #718096; }
+  .g-c      { background: #A0AEC0; }
+
+  /* ===== ANALYSIS BOX ===== */
+  .analysis-box {
+    background: #F6F8FC;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+  }
+
+  .analysis-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin-bottom: 4px;
+    padding-left: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+
+  .analysis-body { font-size: 10.5pt; color: #444; line-height: 1.6; }
+
+  .conflict-row {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0;
+    align-items: stretch;
+  }
+
+  .conflict-party {
+    flex: 1;
+    background: white;
+    border: 1px solid #D5E0F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .conflict-party-name { font-size: 10pt; font-weight: 700; color: #1B3A6B; margin-bottom: 3px; }
+  .conflict-party-body { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    font-weight: 900;
+    color: #C9A84C;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  /* ===== TREND GRID ===== */
+  .trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
+  .trend-card {
+    background: #fff;
+    border: 1px solid #E0E8F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .trend-card-label {
+    font-size: 9pt;
+    color: #888;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+
+  .trend-card-text { font-size: 10.5pt; color: #333; line-height: 1.45; }
+
+  /* ===== GS P&L BOX ===== */
+  .gspnl-box {
+    background: #1B3A6B;
+    border-radius: 7px;
+    padding: 7px 10px;
+  }
+
+  .gspnl-title { font-size: 10.5pt; font-weight: 700; color: #C9A84C; margin-bottom: 5px; }
+  .gspnl-item  {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.55;
+    padding-left: 13px;
+    text-indent: -13px;
+    margin-bottom: 3px;
+  }
+  .gspnl-item:last-child { margin-bottom: 0; }
+  .gspnl-body { font-size: 10.5pt; color: rgba(255,255,255,0.92); line-height: 1.7; }
+  .gspnl-body strong { color: #C9A84C; }
+  .gspnl-item strong { color: #C9A84C; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    padding: 4px 10mm;
+    border-top: 1px solid #E8ECF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-source { font-size: 8.5pt; color: #bbb; line-height: 1.5; }
+  .footer-page   { font-size: 8.5pt; color: #aaa; font-weight: 700; white-space: nowrap; }
+
+  /* ===== TIMELINE ===== */
+  .tl-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 3.5px 0;
+    border-bottom: 1px dashed #E0E8F0;
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-date {
+    flex-shrink: 0;
+    width: 66px;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #C9A84C;
+    line-height: 1.4;
+  }
+  .tl-text { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  a.news-title {
+    font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35;
+    text-decoration: none; display: block;
+  }
+  a.news-title:hover { color: #1B3A6B; text-decoration: underline; }
+  a.deal-name {
+    font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3;
+    margin-bottom: 4px; text-decoration: none; display: block;
+  }
+  a.deal-name:hover { text-decoration: underline; }
+  a { color: inherit; text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 5주차 (Vol.18)<br>발행일: 2026.07.31
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- SNAPSHOT ROW -->
+    <div class="snapshot-row">
+      <div class="snapshot-card">
+        <div class="snapshot-label">케이스퀘어 홍대 딜 클로징 (7/30)</div>
+        <div class="snapshot-value">1,500억</div>
+        <div class="snapshot-change up">▲ 평당 4,450만원 · 10년 전 대비 +163%</div>
+        <div class="snapshot-sub">코람코운용×파라다이스 · 호텔 개발 예정</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">두산타워 거래 종결 (7/27)</div>
+        <div class="snapshot-value">9,000억+</div>
+        <div class="snapshot-change up">▲ 2020년 마스턴 인수가(8,000억) 대비 +1,000억</div>
+        <div class="snapshot-sub">이지스자산운용 · 매입가 약 8,900억</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 A급 오피스 공실률 (2Q26)</div>
+        <div class="snapshot-value">5.8%</div>
+        <div class="snapshot-change up">▲ +1.8%p (QoQ) · 5년 만의 최고치</div>
+        <div class="snapshot-sub">CBD 9.0% / GBD 3.1% / YBD 3.7%</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">상반기 오피스 거래금액 (누계)</div>
+        <div class="snapshot-value">7.4조</div>
+        <div class="snapshot-change flat">정확히 7조 4,253억원 · 선별 투자 심화</div>
+        <div class="snapshot-sub">JLL코리아 2Q 리포트 (7.28 발표)</div>
+      </div>
+    </div>
+    <div class="snapshot-footnote">* 공실률·권역별 수치는 <a href="https://www.etoday.co.kr/news/view/2608428" target="_blank">쿠시먼앤드웨이크필드 '2026년 2분기 서울 오피스 시장 보고서'(7.28 발표)</a>, 거래금액은 <a href="https://www.etoday.co.kr/news/view/2608433" target="_blank">JLL코리아 '2026년 2분기 서울 Grade A 오피스 시장 동향'(7.28 발표)</a> 기준 최신 분기 수치. 두 기관은 A급 표본 모집단이 달라 공실률 수치(쿠시먼 5.8% / JLL 서울 전체 6.6%)에 차이가 있음.</div>
+
+    <!-- TWO COL: 뉴스 | 딜 -->
+    <div class="two-col">
+
+      <!-- LEFT: NEWS -->
+      <div class="col-55">
+        <div class="section-title">📰 이번 주 메인 뉴스 — 홍대, '호텔로 바꿀 수 있는 건물' 쟁탈전</div>
+
+        <!-- N1 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-hotel">호텔·컨버전</span>
+            <a class="news-title" href="https://seoulpi.io/article/00579436463626395648" target="_blank">코람코×파라다이스, '케이스퀘어 홍대' 1,500억 딜 클로징 (7.30) 🔗</a>
+          </div>
+          <div class="news-body">
+            코람코자산운용이 파라다이스그룹과 컨소시엄을 이뤄 인수한 <strong>케이스퀘어 홍대</strong>(마포구 양화로 161, 연면적 11,146㎡) 거래가 <strong>7월 30일 종결</strong>됐다. 인수가 <strong>1,500억원(평당 4,450만원)</strong>, 파라다이스가 <strong>보통주 250억원</strong>을 직접 투입한 구조다. 3월 말 입찰에 그래비티·JB·페블스톤·HDC·케이리츠·한국교통 등 <strong>7곳이 몰린 과열 딜</strong>이었고, 시장 예상가를 훌쩍 넘긴 가격이라 클로징 우려까지 있었으나 파라다이스의 적극적 참여로 마무리됐다.
+          </div>
+          <div class="news-point">👉 2016년 코람코자산신탁이 현대라이프생명으로부터 <strong>570억원(평당 약 1,690만원)</strong>에 사들인 자산이다. 10년 만에 <strong>+930억원, 평당가 2.6배</strong> — 지난 10년 국내 상업용 부동산 가격 상승을 보여주는 바로미터다. 구조 해부는 2p.</div>
+          <div class="news-source">출처: <a href="https://seoulpi.io/article/00579436463626395648" target="_blank">SPI (2026.7.30, 유료)</a> · <a href="https://news.dealsitetv.com/articles/168922" target="_blank">딜사이트경제TV(우협 선정)</a> · <a href="https://news.nate.com/view/20260120n37993" target="_blank">네이트뉴스(매각 개시)</a></div>
+        </div>
+
+        <!-- N2 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-hotel">호텔·외국계</span>
+            <a class="news-title" href="https://seoulpi.io/article/00579804556269752320" target="_blank">블루코브×캐나다연금(CPPIB), 홍대 'LC타워' 매매계약 체결 — 호텔 컨버전 (7.31) 🔗</a>
+          </div>
+          <div class="news-body">
+            블루코브자산운용이 <strong>홍대입구역 4번 출구 인근 LC타워 본관</strong>(지하7~지상10층, 연면적 27,514㎡, 2021년 준공) 소유자와 매매계약을 체결했다. 지난 <strong>6월 초 결성한 CPPIB×블루코브 5,000억원 규모 호텔 JV의 첫 투자 대상</strong>이 될 전망이다. CGV·스파크플러스·쉑쉑버거가 주요 임차인인데, <strong>명도가 어려운 임차인은 그대로 둔 채 호텔로 컨버전</strong>하는 방식이 검토되고 있다.
+          </div>
+          <div class="news-point">👉 '건물을 통째로 비우지 않고 층별로 용도를 바꾸는' 부분 컨버전 — 명도 리스크를 회피하면서 수익률을 끌어올리는 최근 밸류애드의 표준 문법이다. CPPIB의 섹터 확장 전략은 4p 딥다이브.</div>
+          <div class="news-source">출처: <a href="https://seoulpi.io/article/00579804556269752320" target="_blank">SPI (2026.7.31, 유료·단독)</a> · <a href="https://www.mingtiandi.com/real-estate/finance/canadas-cppib-in-329m-korea-hotel-deal-with-bluecove/" target="_blank">Mingtiandi (CPPIB-블루코브 JV)</a></div>
+        </div>
+
+        <!-- N3 -->
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">오피스·컨버전</span>
+            <a class="news-title" href="https://biz.heraldcorp.com/article/10822014" target="_blank">이지스, 동대문 '두산타워' 9,000억원대에 인수 완료 (7.27) 🔗</a>
+          </div>
+          <div class="news-body">
+            이지스자산운용이 <strong>7월 27일 잔금을 납입하고 두산타워(지하7~지상33층, 연면적 122,586㎡) 거래를 종결</strong>했다. 부동산 매입가 약 8,900억원, 부대비용 포함 총 거래규모 <strong>9,000억원 이상</strong>. 매도자는 2020년 두산으로부터 약 8,000억원에 사들여 펀드로 운용해 온 <strong>마스턴투자운용</strong>이다. 지난해 한국투자증권이 우협에 선정됐다가 <strong>투자자 모집 실패로 무산</strong>된 딜을, 1년 만에 이지스가 다시 품었다.
+          </div>
+          <div class="news-point">👉 면세점 철수로 비어 있는 <strong>6~14층 9개 층</strong>을 호텔·프리미엄 오피스·라이프스타일 리테일로 나누는 <strong>복합 컨버전</strong>이 유력하다. '두산도 펀드에 남아 있다'는 시장의 이야기까지 3p에서 확인한다.</div>
+          <div class="news-source">출처: <a href="https://biz.heraldcorp.com/article/10822014" target="_blank">헤럴드경제</a> · <a href="https://www.thepublic.kr/news/articleView.html?idxno=312947" target="_blank">더퍼블릭</a> · <a href="https://www.insight.co.kr/news/565122" target="_blank">인사이트(9개 층 재편)</a></div>
+        </div>
+      </div><!-- col-55 -->
+
+      <!-- RIGHT: DEALS -->
+      <div class="col-45">
+        <div class="section-title">🏗️ 이번 주 주목할 딜</div>
+
+        <div class="deal-card">
+          <span class="deal-tag">클로징 완료 · 7/30</span>
+          <a class="deal-name" href="https://seoulpi.io/article/00579436463626395648" target="_blank">케이스퀘어 홍대 — 코람코×파라다이스 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">거래금액 <strong>1,500억원</strong></div>
+            <div class="deal-meta-item">평당가 <strong>4,450만원</strong></div>
+            <div class="deal-meta-item">SI 지분 <strong>파라다이스 보통주 250억</strong></div>
+            <div class="deal-meta-item">계획 <strong>호텔 개발</strong></div>
+          </div>
+          <div class="deal-desc">연면적 11,146㎡ 오피스·리테일 복합. 코람코운용은 이 딜과 함께 <strong>호텔·레지덴셜 AUM을 5년 내 5조원</strong>으로 키우겠다는 청사진을 7/29 공식화했다.</div>
+        </div>
+
+        <div class="deal-card">
+          <span class="deal-tag">매매계약 체결 · 7/31</span>
+          <a class="deal-name" href="https://seoulpi.io/article/00579804556269752320" target="_blank">홍대 LC타워 본관 — 블루코브×CPPIB 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">연면적 <strong>27,514㎡</strong></div>
+            <div class="deal-meta-item">준공 <strong>2021년</strong></div>
+            <div class="deal-meta-item">JV 규모 <strong>5,000억원</strong></div>
+            <div class="deal-meta-item">계획 <strong>호텔 컨버전</strong></div>
+          </div>
+          <div class="deal-desc">CGV·스파크플러스·쉑쉑버거 임차. 상반기 오라카이 대학로·순화빌딩 입찰에서 연달아 고배를 마신 뒤 잡은 <strong>JV 1호 자산</strong>이다.</div>
+        </div>
+
+        <div class="deal-card">
+          <span class="deal-tag">클로징 완료 · 7/27</span>
+          <a class="deal-name" href="https://biz.heraldcorp.com/article/10822014" target="_blank">두산타워 — 이지스자산운용 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">거래금액 <strong>9,000억원+</strong></div>
+            <div class="deal-meta-item">매도자 <strong>마스턴투자운용</strong></div>
+            <div class="deal-meta-item">연면적 <strong>122,586㎡</strong></div>
+            <div class="deal-meta-item">계획 <strong>호텔·오피스·리테일</strong></div>
+          </div>
+          <div class="deal-desc">2020년 8,000억 → 2026년 9,000억. 5년 반 만의 <strong>+1,000억</strong>. 펀드 만기 도래에 따른 매각이었다.</div>
+        </div>
+
+        <div class="deal-card">
+          <span class="deal-tag">우협 선정 · 7월 말</span>
+          <a class="deal-name" href="https://seoulpi.io/article/00517302092597587968" target="_blank">호텔 카푸치노 — 캐피탈랜드투자운용 🔗</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item">매도자 <strong>코오롱그룹</strong></div>
+            <div class="deal-meta-item">객실 <strong>141실 · 논현동</strong></div>
+            <div class="deal-meta-item">매도 희망 <strong>800억원 이상</strong></div>
+            <div class="deal-meta-item">매수 눈높이 <strong>700억 초중반</strong></div>
+          </div>
+          <div class="deal-desc">참여 5개 파티 중 <strong>'이화자산운용–파르나스호텔'</strong>도 포함돼 있었다. 캐피탈랜드 분석은 4p.</div>
+        </div>
+      </div><!-- col-45 -->
+
+    </div><!-- two-col -->
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: SPI(서울프라퍼티인사이트) · 쿠시먼앤드웨이크필드 · JLL코리아 · 헤럴드경제 · 더퍼블릭 · 딜사이트 · 파이낸셜뉴스 등 (2026.7.24~7.31 기준)</div>
+    <div class="footer-page">1 / 5</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">DEEP DIVE ①</span>
+      <div class="report-title">홍대 호텔 컨버전 각축전 — 왜 지금, 왜 홍대인가</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 5주차 (Vol.18)<br>발행일: 2026.07.31
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="analysis-box" style="background:linear-gradient(135deg,#1B3A6B0D,#C9A84C14);border-color:rgba(201,168,76,0.5);margin-bottom:8px;">
+      <div class="analysis-body" style="font-size:10.5pt;">
+        🔍 <strong>이번 주 홍대에서만 두 건의 딜이 동시에 움직였습니다.</strong> 코람코×파라다이스의 '케이스퀘어 홍대' 클로징(7/30)과 블루코브×CPPIB의 'LC타워' 매매계약(7/31). 우연이 아닙니다. <strong>①외국인 방문객이 가장 많이 찾는 상권 ②호텔로 바꿀 수 있는 중형 건물이 남아 있는 마지막 도심 ③오피스보다 호텔의 수익률이 높아진 국면</strong> — 이 세 가지가 겹치면서 홍대는 지금 서울에서 가장 뜨거운 '컨버전 사냥터'가 됐습니다. 두 딜의 숫자와 구조를 뜯어봅니다.
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT -->
+      <div class="col-half">
+        <div class="section-title">💰 케이스퀘어 홍대 — 10년간 무슨 일이 있었나</div>
+
+        <div class="analysis-box">
+          <div class="tl-row"><div class="tl-date">2016.1</div><div class="tl-text"><strong>코람코자산신탁</strong>이 현대라이프생명보험으로부터 <strong>약 570억원</strong>에 인수. 주요 투자자는 <strong>교직원공제회</strong>. 평당 약 1,690만원.</div></div>
+          <div class="tl-row"><div class="tl-date">2025.6</div><div class="tl-text">보유 10년차, 코람코가 매각 착수. 'K콘텐츠로 업그레이드된 홍대 하이스트리트'라는 스토리로 마케팅.</div></div>
+          <div class="tl-row"><div class="tl-date">2026.3말</div><div class="tl-text"><strong>입찰에 7곳 참여</strong> — 그래비티·JB·코람코·페블스톤·HDC·케이리츠·한국교통자산운용. 호텔 전환 가치를 두고 격돌.</div></div>
+          <div class="tl-row"><div class="tl-date">2026.4</div><div class="tl-text">코람코가 <strong>1,500억원(평당 4,450만원)</strong>을 써내 우협 선정. 시장 예상가를 크게 상회해 "클로징 될까" 우려도.</div></div>
+          <div class="tl-row"><div class="tl-date">2026.5</div><div class="tl-text"><strong>하드디파짓</strong> 납입 + 파라다이스의 대규모 투자 결정으로 거래 안정화.</div></div>
+          <div class="tl-row"><div class="tl-date">2026.7.30</div><div class="tl-text"><strong>딜 클로징 완료.</strong> 파라다이스 보통주 250억원 투입. 호텔로 개발 예정.</div></div>
+        </div>
+
+        <div class="subsection-title">📊 평당가로 본 이 딜의 위치</div>
+        <table class="grade-table grade-table-compact">
+          <thead>
+            <tr><th style="width:34%">자산</th><th style="width:20%">평당가</th><th>맥락</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>케이스퀘어 홍대</strong> (2026.7)</td><td><span class="gbadge g-trophy">4,450만원</span></td><td>홍대 하이스트리트, 호텔 전환 프리미엄 반영</td></tr>
+            <tr><td>더케이트윈타워 (2026.7)</td><td>4,150만원</td><td>CBD 광화문, 프라임 오피스 역대 최고가 1조500억</td></tr>
+            <tr><td>케이스퀘어 홍대 (2016.1)</td><td>1,690만원</td><td>10년 전 같은 자산 — <strong>2.6배 상승</strong></td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:9pt;color:#888;line-height:1.45;margin:-3px 0 6px;">💡 오피스 최고가 자산보다 <strong>홍대 중형 빌딩의 평당가가 더 높게 형성</strong>됐다는 점이 이 딜의 핵심이다. 시장이 '현재의 임대료'가 아니라 <strong>'호텔로 바꿨을 때의 미래 NOI'</strong>에 값을 매겼다는 뜻이다.</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">코람코운용의 다음 과제 — 사는 것보다 굴리는 것</div>
+          <div class="analysis-body">
+            코람코는 올해만 <strong>머큐어 앰배서더 동대문</strong>(을지로 2성급 U5호텔 → 4성급 리브랜딩, 객실 297→336실 증설, 7/28 개관), <strong>케이스퀘어 홍대</strong>, <strong>메종 글래드 제주</strong>(파라다이스와 공동 추진)를 잇달아 확보했고, 7/29 <strong>"5년 내 호텔·레지덴셜 AUM 1조 → 5조원"</strong> 비전을 발표했다. 다만 호텔은 브랜드·서비스·운영성과가 곧 자산가치인 섹터다. SPI는 코람코가 <strong>"개별 프로젝트 투자를 넘어 차별화된 운영 역량과 반복 파트너(FI·SI) 확보"</strong>를 다음 과제로 지목했다.
+            <span style="font-size:8.5pt;color:#999;">(<a href="https://www.fnnews.com/news/202607290800259362" target="_blank">파이낸셜뉴스 🔗</a> · <a href="https://www.newspim.com/news/view/20260724000894" target="_blank">뉴스핌 🔗</a>)</span>
+          </div>
+        </div>
+      </div><!-- col-half -->
+
+      <!-- RIGHT -->
+      <div class="col-half">
+        <div class="section-title">🏢 LC타워 — '비우지 않고 바꾸는' 컨버전</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            LC타워는 홍대입구역 4번 출구 인근의 <strong>2021년 준공 신축급 자산</strong>이다(본관 기준 지하7~지상10층, 연면적 27,514㎡). 임차인은 <strong>CGV 극장 · 공유오피스 스파크플러스 · 쉑쉑버거</strong>. 여기서 주목할 대목은 <strong>"명도가 어려운 일부 임차인은 그대로 유치한 채 호텔로 컨버전"</strong>한다는 계획이다.
+            <div class="term-example" style="margin-top:6px;">
+              <strong>왜 이게 중요한가</strong> — 통상 컨버전은 건물을 비워야(명도) 가능하다. 명도는 시간·비용·소송 리스크가 크고, 그 기간 임대수익이 0이 된다. 반면 <strong>저층부 리테일·극장은 존치하고 중상층만 객실로 바꾸는 '부분 컨버전'</strong>은 ①명도비용 절감 ②공사 중에도 캐시플로 유지 ③앵커 임차인이 호텔의 부대시설 역할까지 수행, 이라는 3중 효과를 낸다. 최근 밸류애드 딜에서 빠르게 표준이 되고 있는 방식이다.
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection-title">🗺️ 홍대에 들어온 자본 — 최근 3년 지도</div>
+        <table class="grade-table grade-table-compact">
+          <thead>
+            <tr><th style="width:29%">자산</th><th style="width:31%">투자자</th><th>내용</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>케이스퀘어 홍대</td><td>코람코×파라다이스</td><td><strong>2026.7 클로징</strong> · 1,500억 · 호텔 개발</td></tr>
+            <tr><td>LC타워 본관</td><td>블루코브×CPPIB</td><td><strong>2026.7 매매계약</strong> · 호텔 컨버전</td></tr>
+            <tr><td>머큐어 앰배서더 홍대</td><td>골드만삭스×JB운용</td><td>2025년 인수 · 상인베스트먼트가 매각</td></tr>
+            <tr><td>누디트 홍대</td><td>DDI×인베스코</td><td>2025.10 · 1,460억 · 코리빙(5p 상술)</td></tr>
+            <tr><td>코너136</td><td>아주그룹</td><td>인베스코의 세 번째 홍대 엑시트</td></tr>
+            <tr><td>서교동 부지</td><td>상인베스트먼트</td><td>약 <strong>260실 호텔 신규 개발</strong> 중</td></tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box" style="background:#FFFBF0;border-color:#E8D9A8;">
+          <div class="analysis-title">📌 관련 참고 사례 (이번 주 딜 아님 — 배경 맥락용)</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            <strong>2025년 누디트 홍대 입찰</strong>은 지금의 홍대 각축전을 예고한 사건이었다. 당시 <strong>블랙스톤–트래블로지, 캐피탈랜드투자운용, TPG안젤로고든</strong>은 이 자산을 <strong>'호텔'</strong>로 보고 입찰했고, <strong>DDI–인베스코, 홈즈컴퍼니–이지스엑스</strong>는 <strong>'코리빙'</strong>으로 보고 입찰했다. 같은 건물을 두고 두 개의 상품 관점이 정면으로 부딪힌 것 — <strong>호텔과 코리빙의 경계가 사라지고 있다</strong>는 신호였다. 최종 승자는 코리빙 관점의 DDI–인베스코였다.
+            <span style="font-size:8.5pt;color:#999;">(<a href="https://seoulpi.io/article/00579435197391183872" target="_blank">SPI 2026.7.30 🔗</a> · <a href="https://www.thebell.co.kr/free/content/ArticleView.asp?key=202510200325358320102330" target="_blank">더벨 🔗</a>)</span>
+          </div>
+        </div>
+
+        <div class="gspnl-box">
+          <div class="gspnl-title">💼 GS P&amp;L 관점 — 이 두 딜에서 건질 것</div>
+          <div class="gspnl-item"><strong>①</strong> <strong>"호텔 전환 가능성"이 곧 평당가다.</strong> 홍대 중형 빌딩이 CBD 프라임 오피스보다 비싸게 팔렸다. 자산 검토 시 현 용도의 NOI만이 아니라 <strong>전환 후 NOI 시나리오</strong>를 반드시 병기해야 한다.</div>
+          <div class="gspnl-item"><strong>②</strong> <strong>부분 컨버전을 옵션에 넣자.</strong> 명도 리스크가 큰 자산도 '저층 존치 + 중상층 전환'이면 검토 대상이 된다. 파르나스 계열의 운영 노하우는 이 구조에서 특히 강점이다.</div>
+          <div class="gspnl-item"><strong>③</strong> <strong>SI(전략적 투자자) 자리를 노려라.</strong> 파라다이스는 250억 보통주로 1,500억 딜의 운영권을 확보했다. 운영사가 소수 지분으로 딜에 올라타는 <strong>'적은 자본 + 운영권'</strong> 모델은 GS P&amp;L이 가장 빠르게 쓸 수 있는 카드다.</div>
+        </div>
+      </div><!-- col-half -->
+
+    </div><!-- two-col -->
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: SPI(2026.7.30·7.31) · 딜사이트경제TV · 더벨 · 파이낸셜뉴스 · 뉴스핌 · 네이트뉴스</div>
+    <div class="footer-page">2 / 5</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">DEEP DIVE ②</span>
+      <div class="report-title">두산타워 9,000억 — 동대문 랜드마크의 두 번째 변신</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 5주차 (Vol.18)<br>발행일: 2026.07.31
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="analysis-box" style="background:linear-gradient(135deg,#1B3A6B0D,#C9A84C14);border-color:rgba(201,168,76,0.5);margin-bottom:8px;">
+      <div class="analysis-body" style="font-size:10.5pt;">
+        🔍 <strong>두산타워는 '판 자산'이 아니라 '되돌아온 자산'입니다.</strong> 2020년 두산이 마스턴에 8,000억에 팔았고, 2026년 이지스가 9,000억에 다시 샀습니다. 그런데 매도인이었던 두산은 아직 이 자산의 펀드에 남아 있습니다. 여기에 <strong>면세점이 빠져나간 9개 층</strong>을 무엇으로 채울 것이냐는 질문까지 겹칩니다. 그래서 이번 주 용어사전은 그 질문에서 자연스럽게 나오는 <strong>"재건축·리모델링·컨버전은 뭐가 다른가"</strong>로 잡았습니다.
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT -->
+      <div class="col-half">
+        <div class="section-title">🏙️ 딜 타임라인 — 6년의 우여곡절</div>
+
+        <div class="analysis-box">
+          <div class="tl-row"><div class="tl-date">2020</div><div class="tl-text">두산그룹 구조조정. <strong>마스턴투자운용</strong>이 두산으로부터 <strong>약 8,000억원</strong>에 인수, 부동산 펀드(마스턴전문투자형사모 98호)로 운용.</div></div>
+          <div class="tl-row"><div class="tl-date">2025.2</div><div class="tl-text">펀드 만기 도래로 매각 착수. <strong>이지스는 이때 이미 '호텔 컨버전'을 전제로 인수전에 참여</strong>했다.</div></div>
+          <div class="tl-row"><div class="tl-date">2025 상반기</div><div class="tl-text">한국투자증권·이지스·키움 3파전 → <strong>한국투자증권 우협 선정</strong>(경쟁하던 한투와 이지스가 중간에 손을 잡기도 했다).</div></div>
+          <div class="tl-row"><div class="tl-date">2025.8</div><div class="tl-text"><strong>한투가 투자자 모집에 실패해 딜 무산.</strong> 매각이 원점으로.</div></div>
+          <div class="tl-row"><div class="tl-date">2026.7.27</div><div class="tl-text"><strong>이지스가 잔금 납입, 거래 종결.</strong> 매입가 약 8,900억, 부대비용 포함 9,000억 초과.</div></div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">"두산도 펀드에 남아 있다"는 이야기, 사실인가</div>
+          <div class="analysis-body">
+            <strong>사실에 가깝습니다.</strong> 두산은 계열사 <strong>두산로지스틱스솔루션(DLS)</strong>이 보유하고 있던 <strong>'마스턴전문투자형사모부동산투자신탁 98호' 수익증권 200억원어치</strong>를 되사들였습니다(구주대금 52억원은 DLS 지분 100% 인수 대가, 200억원은 펀드 수익증권 매입 대가). 98호 펀드가 바로 <strong>두산타워에 투자한 그 펀드</strong>입니다.
+            <div class="term-example" style="margin-top:6px;">
+              👉 정리하면 — <strong>"두산이 새 인수 펀드에 신규 출자했다"기보다는, '판 뒤에도 기존 펀드의 수익자 지위를 그룹 내부로 되가져와 유지해 왔다'</strong>가 정확한 표현입니다. 매각 대금 회수와 별개로 자산의 업사이드 일부를 붙들어두는, 대기업 세일앤리스백·자산유동화에서 흔한 구조입니다.
+              <span style="font-size:8.5pt;color:#999;">(<a href="https://www.insight.co.kr/news/559976" target="_blank">인사이트 🔗</a>)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">앞으로 어떻게 운영되나 — 면세점이 비운 9개 층</div>
+          <div class="analysis-body">
+            핵심은 <strong>면세점 철수 후 공실인 6~14층</strong>이다. 현재 거론되는 방향은 <strong>단일 대형 임차인 유치가 아니라 층별 용도 재구성</strong> — ①<strong>호텔</strong>(이지스가 2025년 인수전 때부터 밝힌 방향) ②<strong>프리미엄 오피스</strong> ③<strong>라이프스타일 리테일</strong>의 3분할이다. 다만 <strong>호텔 운영사 선정, 용도별 면적 배분, 리모델링 투자금과 착공 일정은 아직 미공개</strong>다.
+            <div class="term-example" style="margin-top:6px;">
+              🔎 <strong>동대문의 맥락</strong> — 코람코의 머큐어 앰배서더 동대문(7/28 개관), 나인트리 동대문 등 인근에서 호텔 공급이 동시에 늘고 있다. 두산타워가 호텔을 얹을 경우 <strong>같은 상권 내 호텔 간 경쟁</strong>이 곧바로 변수가 된다.
+            </div>
+          </div>
+        </div>
+      </div><!-- col-half -->
+
+      <!-- RIGHT -->
+      <div class="col-half">
+        <div class="section-title">📚 이번 주 용어사전 — "재개발? 리모델링? 컨버전?"</div>
+
+        <div class="term-box">
+          <div><span class="term-word">재건축·리모델링·컨버전</span><span class="term-eng">Rebuild · Remodeling · Conversion</span></div>
+          <div class="term-desc">
+            이번 주 딜 기사에는 <strong>"호텔로 재개발"</strong>(케이스퀘어 홍대), <strong>"호텔로 컨버전"</strong>(LC타워), <strong>"리모델링"</strong>(두산타워)이 뒤섞여 등장한다. 셋은 <strong>건물을 부수느냐, 뼈대를 남기느냐, 용도만 바꾸느냐</strong>로 구분된다. 사업비·기간·인허가 난이도가 완전히 달라지므로 반드시 구분해서 읽어야 한다.
+          </div>
+        </div>
+
+        <table class="grade-table grade-table-compact">
+          <thead>
+            <tr><th style="width:22%">구분</th><th style="width:22%">건물은?</th><th style="width:22%">핵심 리스크</th><th>이번 주 사례</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gbadge g-trophy">재건축(신축)</span></td>
+              <td>철거 후 새로 지음 <span style="color:#999">(멸실)</span></td>
+              <td>인허가·공사비·<br>기간 3~5년</td>
+              <td><strong>케이스퀘어 홍대</strong> — 호텔로 '재개발'</td>
+            </tr>
+            <tr>
+              <td><span class="gbadge g-prime">리모델링</span></td>
+              <td>골조 유지 + 내외장·설비 교체</td>
+              <td>기존 구조 제약,<br>증축 한계</td>
+              <td><strong>두산타워</strong> — 층별 용도 재편</td>
+            </tr>
+            <tr>
+              <td><span class="gbadge g-a">컨버전(용도변경)</span></td>
+              <td>골조 유지 + <strong>건축물 용도 자체를 변경</strong></td>
+              <td><strong>명도</strong>, 주차·피난·<br>소방 기준 충족</td>
+              <td><strong>LC타워</strong> — 오피스·리테일 → 호텔</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="term-box" style="margin-bottom:6px;">
+          <div class="term-sub">실무 판단은 결국 이 세 가지</div>
+          <div class="term-desc" style="font-size:10pt;">
+            <strong>① 용적률 여유가 있나?</strong> 현행 법정 용적률이 기존 건물보다 높으면 → 부수고 더 크게 짓는 <strong>재건축</strong>이 유리. 반대로 기존 건물이 이미 용적률을 꽉 채웠다면(과거 기준으로 지어져 지금은 그만큼 못 짓는 '기득권 건물') → <strong>부수는 순간 손해</strong>이므로 리모델링·컨버전이 정답이다.<br>
+            <strong>② 명도가 되나?</strong> 임차인 구성·잔여 임대차 기간이 컨버전 가능 여부를 좌우한다. 안 되면 <strong>부분 컨버전</strong>.<br>
+            <strong>③ 공사 중 캐시플로를 견딜 수 있나?</strong> 재건축은 3~5년간 임대수익 0. 이 기간의 <strong>금융비용(이자)</strong>을 감당할 자본구조인지가 사업성의 실질적 결론을 낸다.
+          </div>
+        </div>
+
+        <div class="term-box">
+          <div><span class="term-word">프로그래매틱 JV</span><span class="term-eng">Programmatic Joint Venture</span></div>
+          <div class="term-desc" style="font-size:10pt;">
+            자산 <strong>한 건</strong>을 위해 만드는 일회성 JV가 아니라, <strong>"앞으로 이 섹터에서 나오는 딜을 정해진 규칙으로 계속 같이 하자"</strong>고 총액 한도를 미리 정해두는 <strong>반복형·프로그램형 합작</strong>이다. LP(연기금)는 딜마다 새로 협상하지 않아 <strong>속도</strong>를 얻고, GP(운용사)는 <strong>확정된 자본</strong>을 등에 업고 입찰에 나설 수 있다.
+            <div class="term-example">
+              📌 <strong>이번 주 사례</strong> — CPPIB×블루코브 <strong>5,000억 호텔 JV</strong>(2026.6 결성) → 첫 자산으로 홍대 LC타워. CPPIB×MGRV <strong>5,000억 코리빙 JV</strong>(2025 초) → 왕십리 프로젝트. 자세한 구조는 4p.
+            </div>
+          </div>
+        </div>
+      </div><!-- col-half -->
+
+    </div><!-- two-col -->
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 헤럴드경제 · 더퍼블릭 · 인사이트 · 여성경제신문 · SPI · 국토교통부 건축물 용도분류 기준</div>
+    <div class="footer-page">3 / 5</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 4 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">DEEP DIVE ③</span>
+      <div class="report-title">한국 호텔 시장을 사들이는 두 외국계 — 캐피탈랜드 &amp; CPPIB</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 5주차 (Vol.18)<br>발행일: 2026.07.31
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="analysis-box" style="background:linear-gradient(135deg,#1B3A6B0D,#C9A84C14);border-color:rgba(201,168,76,0.5);margin-bottom:8px;">
+      <div class="analysis-body" style="font-size:10.5pt;">
+        🔍 <strong>지금 한국 호텔 시장의 매수 사이드는 사실상 외국계가 주도합니다.</strong> 성격은 정반대입니다. 싱가포르계 <strong>캐피탈랜드투자운용</strong>은 <strong>'브랜드를 직접 가진 운용사'</strong>로서 사자마자 자기 브랜드를 꽂습니다. 캐나다연금 <strong>CPPIB</strong>는 <strong>'브랜드는 없지만 섹터별 전문 파트너를 키우는 자본'</strong>입니다. 두 모델을 나란히 놓고 보면, 운영사를 보유한 GS P&amp;L이 어느 쪽 문법을 써야 하는지가 분명해집니다.
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT -->
+      <div class="col-half">
+        <div class="section-title">🇸🇬 캐피탈랜드투자운용 — 브랜드를 가진 매수자</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            싱가포르 <strong>캐피탈랜드인베스트먼트(CLI)</strong>의 한국 운용 법인으로, 오피스·물류·호텔·데이터센터를 모두 다룬다. 최근 <strong>한국 호텔 시장에서 가장 공격적인 외국계</strong>다. 결정적 차별점은 <strong>세계 최대 서비스드 레지던스 운영사 '아스콧(The Ascott)'을 그룹 내에 보유</strong>하고 있다는 것 — 즉 <strong>사는 사람과 운영하는 사람이 같은 회사</strong>다.
+          </div>
+        </div>
+
+        <div class="subsection-title">🏨 자체 보유 브랜드 포트폴리오 (아스콧 계열)</div>
+        <table class="grade-table grade-table-compact">
+          <thead>
+            <tr><th style="width:30%">브랜드</th><th style="width:24%">포지션</th><th>성격</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>The Crest Collection</strong></td><td><span class="gbadge g-trophy">럭셔리</span></td><td>유서 깊은 건물을 개조한 컬렉션형</td></tr>
+            <tr><td><strong>Ascott</strong> / Préférence</td><td><span class="gbadge g-prime">업스케일</span></td><td>장기체류 서비스드 레지던스 대표 브랜드</td></tr>
+            <tr><td><strong>Oakwood</strong></td><td><span class="gbadge g-prime">업스케일</span></td><td>2022년 인수. 국내 코엑스·여의도에 전개</td></tr>
+            <tr><td><strong>Somerset</strong></td><td><span class="gbadge g-a">미드스케일</span></td><td>패밀리·주재원 대상. 국내 1호(2005 종로)</td></tr>
+            <tr><td><strong>Citadines</strong> / Connect</td><td><span class="gbadge g-a">미드스케일</span></td><td>도심형. 해운대·한강 등 전개</td></tr>
+            <tr><td><strong>lyf</strong> (라이프)</td><td><span class="gbadge g-b">코리빙</span></td><td>밀레니얼 타깃 코리빙형 — 호텔·코리빙 경계 상품</td></tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box">
+          <div class="analysis-title">국내 트랙레코드 — 사서, 이름을 바꾼다</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            <strong>· 2025</strong> 서여의도 생활형숙박시설 <strong>'더코노셔 레지던스'를 약 730억원에 인수</strong> → <strong>'오크우드 여의도 파크 서울'</strong>로 리브랜딩.<br>
+            <strong>· 2026.6</strong> 그래비티자산운용으로부터 <strong>'보코 서울 명동'</strong> 인수(3,600억원대, 객실당 6억원 초중반). 일본계 ARA와 2파전 끝에 승리.<br>
+            <strong>· 2026.7</strong> <strong>호텔 카푸치노</strong>(코오롱, 논현동 141실) 우선협상대상자 선정.
+            <div class="term-example" style="margin-top:6px;">
+              👉 <strong>호텔 카푸치노도 자체 브랜드 전환이 유력</strong>하다. ①기존 운영사(코오롱 엠오디)와의 계약 정리가 비교적 단순해 <strong>명도 이슈가 적고</strong> ②141실·논현동이라는 규모·입지가 <strong>시타딘/lyf 같은 미드스케일 브랜드와 정확히 맞물린다</strong>. 전형적인 <strong>밸류애드(브랜드 교체형)</strong> 전략이다.
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-box" style="background:#FFFBF0;border-color:#E8D9A8;">
+          <div class="analysis-title">📌 왜 로컬 호텔을 사서 글로벌 브랜드를 붙이나</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            <strong>보코 서울 명동, 유니언호텔(→힐튼 태피스트리), 오라카이 대학로</strong> 등 최근 딜의 공통 문법이다. 글로벌 브랜드를 붙이면 ①<strong>글로벌 예약망·로열티 회원</strong> 유입으로 OCC(객실점유율) 상승 ②브랜드 프리미엄으로 <strong>ADR(평균객실단가) 상승</strong> → 결국 <strong>RevPAR(=OCC×ADR)</strong>가 뛴다. 자산가치는 NOI의 배수로 매겨지므로, <strong>'간판 교체'가 곧 자산가치 재평가</strong>가 되는 구조다.
+            <span style="font-size:8.5pt;color:#999;">(<a href="https://seoulpi.io/article/00513494246030073856" target="_blank">SPI 보코 서울 명동 🔗</a> · <a href="https://seoulpi.io/article/00459479712965615616" target="_blank">SPI 서여의도 730억 🔗</a>)</span>
+          </div>
+        </div>
+      </div><!-- col-half -->
+
+      <!-- RIGHT -->
+      <div class="col-half">
+        <div class="section-title">🇨🇦 CPPIB — 파트너를 키워 섹터를 넓히는 자본</div>
+
+        <div class="analysis-box">
+          <div class="analysis-body">
+            캐나다 국민연금을 운용하는 <strong>세계 10대 연기금</strong>. 한국 상업용 부동산에서의 행보는 <strong>"섹터별로 최고의 파트너를 고른 뒤, 그 파트너와 반복적으로 일한다"</strong>는 한 문장으로 요약된다. 브랜드도 운영조직도 직접 갖지 않는 대신, <strong>전문성 있는 GP를 발굴해 프로그래매틱 JV로 묶는다.</strong>
+          </div>
+        </div>
+
+        <div class="subsection-title">📈 CPPIB의 한국 섹터 확장 4단계</div>
+        <table class="grade-table grade-table-compact">
+          <thead>
+            <tr><th style="width:19%">시기</th><th style="width:25%">파트너</th><th style="width:19%">섹터</th><th>규모·비고</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2010년대 중반~</td><td>ESR켄달스퀘어</td><td><span class="gbadge g-b">물류</span></td><td>물류센터 투자 본격화. 대출펀드 4,375억 추가 투자</td></tr>
+            <tr><td>2020년대~</td><td>퍼시픽자산운용</td><td><span class="gbadge g-a">데이터센터</span></td><td>4억 달러 SMA 등 · 호텔 투자도 병행</td></tr>
+            <tr><td>2025년 초</td><td>MGRV(맹그로브)</td><td><span class="gbadge g-prime">코리빙</span></td><td><strong>5,000억 JV</strong> · CPPIB 95% : MGRV 5%. 이후 MGRV 지분 투자까지</td></tr>
+            <tr><td>2026년 6월</td><td>블루코브자산운용</td><td><span class="gbadge g-trophy">호텔</span></td><td><strong>5,000억 JV</strong> · 첫 자산 홍대 LC타워</td></tr>
+          </tbody>
+        </table>
+
+        <div class="analysis-box">
+          <div class="analysis-title">이번 주 새 소식 — 두 JV가 서로 만난다</div>
+          <div class="analysis-body">
+            SPI에 따르면, <strong>CPPIB×MGRV가 왕십리에서 추진하던 프로젝트에 CPPIB×블루코브가 합류</strong>하는 방안이 논의되고 있다. MGRV가 <strong>LG베스트샵 왕십리점</strong>을 인수해 임대주택으로 개발하려 했으나 <strong>인허가 과정에서 관광숙박시설로 계획이 변경</strong>되면서, 호텔 전문 GP인 블루코브가 주도하고 MGRV가 공동 개발하는 형태가 유력하다는 것이다.
+            <div class="term-example" style="margin-top:6px;">
+              👉 <strong>같은 LP(CPPIB) 아래 두 GP가 섹터를 넘나들며 협업</strong>하는 구조 — 프로그래매틱 JV가 성숙하면 나타나는 전형적 패턴이다. 그리고 이 사례는 <strong>"호텔과 코리빙의 경계가 인허가 단계에서 이미 무너지고 있다"</strong>는 것도 함께 보여준다.
+              <span style="font-size:8.5pt;color:#999;">(<a href="https://seoulpi.io/article/00579435197391183872" target="_blank">SPI 2026.7.30 🔗</a>)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-box" style="background:#FFFBF0;border-color:#E8D9A8;">
+          <div class="analysis-title">📌 파르나스와의 접점 — 우리 회사가 이미 링 위에 있다</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            <strong>· 호텔 카푸치노</strong> 인수전 참여 5개 파티 중 하나가 <strong>'이화자산운용–파르나스호텔'</strong>이었다. 결과적으로 캐피탈랜드에 밀렸지만, <strong>파르나스가 서울 중소형 호텔 인수 시장의 실제 플레이어로 인식되고 있다</strong>는 사실 자체가 자산이다.<br>
+            <strong>· 블루코브자산운용</strong>은 <strong>'파르나스 호텔 제주'의 투자자(운용사)</strong>다. 2025년 매각을 추진하다 철회하고 2,300억원 규모 리파이낸싱으로 펀드 만기를 연장했다. 즉 이번 LC타워 딜의 주인공은 <strong>이미 파르나스 자산을 굴려본 파트너</strong>다.
+            <span style="font-size:8.5pt;color:#999;">(<a href="https://seoulpi.io/article/00445371494610821120" target="_blank">SPI 파르나스 호텔 제주 리파이낸싱 🔗</a>)</span>
+          </div>
+        </div>
+
+        <div class="gspnl-box">
+          <div class="gspnl-title">💼 GS P&amp;L 관점 — 두 모델 사이에서 우리의 자리</div>
+          <div class="gspnl-item"><strong>①</strong> <strong>우리는 '캐피탈랜드형'에 가깝다.</strong> 파르나스라는 운영 브랜드와 실적을 이미 보유. 자본을 다 대지 못해도 <strong>'브랜드+운영'을 무기로 지분에 올라타는</strong> 방식이 가장 현실적이다.</div>
+          <div class="gspnl-item"><strong>②</strong> <strong>단, 반복 파트너 1곳을 만들어야 한다.</strong> CPPIB가 보여준 건 <strong>'한 번의 딜'이 아니라 '한 번 맺으면 계속 가는 관계'</strong>의 힘이다. 이화자산운용·블루코브 등 이미 접점이 있는 곳과 <strong>프로그래매틱 구조</strong>를 먼저 제안해 볼 만하다.</div>
+          <div class="gspnl-item"><strong>③</strong> <strong>중소형 브랜드 교체 딜을 자체 파이프라인으로.</strong> 141실급 강남 호텔이 700~800억에 거래되는 시장이다. <strong>파르나스 세컨드 브랜드</strong>를 얹을 대상으로 지속 스크리닝할 가치가 충분하다.</div>
+        </div>
+      </div><!-- col-half -->
+
+    </div><!-- two-col -->
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: SPI(2026.7.30·7.31 외) · 캐피탈랜드 코리아 · Mingtiandi · 더구루 · KOTRA 해외경제정보드림</div>
+    <div class="footer-page">4 / 5</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">RETAIL &amp; F&amp;B</span>
+      <div class="report-title">리테일 트렌드 — 디앤디파트먼트는 왜 한남을 떠나 홍대로 갔나</div>
+    </div>
+    <div class="report-meta">
+      2026년 7월 5주차 (Vol.18)<br>발행일: 2026.07.31
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="analysis-box" style="background:linear-gradient(135deg,#1B3A6B0D,#C9A84C14);border-color:rgba(201,168,76,0.5);margin-bottom:8px;">
+      <div class="analysis-body" style="font-size:10.5pt;">
+        🔍 <strong>한 소품숍의 이사가 왜 부동산 보고서에 들어가야 할까요.</strong> 디앤디파트먼트가 13년간 지켜온 한남 자리를 비우고 <strong>'누디트 홍대' 1층</strong>으로 옮겼습니다. 떠난 자리엔 러닝 브랜드 <strong>'온(On)'</strong>이 들어옵니다. 이 한 줄에 <strong>①앵커 테넌트가 상권의 정체성을 만든다 ②그 자리를 결국 자본력 있는 글로벌 브랜드가 가져간다 ③새 둥지는 자산운용사가 소유한 개발 자산이다</strong>라는 개발 시장의 세 가지 원리가 모두 들어 있습니다.
+      </div>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT -->
+      <div class="col-half">
+        <div class="section-title">🛋️ 디앤디파트먼트 A to Z — '롱 라이프 디자인'</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">누가, 왜 만들었나</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            <strong>· 창업자</strong> 일본 그래픽 디자이너 <strong>나가오카 겐메이(ナガオカケンメイ)</strong>. 일본디자인센터·드로잉앤매뉴얼을 거쳐 <strong>2000년 도쿄에서 D&amp;DEPARTMENT PROJECT를 창업</strong>했다.<br>
+            <strong>· 철학</strong> <strong>'롱 라이프 디자인(LONG LIFE DESIGN)'</strong> — <strong>"새로 만들지 않는다. 오래 살아남은 것을 다시 발견한다."</strong> 신상품을 기획하는 대신 <strong>수십 년간 형태가 바뀌지 않고 팔려온 생활용품</strong>과 <strong>중고 가구</strong>를 함께 진열해 판다. 리사이클과 디자인 아카이빙이 곧 상품기획인 셈이다.<br>
+            <strong>· 방법론</strong> 지역 단위로 <strong>'d design travel'</strong> 가이드북을 발행하고, 매장마다 그 지역의 <strong>'롱 라이프' 생산자</strong>를 발굴해 소개한다. 매장이 곧 <strong>지역 문화 편집실</strong>이다.
+          </div>
+        </div>
+
+        <div class="subsection-title">📍 국내 전개</div>
+        <table class="grade-table grade-table-compact">
+          <thead>
+            <tr><th style="width:26%">지점</th><th style="width:18%">개점</th><th>운영·특징</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>디앤디파트먼트 서울</strong></td><td>2013.11</td><td>해외 <strong>첫 지점</strong>(전 세계 8호점). 한남동, <strong>밀리미터밀리그람(MMMG)</strong> 운영. 2023년 1층까지 확장 리뉴얼</td></tr>
+            <tr><td>디앤디파트먼트 제주</td><td>2020</td><td><strong>아라리오</strong>와 협업(d&amp;department JEJU by ARARIO). 옛 건물 재생 + 지역 상품 큐레이션</td></tr>
+            <tr><td><strong>디앤디파트먼트 (홍대)</strong></td><td><strong>2026</strong></td><td><strong>'누디트 홍대' 1층으로 이전</strong> — 한남 매장 영업 종료</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:9pt;color:#888;line-height:1.45;margin:-3px 0 6px;">* 한남 매장 영업 종료·이전은 브랜드 공식 채널(<a href="https://www.instagram.com/p/DLjX_meOT3e/" target="_blank">MMMG·디앤디파트먼트 서울 공지 🔗</a>) 및 업계 확인 기준.</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">브랜드 포지셔닝 관점 — '차두리 건물'이 만든 문화 효과</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            디앤디파트먼트 서울의 위상은 <strong>건물 하나를 함께 쓴 조합</strong>에서 나왔다. 한남동 이태원로 240, <strong>차범근·차두리 부자가 2004년부터 50:50으로 공동 보유</strong>한 대지 330㎡·지하1~지상5층 건물(1975년 준공)에 <strong>커피 '앤트러사이트 한남'과 디앤디파트먼트가 나란히 입점</strong>했다.
+            <div class="term-example" style="margin-top:6px;">
+              👉 <strong>부동산 개발의 언어로 옮기면</strong> — 서로 다른 두 개의 <strong>컬처 앵커</strong>가 한 건물에 들어가 <strong>①체류시간 ②SNS 노출 ③방문 목적의 이중화</strong>를 만들어냈다. 이는 임대료 이상의 효과, 즉 <strong>건물 자체가 브랜드가 되는 '플레이스 브랜딩'</strong>이다. 그 결과 건물주는 임대료 인상 여력과 자산가치를 동시에 얻었고, 결국 <strong>대수선 후 더 높은 임대료를 낼 수 있는 임차인으로 교체</strong>하는 선택을 하게 됐다. <strong>'문화가 상권을 만들고, 그 상권이 문화를 밀어내는'</strong> 젠트리피케이션의 교과서적 경로다.
+              <span style="font-size:8.5pt;color:#999;">(<a href="https://www.eyesmag.com/posts/162003/anthracite-on" target="_blank">아이즈매거진 🔗</a>)</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-half -->
+
+      <!-- RIGHT -->
+      <div class="col-half">
+        <div class="section-title">🏃 떠난 자리·간 자리 — 온(On)과 누디트 홍대</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">① 빈자리는 '온(On)'이 채운다 — 러닝 이코노미</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            스위스 러닝 브랜드 <strong>온러닝(On)</strong>이 이 건물에 <strong>국내 첫 플래그십 스토어</strong>를 연다. 건물주는 앤트러사이트 계약 종료에 맞춰 <strong>약 300억원대 자산의 대수선 공사</strong>를 진행했다.
+            <div class="term-example" style="margin-top:6px;">
+              <strong>전망 — 나쁘지 않다. 다만 성격이 바뀐다.</strong><br>
+              · <strong>순풍</strong> 러닝 시장이 폭발적이다. 호카는 <strong>2026년 국내 연매출 1,000억원</strong>을 돌파했고, 온코리아의 숍인숍은 20개 점으로 확대됐다. 롯데는 잠실에 320평 규모 러닝 특화 매장 '나이키 라이즈'를 열었다. 백화점 채널에서 러닝 브랜드 매출은 전년 대비 <strong>60%대 신장</strong>.<br>
+              · <strong>입지 적합성</strong> 한남–남산–한강으로 이어지는 <strong>러닝 코스의 결절점</strong>이다. 러닝 크루의 <strong>집결지(런베이스)</strong>로 쓰기에 최적.<br>
+              · <strong>리스크</strong> 카페·소품숍이 만들던 <strong>'체류형' 방문</strong>이 <strong>'목적형' 방문</strong>으로 바뀐다. 주변 F&amp;B 낙수효과는 줄고 주말 집중도는 높아질 가능성.
+              <span style="font-size:8.5pt;color:#999;">(<a href="https://www.etoday.co.kr/news/view/2491965" target="_blank">이투데이 🔗</a> · <a href="https://news.nate.com/view/20260725n05284" target="_blank">러닝 이코노미 확산 🔗</a> · <a href="https://www.apparelnews.co.kr/news/news_view/?idx=216473&cat=CAT100" target="_blank">어패럴뉴스 🔗</a>)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">② 새 둥지 '누디트 홍대' — 부동산 개발 관점</div>
+          <div class="analysis-body" style="font-size:10pt;">
+            서울 마포구 서교동, <strong>지하3~지상7층·연면적 17,590㎡</strong>. 주거(코리빙 296실)+오피스+리테일이 결합된 복합문화공간이다. 1층에 테라로사·데스커·서관면옥 등이 입점해 있고, 여기에 <strong>디앤디파트먼트가 합류</strong>했다.
+            <table class="grade-table grade-table-compact" style="margin-top:6px;margin-bottom:4px;">
+              <thead><tr><th style="width:24%">역할</th><th>주체</th></tr></thead>
+              <tbody>
+                <tr><td>개발·기획·브랜드</td><td><strong>네오밸류</strong> (라이프스타일 디벨로퍼, 2023.11 오픈)</td></tr>
+                <tr><td>소유·운용 (2021~2025)</td><td><strong>이지스자산운용</strong> — 2021년 펀드 설정, 총 1,320억 투입</td></tr>
+                <tr><td>현 소유 (2025.10~)</td><td><strong>디앤디인베스트먼트(DDI, SK디앤디 계열) × 인베스코</strong> — 1,460억원</td></tr>
+              </tbody>
+            </table>
+            <div class="term-example">
+              ⚠️ <strong>흔한 오해 정정</strong> — '이지스가 개발하고 네오밸류가 투자했다'가 아니라 <strong>그 반대에 가깝다</strong>. <strong>네오밸류가 개발·기획·운영 브랜드</strong>를, <strong>이지스가 소유·펀드 운용</strong>을 맡은 구조였다. 다만 네오밸류는 <strong>2023년 말 완전자본잠식(자본총계 -353억원)</strong>에 빠질 만큼 유동성 위기를 겪으며 앨리웨이 오산 등 사업장 정리와 자산 매각에 나섰고, 이 흐름 속에서 누디트 홍대도 <strong>2025년 10월 DDI–인베스코에 1,460억원</strong>에 넘어갔다(이지스 매각차익 약 140억원).
+              <span style="font-size:8.5pt;color:#999;">(<a href="https://www.thebell.co.kr/free/content/ArticleView.asp?key=202510200325358320102330" target="_blank">더벨 엑시트 🔗</a> · <a href="https://www.creditnews.kr/news/articleView.html?idxno=326" target="_blank">한국신용신문 네오밸류 재무 🔗</a> · <a href="https://www.sedaily.com/NewsView/29X5NSLC19" target="_blank">서울경제 개관 🔗</a>)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="gspnl-box">
+          <div class="gspnl-title">💼 GS P&amp;L 관점 — 이번 주 종합 시사점</div>
+          <div class="gspnl-item"><strong>①</strong> <strong>컬처 앵커는 '임대료'가 아니라 '자산가치'로 회수된다.</strong> 디앤디파트먼트–앤트러사이트 조합이 13년간 만든 건 매출이 아니라 <strong>건물의 브랜드</strong>였다. 파르나스타워·코엑스몰 MD 구성에서 <strong>단기 임대료 최대화 vs 장기 플레이스 브랜딩</strong>의 트레이드오프를 명시적으로 계산할 필요가 있다.</div>
+          <div class="gspnl-item"><strong>②</strong> <strong>'개발사–소유주–운영사'는 분리된다.</strong> 누디트 홍대는 개발(네오밸류)·소유(이지스→DDI·인베스코)·운영이 각각 다른 주체다. GS P&amp;L이 자기자본 부담 없이 <strong>운영·기획 레이어</strong>만으로 참여하는 딜 모델이 실제로 시장에 존재한다는 증거다.</div>
+          <div class="gspnl-item"><strong>③</strong> <strong>이번 주 전 사례를 관통하는 한 문장</strong> — 케이스퀘어 홍대·LC타워·두산타워·호텔 카푸치노는 모두 <strong>"기존 용도로는 한계에 부딪힌 건물을, 호텔·체류형으로 바꿔 값을 다시 매기는" 딜</strong>이었다. <strong>운영 역량을 가진 쪽이 그 재평가의 몫을 가져간다.</strong> 우리가 링 위에 있어야 할 이유다.</div>
+        </div>
+      </div><!-- col-half -->
+
+    </div><!-- two-col -->
+  </div><!-- page-body -->
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 아이즈매거진 · 이투데이 · 어패럴뉴스 · 더벨 · 서울경제 · 한국신용신문 · SPI 시티폴리오 트렌드 브리핑(2026.7.30) · D&amp;DEPARTMENT/MMMG 공식 채널</div>
+    <div class="footer-page">5 / 5</div>
+  </div>
+</div>
+
+</body>
+</html>
