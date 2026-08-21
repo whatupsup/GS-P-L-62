@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서 (2026-08-21)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  :root { color-scheme: light; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page { size: A4 landscape; margin: 0; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 10.5pt;
+    color: #333;
+    background: #e8ecf0;
+    padding: 16px 0;
+  }
+
+  /* ===== PAGE ===== */
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    overflow: visible;
+    background: #ffffff;
+    margin: 0 auto 10mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 22px rgba(0,0,0,0.12);
+  }
+
+  @media screen {
+    .page { zoom: 1.22; }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page {
+      height: 210mm;
+      min-height: unset;
+      overflow: hidden;
+      margin: 0;
+      page-break-after: always;
+      zoom: 1;
+    }
+    .page:last-child { page-break-after: avoid; }
+  }
+
+  /* ===== HEADER ===== */
+  .report-header {
+    background: #1B3A6B;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 32px;
+    flex-shrink: 0;
+  }
+
+  .header-left { display: flex; align-items: center; gap: 8px; }
+
+  .header-badge {
+    background: #C9A84C;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 900;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .report-title {
+    font-size: 13.5pt;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .report-meta {
+    text-align: right;
+    font-size: 9pt;
+    opacity: 0.85;
+    line-height: 1.6;
+  }
+
+  /* ===== PAGE BODY ===== */
+  .page-body {
+    padding: 6px 10mm 6px 10mm;
+    flex: 1;
+  }
+
+  /* ===== SNAPSHOT ROW ===== */
+  .snapshot-row {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+
+  .snapshot-card {
+    flex: 1;
+    background: #F4F6FB;
+    border-radius: 7px;
+    padding: 6px 9px;
+    text-align: center;
+    border-top: 3px solid #1B3A6B;
+  }
+
+  .snapshot-label { font-size: 8.5pt; color: #666; margin-bottom: 1px; line-height: 1.2; }
+  .snapshot-value { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.0; }
+  .snapshot-change { font-size: 8.5pt; margin-top: 0px; font-weight: 600; line-height: 1.3; }
+  .snapshot-footnote { font-size: 8.5pt; color: #999; line-height: 1.3; margin-top: -3px; margin-bottom: 7px; }
+  .snapshot-sub { font-size: 8.5pt; color: #999; margin-top: 0px; line-height: 1.2; }
+  .up { color: #C53030; }
+  .down { color: #2B6CB0; }
+  .flat { color: #718096; }
+
+  /* ===== TWO COL ===== */
+  .two-col {
+    display: flex;
+    gap: 11px;
+    align-items: flex-start;
+  }
+
+  .col-55 { flex: 55; }
+  .col-45 { flex: 45; }
+  .col-half { flex: 1; }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    border-left: 4px solid #C9A84C;
+    padding-left: 8px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  /* ===== NEWS ===== */
+  .news-item {
+    border-bottom: 1px solid #E8ECF2;
+    padding: 6px 0;
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .news-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
+  .news-tag {
+    flex-shrink: 0;
+    display: inline-block;
+    color: white;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-top: 1px;
+  }
+  .tag-hotel  { background: #6B3FA0; }
+  .tag-dc     { background: #1A5276; }
+  .tag-office { background: #1E6C3F; }
+  .tag-fund   { background: #9A3412; }
+  .tag-retail { background: #7B5800; }
+
+  .news-title { font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35; }
+  .news-body  { font-size: 10.5pt; color: #555; line-height: 1.5; margin-bottom: 2px; }
+  .news-point { font-size: 10pt; color: #B8860B; font-weight: 600; line-height: 1.4; }
+  .news-source { font-size: 8.5pt; color: #bbb; margin-top: 2px; }
+  .news-source a { color: #999; text-decoration: underline; }
+
+  /* ===== DEAL CARDS ===== */
+  .deal-card {
+    background: #FAFBFD;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+  .deal-card:last-child { margin-bottom: 0; }
+
+  .deal-tag {
+    display: inline-block;
+    background: #EBF0FB;
+    color: #1B3A6B;
+    font-size: 8.5pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }
+
+  .deal-name { font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3; margin-bottom: 4px; }
+
+  .deal-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 9px;
+    font-size: 10pt;
+    margin-bottom: 4px;
+  }
+  .deal-meta-item { color: #777; line-height: 1.4; }
+  .deal-meta-item strong { color: #333; }
+
+  .deal-desc { font-size: 10pt; color: #555; line-height: 1.5; }
+
+  /* ===== TERM BOX ===== */
+  .term-box {
+    background: linear-gradient(135deg, rgba(27,58,107,0.04), rgba(201,168,76,0.04));
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 8px;
+    padding: 8px 11px;
+    margin-bottom: 7px;
+  }
+
+  .term-word { font-size: 14pt; font-weight: 900; color: #1B3A6B; }
+  .term-eng  { font-size: 10pt; color: #C9A84C; font-weight: 700; margin-left: 5px; }
+  .term-sub  { font-size: 12pt; font-weight: 700; color: #1B3A6B; margin-top: 3px; }
+
+  .term-desc {
+    font-size: 10.5pt;
+    color: #444;
+    line-height: 1.6;
+    margin-top: 4px;
+  }
+
+  .term-example {
+    font-size: 10pt;
+    color: #555;
+    background: #fff;
+    border-left: 3px solid #C9A84C;
+    padding: 4px 7px;
+    margin-top: 5px;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
+  }
+
+  /* ===== TABLE ===== */
+  .subsection-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin: 5px 0 4px;
+  }
+
+  .grade-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 7px;
+  }
+
+  .grade-table th {
+    background: #1B3A6B;
+    color: white;
+    font-size: 9.5pt;
+    font-weight: 600;
+    padding: 4px 7px;
+    text-align: left;
+  }
+
+  .grade-table td {
+    font-size: 9.5pt;
+    padding: 3.5px 7px;
+    border-bottom: 1px solid #E8ECF2;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .grade-table tr:nth-child(even) td { background: #F8F9FC; }
+
+  .grade-table-compact th { padding: 2.5px 6px; }
+  .grade-table-compact td { padding: 2px 6px; line-height: 1.25; }
+
+  .gbadge {
+    display: inline-block;
+    color: white;
+    font-size: 9pt;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .g-trophy { background: #7D5A1E; }
+  .g-prime  { background: #1B3A6B; }
+  .g-a      { background: #1E6C3F; }
+  .g-b      { background: #718096; }
+  .g-c      { background: #A0AEC0; }
+
+  /* ===== ANALYSIS BOX ===== */
+  .analysis-box {
+    background: #F6F8FC;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+  }
+
+  .analysis-title {
+    font-size: 11pt;
+    font-weight: 700;
+    color: #1B3A6B;
+    margin-bottom: 4px;
+    padding-left: 7px;
+    border-left: 3px solid #C9A84C;
+  }
+
+  .analysis-body { font-size: 10.5pt; color: #444; line-height: 1.6; }
+
+  .conflict-row {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0;
+    align-items: stretch;
+  }
+
+  .conflict-party {
+    flex: 1;
+    background: white;
+    border: 1px solid #D5E0F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .conflict-party-name { font-size: 10pt; font-weight: 700; color: #1B3A6B; margin-bottom: 3px; }
+  .conflict-party-body { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  .conflict-vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11pt;
+    font-weight: 900;
+    color: #C9A84C;
+    flex-shrink: 0;
+    width: 22px;
+  }
+
+  /* ===== TREND GRID ===== */
+  .trend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 7px;
+  }
+
+  .trend-card {
+    background: #fff;
+    border: 1px solid #E0E8F0;
+    border-radius: 6px;
+    padding: 5px 8px;
+  }
+
+  .trend-card-label {
+    font-size: 9pt;
+    color: #888;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+
+  .trend-card-text { font-size: 10.5pt; color: #333; line-height: 1.45; }
+
+  /* ===== GS P&L BOX ===== */
+  .gspnl-box {
+    background: #1B3A6B;
+    border-radius: 7px;
+    padding: 7px 10px;
+  }
+
+  .gspnl-title { font-size: 10.5pt; font-weight: 700; color: #C9A84C; margin-bottom: 5px; }
+  .gspnl-item  {
+    font-size: 10.5pt;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.55;
+    padding-left: 13px;
+    text-indent: -13px;
+    margin-bottom: 3px;
+  }
+  .gspnl-item:last-child { margin-bottom: 0; }
+  .gspnl-body { font-size: 10.5pt; color: rgba(255,255,255,0.92); line-height: 1.7; }
+  .gspnl-body strong { color: #C9A84C; }
+  .gspnl-item strong { color: #C9A84C; }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    padding: 4px 10mm;
+    border-top: 1px solid #E8ECF2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-source { font-size: 8.5pt; color: #bbb; line-height: 1.5; }
+  .footer-page   { font-size: 8.5pt; color: #aaa; font-weight: 700; white-space: nowrap; }
+
+  /* ===== TIMELINE ===== */
+  .tl-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 3.5px 0;
+    border-bottom: 1px dashed #E0E8F0;
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-date {
+    flex-shrink: 0;
+    width: 66px;
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #C9A84C;
+    line-height: 1.4;
+  }
+  .tl-text { font-size: 9.5pt; color: #444; line-height: 1.45; }
+
+  a.news-title {
+    font-size: 11pt; font-weight: 700; color: #1a1a2e; line-height: 1.35;
+    text-decoration: none; display: block;
+  }
+  a.news-title:hover { color: #1B3A6B; text-decoration: underline; }
+  a.deal-name {
+    font-size: 11pt; font-weight: 700; color: #1B3A6B; line-height: 1.3;
+    margin-bottom: 4px; text-decoration: none; display: block;
+  }
+  a.deal-name:hover { text-decoration: underline; }
+  a { color: inherit; text-decoration: underline; }
+
+  /* ===== ADDED (Vol.20) ===== */
+  .intro-banner {
+    background: linear-gradient(90deg, #1B3A6B 0%, #2A5390 100%);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-left: 5px solid #C9A84C;
+  }
+  .intro-banner-title { font-size: 12.5pt; font-weight: 900; color: #C9A84C; margin-bottom: 3px; line-height: 1.3; }
+  .intro-banner-body  { font-size: 10.5pt; color: rgba(255,255,255,0.93); line-height: 1.55; }
+  .intro-banner-body strong { color: #F0DFA8; }
+
+  .three-col { display: flex; gap: 9px; align-items: stretch; }
+  .three-col > div { flex: 1; }
+
+  .case-card {
+    background: #FAFBFD;
+    border: 1px solid #D5E0F0;
+    border-radius: 7px;
+    border-top: 4px solid #1B3A6B;
+    padding: 7px 9px;
+    display: flex;
+    flex-direction: column;
+  }
+  .case-card.gold { border-top-color: #C9A84C; }
+  .case-card.green { border-top-color: #1E6C3F; }
+  .case-name { font-size: 11pt; font-weight: 900; color: #1B3A6B; line-height: 1.3; margin-bottom: 2px; }
+  .case-sub  { font-size: 9pt; color: #8A94A6; font-weight: 700; margin-bottom: 4px; }
+  .case-body { font-size: 10pt; color: #444; line-height: 1.5; }
+  .case-body strong { color: #1B3A6B; }
+  .case-verdict {
+    margin-top: 5px; font-size: 9.5pt; font-weight: 700; color: #7D5A1E;
+    background: #FBF6E8; border-radius: 4px; padding: 3px 6px; line-height: 1.4;
+  }
+
+  .why-row {
+    display: flex; gap: 8px; align-items: flex-start;
+    padding: 5px 0; border-bottom: 1px dashed #E0E8F0;
+  }
+  .why-row:last-child { border-bottom: none; }
+  .why-num {
+    flex-shrink: 0; width: 21px; height: 21px; border-radius: 50%;
+    background: #1B3A6B; color: #fff; font-size: 10pt; font-weight: 900;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .why-text { font-size: 10.5pt; color: #444; line-height: 1.5; }
+  .why-text b { color: #1B3A6B; }
+
+  .ref-box {
+    background: #FBF6E8; border: 1px solid #E3D2A0; border-left: 4px solid #C9A84C;
+    border-radius: 0 6px 6px 0; padding: 6px 9px; margin-bottom: 7px;
+  }
+  .ref-box-title { font-size: 10pt; font-weight: 800; color: #7D5A1E; margin-bottom: 3px; }
+  .ref-box-body  { font-size: 10pt; color: #5B4715; line-height: 1.5; }
+
+  .mini-kpi { display: flex; gap: 7px; margin-bottom: 7px; }
+  .mini-kpi-card {
+    flex: 1; background: #F4F6FB; border-radius: 6px; padding: 5px 7px; text-align: center;
+    border-left: 3px solid #C9A84C;
+  }
+  .mini-kpi-label { font-size: 8.5pt; color: #777; line-height: 1.25; }
+  .mini-kpi-value { font-size: 14pt; font-weight: 900; color: #1B3A6B; line-height: 1.15; }
+  .mini-kpi-sub   { font-size: 8.5pt; color: #999; line-height: 1.25; }
+
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin: 5px 0; }
+  .price-cell {
+    background: #fff; border: 1px solid #E0E8F0; border-radius: 5px;
+    padding: 4px 6px; text-align: center;
+  }
+  .price-cell-label { font-size: 9pt; color: #888; line-height: 1.25; }
+  .price-cell-value { font-size: 11pt; font-weight: 800; color: #1B3A6B; line-height: 1.25; }
+
+</style>
+<body>
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">GS P&amp;L 신사업</span>
+      <div class="report-title">GS 피앤엘 신사업 검토 : 부동산 개발 시장 동향 보고서</div>
+    </div>
+    <div class="report-meta">
+      2026년 8월 3주차 (Vol.21)<br>발행일: 2026.08.21
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- SNAPSHOT ROW -->
+    <div class="snapshot-row">
+      <div class="snapshot-card">
+        <div class="snapshot-label">서울 오피스 공실률 (2026년 2분기)</div>
+        <div class="snapshot-value">6.5%</div>
+        <div class="snapshot-change up">▲ 전분기 +0.4%p · CBD 7.3%</div>
+        <div class="snapshot-sub">그런데 GBD 초대형 오피스는 <b>0.3%</b> — 양극화의 숫자</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">영등포 타임스퀘어 오피스 우협가(평당)</div>
+        <div class="snapshot-value">2,500만</div>
+        <div class="snapshot-change down">▼ YBD 최고가(하나증권 사옥) 3,840만원의 65%</div>
+        <div class="snapshot-sub">명동·홍대 코어 자산(5,000만원대) 대비 <b>약 1/2</b></div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">부산 센텀 C부지 대지면적</div>
+        <div class="snapshot-value">16,515㎡</div>
+        <div class="snapshot-change flat">◆ 용적률 1,150% · 건폐율 50% (60~70층 가능)</div>
+        <div class="snapshot-sub">이지스, 신세계센트럴 위탁운용사 <b>우협 선정</b>(8/20)</div>
+      </div>
+      <div class="snapshot-card">
+        <div class="snapshot-label">호카 국내 총판 매출(조이웍스, 2025년)</div>
+        <div class="snapshot-value">1,065억</div>
+        <div class="snapshot-change up">▲ 2022년 249억 대비 3년 만에 4.3배</div>
+        <div class="snapshot-sub">새 총판은 <b>이랜드</b> — 8/20 데커스 공식 발표</div>
+      </div>
+    </div>
+    <div class="snapshot-footnote">
+      출처: <a href="https://www.venturesquare.net/1105438" target="_blank">쿠시먼앤드웨이크필드 2Q26 서울 오피스 마켓비트</a> ·
+      <a href="https://www.apnews.kr/news/articleView.html?idxno=3048971" target="_blank">AP신문(타임스퀘어 우협)</a> ·
+      <a href="https://seoulpi.io/article/00587292596952920064" target="_blank">서울프라퍼티인사이트(SPI)</a> ·
+      <a href="https://www.bloter.net/news/articleView.html?idxno=670628" target="_blank">블로터(호카 총판)</a>
+    </div>
+
+    <div class="two-col">
+
+      <!-- LEFT: NEWS -->
+      <div class="col-55">
+        <div class="section-title">📰 이번 주 메인 뉴스 — 오피스 호황의 '뒷면', 서부권역은 왜 외면받나</div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">유찰</span>
+            <a class="news-title" href="https://www.apnews.kr/news/articleView.html?idxno=3048971" target="_blank">영등포 타임스퀘어 A·B동 — 우협까지 갔지만 또 '딜 클로징'을 넘지 못했다</a>
+          </div>
+          <div class="news-body">연면적 <b>3만 9,008㎡</b>, 임대율 <b>99.9%</b>, 전용률 <b>70%</b>(여의도 평균 45%). 스펙만 보면 우량 자산인데, 2024년 1차 매각은 입찰 참여자 확보에 실패했고 올해 재추진에서 제이알투자운용이 <b>평당 약 2,500만원(약 3,000억원)</b>으로 우협에 올랐으나 8월 현재까지 거래 종결 소식은 확인되지 않는다.</div>
+          <div class="news-point">▸ 코람코 매입가(2019년 약 2,750억)와 견주면 <b>7년간 사실상 제자리</b>. 같은 기간 서울 오피스는 약 40% 올랐다.</div>
+          <div class="news-source">출처: <a href="https://www.apnews.kr/news/articleView.html?idxno=3048971" target="_blank">AP신문</a> · <a href="https://www.hankyung.com/article/2026031774941" target="_blank">한국경제</a> · <a href="https://www.etoday.co.kr/news/view/2582783" target="_blank">이투데이(딜 클로징 난항)</a></div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">난항</span>
+            <a class="news-title" href="https://seoulpi.io/article/00506233601774092288" target="_blank">신도림 센터포인트 웨스트 — 매각이 아니라 '매각 자문사 선정'부터 막혔다</a>
+          </div>
+          <div class="news-body">지하 7층~지상 40층, 복합 연면적 <b>30만 5,934㎡</b>의 서남권 랜드마크. KB자산운용이 2021년 1호 리츠로 담았고, 그 이전엔 마스턴·아센다스도 엑시트에 애를 먹었다. 업계에서는 <b>매각 자문사 선정 입찰에조차 제안서가 들어오지 않았다</b>는 이야기가 나온다.</div>
+          <div class="news-point">▸ 같은 주, CBD의 '르네스퀘어'는 매각 용역 제안에 주요 자문사가 총출동했다. <b>같은 서울, 정반대의 온도</b>.</div>
+          <div class="news-source">출처: <a href="https://seoulpi.io/article/00506233601774092288" target="_blank">SPI</a> · <a href="https://www.ebn.co.kr/news/articleView.html?idxno=1456270" target="_blank">EBN</a></div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-fund">우협</span>
+            <a class="news-title" href="https://seoulpi.io/article/00587292596952920064" target="_blank">이지스, 신세계센트럴 '부산 센텀 C부지' 복합개발 위탁운용사 선정</a>
+          </div>
+          <div class="news-body">해운대 센텀시티의 <b>마지막 노른자</b>(우동 1492, 대지 16,515㎡)를 조 단위 복합시설로 개발하는 사업. 호텔·시니어 레지던스·오피스·리테일이 검토되고 있으며 2026년 하반기 착공이 목표다. 이지스는 <b>역삼 센터필드·마곡 원그로브</b>에서 보여준 대형 복합개발 운용 역량을 인정받았다.</div>
+          <div class="news-point">▸ 올해 이지스: 케이트윈타워 우협(1조), 두산타워 인수(9,000억), 타임워크 명동 우협(골드만삭스와 컨소시엄). <b>불안설이 무색한 저력</b>.</div>
+          <div class="news-source">출처: <a href="https://seoulpi.io/article/00587292596952920064" target="_blank">SPI</a> · <a href="https://biz.heraldcorp.com/article/10730006" target="_blank">헤럴드경제</a></div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-office">임차</span>
+            <a class="news-title" href="https://www.newsis.com/view/NISX20260413_0003588797" target="_blank">G마켓, 강남 GFC 떠나 성수 '에이엠플러스'로 — 신세계 오피스 브랜드 '스탈릿'의 2호</a>
+          </div>
+          <div class="news-body">G마켓은 2010년부터 써 온 강남파이낸스센터(GFC) 4개층을 비우고 <b>2026년 하반기(10월 유력)</b> 성수동 에이엠플러스 오피스로 본사를 옮긴다. 이 자산은 캡스톤자산운용과 신세계프라퍼티가 상반기 조성한 <b>중소형 블라인드 펀드</b>로 인수한 개발 프로젝트로, <b>'스탈릿 성수 N'</b>으로 네이밍될 예정이다.</div>
+          <div class="news-point">▸ 저층부에는 스타벅스·이마트24 등 <b>신세계 그룹 콘텐츠</b>가 들어간다. 중소형 오피스에 '브랜드+계열 리테일'을 얹는 전략 (→ 4페이지).</div>
+          <div class="news-source">출처: <a href="https://www.newsis.com/view/NISX20260413_0003588797" target="_blank">뉴시스</a> · <a href="https://www.shinsegaeproperty.com/ko/propertysad/business/starlit.do" target="_blank">신세계프라퍼티 스탈릿</a></div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-retail">총판</span>
+            <a class="news-title" href="https://biz.heraldcorp.com/article/10846435" target="_blank">호카 새 국내 총판은 '이랜드' — 8개월 분쟁 끝에 데커스가 손을 들어줬다</a>
+          </div>
+          <div class="news-body">데커스브랜즈 APAC 법인이 8월 20일 <b>이랜드</b>를 호카의 새 국내 총판으로 공식 선임했다. 기존 총판 조이웍스는 대표 폭행 사건 이후 계약 해지를 통보받고 ICDR 중재로 맞섰으며, 8월 10일 기자회견까지 열었던 사안이다.</div>
+          <div class="news-point">▸ 이랜드는 뉴발란스를 <b>연 250억 → 1조</b>로 키운 회사. 러닝 붐이 만든 1조 시장의 주인이 바뀌었다 (→ 5페이지).</div>
+          <div class="news-source">출처: <a href="https://biz.heraldcorp.com/article/10846435" target="_blank">헤럴드경제</a> · <a href="https://www.hankyung.com/article/202608201650g" target="_blank">한국경제</a> · <a href="https://www.sedaily.com/article/20081440" target="_blank">서울경제</a></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: DEALS -->
+      <div class="col-45">
+        <div class="section-title">🏗️ 이번 주 주목할 딜 (8/15~8/21)</div>
+
+        <div class="deal-card">
+          <span class="deal-tag">복합개발 · 우선협상대상자</span>
+          <a class="deal-name" href="https://seoulpi.io/article/00587292596952920064" target="_blank">부산 센텀 C부지 복합개발 — 이지스 우협</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item"><strong>발주</strong> 신세계센트럴</div>
+            <div class="deal-meta-item"><strong>위탁운용</strong> 이지스자산운용</div>
+            <div class="deal-meta-item"><strong>대지</strong> 16,515㎡</div>
+            <div class="deal-meta-item"><strong>착공목표</strong> 2026년 하반기</div>
+          </div>
+          <div class="deal-desc">용적률 <b>1,150%</b>·건폐율 50%로 이론상 60~70층이 가능한 부지. 2021년 구상 당시엔 <b>80층·340m·연면적 26만㎡·총사업비 1조원</b>급 타워안이 거론됐다. (주)신세계가 <b>서울 고속터미널 재개발</b>과 함께 최우선으로 꼽는 프로젝트.</div>
+        </div>
+
+        <div class="deal-card">
+          <span class="deal-tag">오피스 · 클로징 난항</span>
+          <a class="deal-name" href="https://www.apnews.kr/news/articleView.html?idxno=3048971" target="_blank">영등포 타임스퀘어 A·B동 — 평당 2,500만원 우협</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item"><strong>매도자</strong> 코람코자산신탁(코크렙51호)</div>
+            <div class="deal-meta-item"><strong>우협</strong> 제이알투자운용</div>
+            <div class="deal-meta-item"><strong>거래가</strong> 약 3,000억원</div>
+            <div class="deal-meta-item"><strong>대출만기</strong> 2026년 10월</div>
+          </div>
+          <div class="deal-desc">주요 임차인은 <b>효성ITX·KTcs·에즈금융서비스·신한카드</b> — 전형적인 <b>콜센터/BPO향</b> 구성이다. 임대율 99.9%로 현금흐름은 안정적이지만, 투자자 모집 단계에서 번번이 발목이 잡힌다.</div>
+        </div>
+
+        <div class="deal-card">
+          <span class="deal-tag">오피스 · 매각 준비</span>
+          <a class="deal-name" href="https://seoulpi.io/article/00506233601774092288" target="_blank">신도림 센터포인트 웨스트 — 자문사 선정 단계에서 정체</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item"><strong>소유</strong> KB자산운용 1호 리츠</div>
+            <div class="deal-meta-item"><strong>규모</strong> 지하7~지상40층</div>
+            <div class="deal-meta-item"><strong>연면적</strong> 30만 5,934㎡(복합)</div>
+            <div class="deal-meta-item"><strong>과거소유</strong> 마스턴 → 아센다스</div>
+          </div>
+          <div class="deal-desc">판매동(테크노마트)과 사무동이 붙어 있는 복합 구조. 삼성카드·우리카드·교보생명 등 <b>신용도 높은 임차인</b>을 갖췄음에도 "엑시트가 어렵기로 유명한 자산"이라는 꼬리표가 붙었다.</div>
+        </div>
+
+        <div class="deal-card">
+          <span class="deal-tag">물류 · 우선협상대상자</span>
+          <a class="deal-name" href="https://seoulpi.io/article/00587265640475684864" target="_blank">이천 백사 물류센터 — 켄달스퀘어 우협</a>
+          <div class="deal-meta">
+            <div class="deal-meta-item"><strong>매도자</strong> 미래에셋 · 골드만삭스</div>
+            <div class="deal-meta-item"><strong>매수자</strong> 켄달스퀘어</div>
+            <div class="deal-meta-item"><strong>섹터</strong> 저온·상온 물류</div>
+            <div class="deal-meta-item"><strong>발표</strong> 2026.08.20</div>
+          </div>
+          <div class="deal-desc">CBRE 조사에서 <b>선호 섹터 2위(25%)</b>인 물류는 여전히 원매자가 붙는다. 같은 주 서부권 오피스가 자문사조차 못 구한 것과 대비되는 장면.</div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">🧭 이번 주 한 줄 요약</div>
+          <div class="analysis-body">시장은 "오피스가 좋다"고 말하지만, 정확히는 <b>"어떤 오피스"가 좋은 것</b>이다. 임대율 99.9%·전용률 70%의 타임스퀘어가 평당 2,500만원에도 안 팔리는 동안, 여의도 하나증권 사옥은 평당 3,840만원에 팔렸다. <b>공실이 아니라 '임차인의 미래'가 값을 매기는 시대</b>다.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울프라퍼티인사이트(SPI), 쿠시먼앤드웨이크필드, 한국경제, 헤럴드경제, 뉴시스, AP신문, 이투데이, 블로터</div>
+    <div class="footer-page">1 / 5</div>
+  </div>
+</div>
+
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">DEEP DIVE ①</span>
+      <div class="report-title">시장이 외면하는 오피스 — 서부권역(영등포·구로) 자산의 해부</div>
+    </div>
+    <div class="report-meta">
+      2026년 8월 3주차 (Vol.21)<br>발행일: 2026.08.21
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="intro-banner">
+      <div class="intro-banner-title">같은 서울, 같은 A급 오피스. 그런데 값은 절반이다</div>
+      <div class="intro-banner-body">
+        지난 몇 주 우리 보고서는 GBD·CBD의 <strong>트로피 에셋과 프라임 오피스</strong>가 얼마나 잘 팔리는지를 다뤘다. 이번 주는 그 정반대편을 본다. 영등포·구로의 오피스는 <strong>공실이 거의 없는데도</strong> 매각 자문사조차 구하지 못한다. 이번 딥다이브는 "서부권은 안 된다"는 인상을 <strong>다섯 개의 구조적 원인</strong>으로 분해하고, 그것이 평단가에 어떻게 찍히는지 숫자로 확인한다.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-55">
+        <div class="section-title">🔎 서부권 오피스가 소외되는 5가지 구조적 원인</div>
+
+        <div class="why-row">
+          <div class="why-num">1</div>
+          <div class="why-text"><b>임차인이 '콜센터·BPO'에 쏠려 있다.</b> 타임스퀘어의 주요 임차인은 효성ITX·KTcs·에즈금융서비스다. 콜센터는 <b>임대료 민감도가 극단적으로 높은</b> 업종이라 조금만 임대료를 올려도 더 싼 지역으로 옮긴다. 임대인 입장에서는 임대율은 높지만 <b>임대료를 올릴 수 없는 임차인</b>을 안고 있는 셈이다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">2</div>
+          <div class="why-text"><b>그 콜센터가 AI로 대체되는 중이다.</b> 투자자가 보는 건 현재 임대율이 아니라 <b>10년 뒤의 임차 수요</b>다. AI 상담 도입이 본격화되면서 콜센터 좌석 수 자체가 줄어들 가능성이 제기된다. "지금 99.9%인데 5년 뒤에도 그럴까"라는 질문에 <b>확신을 줄 수 없는 자산</b>은 IC(투자심의위원회)를 통과하기 어렵다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">3</div>
+          <div class="why-text"><b>구분소유가 발목을 잡는다.</b> 타임스퀘어는 백화점·쇼핑몰·오피스가 한 단지에 얽힌 <b>구분소유 자산</b>이다. 리모델링·시설 개선 하나를 하려 해도 다른 소유자의 동의가 필요하고, 공용부 관리비 분담도 협의 대상이다. <b>내 뜻대로 자산을 못 바꾼다</b>는 것은 밸류애드 투자자에게 치명적이다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">4</div>
+          <div class="why-text"><b>임대료 '천장'이 낮아 밸류애드 여지가 없다.</b> 밸류애드는 "고쳐서 임대료를 올린다"는 전략인데, 서부권은 애초에 올릴 수 있는 상단이 막혀 있다. 아무리 잘 고쳐도 CBD·GBD 임대료를 받을 수 없다면 <b>CAPEX를 회수할 시나리오가 안 그려진다</b>. 이것이 "차라리 손대지 말자"는 판단으로 이어진다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">5</div>
+          <div class="why-text"><b>매수자 풀 자체가 존재하지 않는다.</b> 우리는 이미 <b>일산 벨라시타 사례(Vol.20)</b>에서 "숫자가 좋아도 LP를 설득 못 해 딜이 깨지는" 장면을 봤다. 서부권 오피스도 같다. GP가 사고 싶어도 <b>연기금·공제회가 "왜 하필 구로냐"</b>고 물으면 답이 궁색해진다. 자산의 문제 이전에 <b>자금의 문제</b>다.</div>
+        </div>
+
+        <div class="subsection-title">📊 권역별 오피스 거래 평단가 비교 — 격차는 2~2.4배</div>
+        <table class="grade-table grade-table-compact">
+          <tr><th style="width:26%">자산 / 권역</th><th style="width:19%">평당 거래가</th><th>비고</th></tr>
+          <tr><td><span class="gbadge g-trophy">코어</span> 명동 하이드파크·타임워크 명동</td><td><b>5,000만원대</b></td><td>호텔 전환 수요까지 붙은 CBD 코어 (Vol.19·20)</td></tr>
+          <tr><td><span class="gbadge g-prime">프라임</span> 성수 팩토리얼 성수</td><td><b>4,000만원+</b></td><td>성수동 최고가 · 교보AIM 인수</td></tr>
+          <tr><td><span class="gbadge g-prime">프라임</span> 여의도 하나증권 사옥</td><td><b>3,840만원</b></td><td>2Q26 YBD 역대 최고가 (약 8,100억원)</td></tr>
+          <tr><td><span class="gbadge g-a">평균</span> 서울 전체 평균 (2Q26)</td><td><b>2,719만원</b></td><td>전분기 대비 −11.1% (비코어 거래 증가 영향)</td></tr>
+          <tr><td><span class="gbadge g-b">서부권</span> 영등포 타임스퀘어 A·B동</td><td><b>2,500만원</b></td><td>우협 기준 · 시장 거론가는 2,000~2,200만원대</td></tr>
+          <tr><td><span class="gbadge g-c">서부권</span> 구로·영등포 일반 오피스</td><td><b>1,500~2,000만원</b></td><td>코어 대비 <b>1/2 ~ 1/4</b> 수준</td></tr>
+        </table>
+        <div class="news-source">출처: <a href="https://www.venturesquare.net/1105438" target="_blank">쿠시먼앤드웨이크필드 2Q26</a> · <a href="https://www.ajunews.com/view/20260812094828233" target="_blank">아주경제</a> · <a href="https://www.apnews.kr/news/articleView.html?idxno=3048971" target="_blank">AP신문</a> · <a href="https://seoulpi.io/article/00484732756658245632" target="_blank">SPI(팩토리얼 성수)</a> · 본 보고서 Vol.19·20</div>
+      </div>
+
+      <div class="col-45">
+        <div class="section-title">📖 이번 주 용어 — 안 팔리는 자산을 읽는 두 개의 렌즈</div>
+
+        <div class="term-box">
+          <div><span class="term-word">전용률</span><span class="term-eng">Efficiency Ratio · 專用率</span></div>
+          <div class="term-desc">
+            건물의 <b>연면적(또는 임대면적) 대비 실제로 임차인이 쓰는 전용면적의 비율</b>. 계단·엘리베이터·화장실·기계실 같은 공용부를 빼고 남는 '진짜 사무공간'이 얼마나 되느냐를 나타낸다. 국내 오피스는 통상 <b>45~55%</b>(연면적 기준) 선이며, 코어(엘리베이터·계단실)를 한쪽으로 몰거나 기준층을 넓히면 전용률이 올라간다.
+          </div>
+          <div class="term-example">
+            <b>왜 중요한가:</b> 임차인은 <b>임대면적</b> 기준으로 임대료를 낸다. 같은 평당 임대료라도 전용률이 낮으면 <b>실제 쓰는 면적당 비용</b>은 확 올라간다. 그래서 전용률은 임차 경쟁력이자, 곧 임대인의 가격 결정력이다.
+          </div>
+          <div class="term-example">
+            <b>이번 주 사례의 역설:</b> 타임스퀘어 오피스의 전용률은 <b>70%</b>로 여의도 평균 45%를 크게 웃돈다. <b>스펙은 최상급인데 값은 최하위권</b> — 전용률조차 입지와 임차인 구성 앞에서는 결정 변수가 되지 못한다는 것을 보여주는 사례다.
+          </div>
+        </div>
+
+        <div class="term-box">
+          <div><span class="term-word">구분소유</span><span class="term-eng">Strata Title · 區分所有</span></div>
+          <div class="term-desc">
+            하나의 건물을 <b>층·호실 단위로 쪼개 각각 다른 사람이 소유</b>하는 형태. 전유부분(내 호실)과 공용부분(로비·주차장·설비)이 나뉘고, 공용부분은 <b>지분 비율대로 공동 소유</b>한다. 대형 복합단지에서 백화점·쇼핑몰·오피스가 각각 다른 주인을 갖는 경우가 대표적이다.
+          </div>
+          <div class="term-example">
+            <b>실무에서 무엇이 문제인가:</b> ① 대수선·리뉴얼에 다른 구분소유자 <b>동의</b>가 필요하고 ② 공용부 관리비 분담을 두고 <b>이해가 충돌</b>하며 ③ 자산 전체를 통으로 사고파는 <b>일괄 매각이 사실상 불가능</b>하다. 결국 매수자는 "내가 통제할 수 없는 리스크"에 대한 <b>할인</b>을 요구한다.
+          </div>
+          <div class="term-example">
+            <b>참고:</b> 코람코가 케이스퀘어시티에서 구분소유를 경험한 뒤 유사 구조 자산에 보수적으로 접근했다는 점, 타임스퀘어의 2024년 매각이 구분소유 의사결정 문제로 지적받은 점 모두 같은 맥락이다.
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">⚠️ 지금 시장의 진짜 병목 — '가격'이 아니라 '클로징'</div>
+          <div class="analysis-body">올해 서울에서는 우협까지 선정되고도 깨진 딜이 줄을 이었다. <b>강남 358타워</b>(코람코 우협 후 철회), <b>논현 두산건설 사옥</b>(인수 후보 포기), <b>남산소월타워</b>(KKR 매각, 1월 우협 철회), <b>판교 GB1·2</b>(협상 중단). 원인은 대체로 하나다 — <b>LOC(투자확약) 확보 실패</b>. 임대차 시장은 좋아졌는데(A급 공실률 4.0%) 투자 시장의 '딜 체력'이 따라오지 못하는 구조다. 서부권 자산은 이 병목의 <b>가장 앞줄</b>에 서 있다.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울프라퍼티인사이트(SPI), 쿠시먼앤드웨이크필드, 아주경제, 이투데이, AP신문, 한국경제, EBN</div>
+    <div class="footer-page">2 / 5</div>
+  </div>
+</div>
+
+
+<!-- ==================== PAGE 3 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">DEEP DIVE ②</span>
+      <div class="report-title">라지 플레이트(Large Floor Plate) — 왜 세계는 '넓은 한 층'을 원하게 됐나</div>
+    </div>
+    <div class="report-meta">
+      2026년 8월 3주차 (Vol.21)<br>발행일: 2026.08.21
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="intro-banner">
+      <div class="intro-banner-title">"다른 층에서 일하는 것은, 다른 행성에 있는 것과 같다" — 톰 알렌(MIT 슬론)</div>
+      <div class="intro-banner-body">
+        <strong>라지 플레이트</strong>는 기준층 바닥면적이 넓은 오피스를 말한다. 최근 국내외 대형 임차인의 요구 1순위가 <strong>"우리 조직을 한 층에 다 앉힐 수 있느냐"</strong>로 수렴하면서, 이 스펙 하나가 임대료·임대 속도·자산가치를 가르고 있다. 그리고 흥미롭게도 라지 플레이트를 만들어내는 가장 효율적인 방법은 <strong>죽은 백화점·쇼핑몰을 오피스로 바꾸는 것</strong>이다. 아래 3개국 사례가 그 이유를 보여준다.
+      </div>
+    </div>
+
+    <div class="three-col" style="margin-bottom:8px;">
+      <div class="case-card">
+        <div class="case-name">🇰🇷 마곡 원그로브</div>
+        <div class="case-sub">신축형 라지 플레이트 · 국내 최대</div>
+        <div class="case-body">연면적 <b>46만 324㎡</b>(약 14만평), 4개동이 중앙정원(7,600㎡)을 둘러싼 배치. 기준층 <b>약 1,250평</b>, 단일 임차 시 <b>최대 2,500평</b>까지 확장 가능해 <b>국내 최대 기준층</b>으로 꼽힌다. LEED Silver. 저층부 <b>원그로브몰(약 4.5만평)</b>에 트레이더스(5,500평)·교보문고·유니클로·무인양품이 들어섰다.</div>
+        <div class="case-verdict">▸ "강남이 아닌데" 임차가 채워진 이유 = <b>라지 플레이트 + 리테일 앵커</b> 조합</div>
+      </div>
+      <div class="case-card gold">
+        <div class="case-name">🇺🇸 20 허드슨야드</div>
+        <div class="case-sub">백화점 → 오피스 컨버전 (뉴욕)</div>
+        <div class="case-body">2019년 문을 연 <b>니만마커스 백화점</b>이 팬데믹 직후 폐점하자, <b>웰스파고</b>가 이 공간을 <b>5억 5,000만 달러</b>(약 7,300억원)에 통째로 사들여 오피스로 전환했다(2024년 착공). 약 <b>40만 sf</b> 규모.</div>
+        <div class="case-verdict">▸ 백화점의 <b>넓고 기둥 적은 층</b>이 그대로 대형 트레이딩 플로어가 됐다</div>
+      </div>
+      <div class="case-card green">
+        <div class="case-name">🇺🇸 원 웨스트사이드</div>
+        <div class="case-sub">쇼핑몰 → 오피스 → 연구캠퍼스 (LA)</div>
+        <div class="case-body">1985년 개장한 <b>웨스트사이드 파빌리온</b> 쇼핑몰을 허드슨퍼시픽·매서리치가 오피스로 전환. 2019년 <b>구글이 약 58만 sf 전관 임차</b>를 확정했으나 이후 계획을 접었고, 2024년 1월 <b>UCLA가 7억 달러</b>에 인수해 바이오·의료 <b>리서치 파크</b>로 재전환 중이다.</div>
+        <div class="case-verdict">▸ 라지 플레이트는 <b>용도를 두 번 바꿔도 통하는</b> 범용 자산이 된다</div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-55">
+        <div class="section-title">🔎 왜 '넓은 한 층'이 글로벌 표준이 됐나 — 5가지 이유</div>
+
+        <div class="why-row">
+          <div class="why-num">1</div>
+          <div class="why-text"><b>조직이 수평화·애자일화됐다.</b> 층이 갈리면 팀이 갈린다. MIT 슬론의 톰 알렌은 물리적 거리가 커뮤니케이션 빈도를 급격히 떨어뜨린다는 것을 실증했고, 이것이 <b>"한 층에 다 앉힌다"</b>는 요구로 이어졌다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">2</div>
+          <div class="why-text"><b>하이브리드 근무가 '모이는 날'의 밀도를 요구한다.</b> 주 2~3일 출근이 표준이 되면서, 나오는 날에는 <b>우연한 마주침과 협업</b>이 일어나야 한다. 층이 쪼개지면 그날의 목적 자체가 사라진다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">3</div>
+          <div class="why-text"><b>보안·출입통제가 단순해진다.</b> 금융사·테크 기업은 층마다 출입통제 존을 새로 설계해야 하는 구조를 싫어한다. <b>한 층 = 한 보안 존</b>은 운영비와 사고 리스크를 동시에 줄인다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">4</div>
+          <div class="why-text"><b>전용률과 코어 효율이 올라간다.</b> 층 면적이 넓어질수록 <b>코어(엘리베이터·계단·화장실)가 차지하는 비중</b>이 상대적으로 줄어 전용률이 개선된다. 임차인이 체감하는 <b>실질임대료</b>가 내려가는 효과다 (→ 2페이지 용어).</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">5</div>
+          <div class="why-text"><b>AI·테크 기업의 대규모 단일 층 수요.</b> GPU 랙·데이터랩·대형 회의 공간처럼 <b>층고와 바닥하중, 넓은 무주 공간</b>을 요구하는 용도가 늘었다. 국내에서도 KT에스테이트·라살은 역삼동 개발에서 <b>기준층 600평</b>을 확보하기 위해 인접 부지를 추가로 매입했다.</div>
+        </div>
+
+        <div class="subsection-title">📊 기준층 면적 스펙트럼 — 국내 오피스는 어디쯤인가</div>
+        <table class="grade-table grade-table-compact">
+          <tr><th style="width:24%">구분</th><th style="width:22%">기준층 면적</th><th>대표 사례 / 특징</th></tr>
+          <tr><td><span class="gbadge g-c">중소형</span></td><td>100~250평</td><td>성수·강남 중소형 오피스. 1개 층 = 1~2개 팀 (→ 4페이지 '스탈릿')</td></tr>
+          <tr><td><span class="gbadge g-b">일반 A급</span></td><td>300~500평</td><td>국내 A급 오피스의 다수. 부서 단위 수용</td></tr>
+          <tr><td><span class="gbadge g-a">프라임</span></td><td>500~800평</td><td>KT에스테이트·라살 역삼 개발(600평)이 이 구간</td></tr>
+          <tr><td><span class="gbadge g-prime">라지 플레이트</span></td><td>1,000평 이상</td><td>본부·법인 단위 통층 수용. 임차 협상력이 급상승</td></tr>
+          <tr><td><span class="gbadge g-trophy">초대형</span></td><td>1,250~2,500평</td><td><b>마곡 원그로브</b> — 국내 최대. 글로벌 기업 요구 스펙 충족</td></tr>
+        </table>
+        <div class="news-source">출처: <a href="https://seoulpi.io/article/00383610514608250880" target="_blank">SPI(KT에스테이트·라살 역삼)</a> · <a href="https://blog.igisam.com/%EC%9B%90%EA%B7%B8%EB%A1%9C%EB%B8%8C-%EB%A7%88%EA%B3%A1/" target="_blank">이지스자산운용 UNFOLD</a> · <a href="https://newyorkyimby.com/2024/03/wells-fargo-begins-retail-to-office-conversion-of-20-hudson-yards-in-hudson-yards-manhattan.html" target="_blank">New York YIMBY</a> · <a href="https://therealdeal.com/la/2024/01/03/ucla-pays-700m-for-planned-google-campus-in-west-la/" target="_blank">The Real Deal</a></div>
+
+        <div class="section-title" style="margin-top:7px;">🇯🇵 일본 — 시장이 '라지 플레이트'와 '중소형 프리미엄'으로 갈라져 있다</div>
+        <div class="analysis-box">
+          <div class="analysis-title">위쪽 — 모리빌딩·미쓰비시지쇼의 초대형 플레이트</div>
+          <div class="analysis-body">모리빌딩의 <b>아자부다이힐즈 모리JP타워</b>(2023년 개장, 지하 5층~지상 64층·<b>325m</b>)는 <b>구상부터 완공까지 34년</b>이 걸린 재개발이다. 목표는 높이 경쟁이 아니라 <b>글로벌 기업이 요구하는 대형 무주(無柱) 플레이트 + 도시 인프라(주거·리테일·문화·의료)</b>를 한 단지에 담는 것이었다. 미쓰비시지쇼의 <b>마루노우치</b> 역시 개별 빌딩이 아니라 <b>가로 전체를 하나의 오피스 클러스터</b>로 운영한다(본 보고서 Vol.14).</div>
+        </div>
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div class="analysis-title">아래쪽 — 노무라부동산·미쓰이의 중소형 프리미엄</div>
+          <div class="analysis-body">같은 시장에서 노무라부동산은 정반대로 <b>대형 디벨로퍼가 손대지 않는 중소형 빌딩</b>을 프리미엄화하는 <b>PMO</b> 전략을 택했다(→ 4페이지). 즉 일본은 <b>"초대형은 초대형답게, 중소형은 중소형답게"</b> 두 시장이 각자의 상품 문법을 갖고 분업한다.<br>
+          <b>▸ 우리 시장에 주는 함의:</b> 한국은 아직 <b>"프라임이거나, 아니면 노후 자산"</b>이라는 이분법에 가깝다. 마곡 원그로브가 위쪽 문을 열었다면, 아래쪽(중소형 프리미엄)은 이제야 <b>신세계 '스탈릿'과 미드사이즈 전용 펀드</b>로 열리는 중이다.</div>
+        </div>
+      </div>
+
+      <div class="col-45">
+        <div class="section-title">🧱 그런데 왜 신도림 디큐브시티는 안 됐나</div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">사실관계 정리</div>
+          <div class="analysis-body">2011년 대성산업이 연탄공장 부지에 세운 복합단지(연면적 약 <b>33만㎡</b>, 코엑스몰의 2.7배). 판매동은 2015년 제이알투자운용에 넘어갔고 <b>현대백화점이 10+10년 마스터리스</b>로 운영해 왔다. <b>2022년 이지스자산운용</b>이 인수했고, 현대백화점은 <b>2025년 6월 폐점</b>했다. 이지스는 <b>약 6,500억원</b>을 들여 '코엑스형 오피스+리테일 캠퍼스'로 전환하는 안을 추진했다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">1</div>
+          <div class="why-text"><b>플레이트는 넓은데, 채광 깊이(Depth)가 안 나온다.</b> 백화점은 애초에 <b>창이 필요 없는 건물</b>이다. 외벽에서 코어까지의 거리가 너무 멀면 안쪽은 사무공간으로 쓸 수 없다. 20 허드슨야드·원 웨스트사이드가 전면 유리 파사드를 새로 만든 이유가 여기 있다 — 그만큼 <b>CAPEX가 폭증</b>한다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">2</div>
+          <div class="why-text"><b>층고·설비 스펙이 오피스와 다르다.</b> 백화점의 층고는 넉넉하지만 <b>바닥하중·전기용량·공조 방식</b>이 사무용 기준과 다르다. OA플로어 시공과 공조 전면 교체는 사실상 골조만 남기는 <b>대수선</b> 수준의 공사가 된다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">3</div>
+          <div class="why-text"><b>가장 큰 문제 — 신도림에 그 오피스를 쓸 임차인이 없다.</b> 앞의 2페이지 논리가 그대로 적용된다. 라지 플레이트를 만들어 놔도 <b>서남권의 임대료 상단</b>이 CAPEX를 회수해 주지 못한다.</div>
+        </div>
+
+        <div class="ref-box">
+          <div class="ref-box-title">📌 결과 — 계획은 리테일로 되돌아왔다 (2025.10 확정안)</div>
+          <div class="ref-box-body">최종안은 판매시설동 연면적 11만 6,588㎡ 중 <b>7만 6,800㎡(65.9%)를 판매시설로 존치</b>하는 것으로 정리됐다. 당초 59%였던 오피스 비중이 대폭 축소된 것이다. <b>2027년 초</b> 운영 개시 목표. 지역 주민의 <b>용도변경 반대</b>도 변수로 작용했다.</div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">🧭 세 사례가 남기는 실무 교훈</div>
+          <div class="analysis-body">
+            리테일 → 오피스 컨버전의 성패는 <b>건물 스펙(라지 플레이트)</b> 하나로 결정되지 않는다. <b>① 넓은 무주 공간 ② 파사드를 새로 뚫을 수 있는 구조 ③ 그 면적을 감당할 임차 수요</b> — 이 세 가지가 동시에 충족될 때만 성립한다. 허드슨야드·웨스트사이드는 <b>임차인(웰스파고·구글·UCLA)이 먼저 정해진 상태</b>에서 공사가 시작됐다는 점이 결정적으로 다르다.
+          </div>
+        </div>
+
+        <div class="subsection-title">📋 국내 리테일 자산 전환 파이프라인 — 지금 어디까지 왔나</div>
+        <table class="grade-table grade-table-compact" style="margin-bottom:4px;">
+          <tr><th style="width:34%">자산</th><th style="width:22%">전환 방향</th><th>현재 상태</th></tr>
+          <tr><td>롯데백화점 분당점</td><td><b>오피스</b> (타임워크 분당)</td><td>라인플러스 4~8층 선임차 확약 · 2028.10 준공 목표</td></tr>
+          <tr><td>신도림 디큐브시티</td><td><b>리테일 존치</b> 65.9%</td><td>오피스 전면 전환안 철회 · 2027년 초 운영</td></tr>
+          <tr><td>롯데백화점 미아점</td><td><b>주거(임대주택)</b> 검토</td><td>1차 입찰 유찰 → 재입찰 · 이지스 참전</td></tr>
+          <tr><td>일산 벨라시타</td><td><b>리테일 유지</b></td><td>GRE파트너스 우협 · 요진 10년 마스터리스</td></tr>
+        </table>
+        <div class="news-source">▸ 4건 중 <b>오피스로 가는 것은 단 1건</b>. 그 1건조차 <b>앵커 임차인을 먼저 확보한 뒤</b>에야 움직였다. (본 보고서 Vol.20 상세)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울프라퍼티인사이트(SPI), 이지스자산운용, New York YIMBY, The Real Deal, Commercial Observer, 서울&amp;, 시사저널, 이데일리</div>
+    <div class="footer-page">3 / 5</div>
+  </div>
+</div>
+
+
+<!-- ==================== PAGE 4 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">DEEP DIVE ③</span>
+      <div class="report-title">중소형 오피스도 브랜드가 된다 — 신세계프라퍼티 '스탈릿' × 노무라부동산 'PMO'</div>
+    </div>
+    <div class="report-meta">
+      2026년 8월 3주차 (Vol.21)<br>발행일: 2026.08.21
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="intro-banner">
+      <div class="intro-banner-title">신세계의 두 갈래 부동산 전략 — '작게 브랜딩하기'와 '크게 짓기'</div>
+      <div class="intro-banner-body">
+        같은 주에 신세계 계열에서 성격이 정반대인 두 개의 부동산 뉴스가 나왔다. 하나는 성수동 <strong>중소형 오피스에 브랜드를 입히는 '스탈릿'</strong>, 다른 하나는 부산 센텀시티에 조 단위 복합단지를 세우는 <strong>'C부지 개발'</strong>이다. 전자는 <strong>일본 노무라부동산의 PMO</strong>를 떠올리게 하는 전략이고, 후자는 이지스를 파트너로 택했다. 유통 대기업이 <strong>디벨로퍼로 진화하는 두 개의 경로</strong>를 함께 본다.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-55">
+        <div class="section-title">🏢 '스탈릿(Starlit)'의 계보 — 성수에서 시작해 강남으로</div>
+
+        <div class="tl-row">
+          <div class="tl-date">2022.05</div>
+          <div class="tl-text"><b>스탈릿 성수 (1호)</b> — 신세계프라퍼티가 성수동에 연 도심형 복합상업시설. 붉은 벽돌 파사드로 화제가 됐다. 브랜드의 출발점이자 <b>'성수'라는 지역 자산을 확보한 첫 수</b>.</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-date">2024</div>
+          <div class="tl-text"><b>아이콘 역삼 인수</b> — 캐피탈랜드가 여러 차례 매각에 실패했던 자산(2017년 준공, 연면적 약 6,000평)을 <b>캡스톤자산운용 블라인드펀드</b>가 인수하고 <b>신세계프라퍼티가 펀드 투자자</b>로 참여. 선릉역 인근 삼거리 코너로 개방감이 좋다.</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-date">2026 상반기</div>
+          <div class="tl-text"><b>캡스톤 × 신세계프라퍼티 중소형 블라인드 펀드 조성</b> — 이 펀드로 성수동 <b>에이엠플러스</b> 오피스 개발 프로젝트를 인수. 브랜드 확장을 위한 <b>전용 자금 파이프라인</b>을 갖췄다는 점이 핵심이다.</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-date">2026.10 (예정)</div>
+          <div class="tl-text"><b>'스탈릿 성수 N' (2호)</b> — 'N'은 북쪽(North)을 의미. <b>지마켓이 전체 오피스를 사용</b>할 예정으로, 현재 강남파이낸스센터(GFC) 4개층에서 이전한다. <b>저층부에는 스타벅스·이마트24 등 신세계 그룹 콘텐츠</b>가 들어간다.</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-date">향후</div>
+          <div class="tl-text"><b>'스탈릿' 3호 = 아이콘 역삼?</b> — 리브랜딩을 통해 <b>강남권 첫 스탈릿</b>이 될 가능성이 유력하게 거론된다. 성수(2)와 강남(1)의 <b>브랜드 포트폴리오</b>가 완성되는 그림이다.</div>
+        </div>
+
+        <div class="subsection-title">⚙️ 전략 해부 — 스탈릿은 무엇을 다르게 하나</div>
+        <table class="grade-table grade-table-compact">
+          <tr><th style="width:24%">전략 축</th><th>내용과 의미</th></tr>
+          <tr><td><b>① 브랜드화</b></td><td>중소형 오피스는 원래 <b>이름 없는 상품</b>이다. 브랜드를 붙이면 임차인에게 <b>품질 보증</b>이 되고, 임대료 프리미엄과 매각 시 가치 상승으로 되돌아온다.</td></tr>
+          <tr><td><b>② 계열 앵커 임차</b></td><td>지마켓이 통째로 쓰는 구조 = <b>준공 전 100% 임차 확정</b>. 개발 리스크의 절반이 사라진다. 그룹사 자산의 가장 강력한 무기.</td></tr>
+          <tr><td><b>③ 저층부 콘텐츠 내재화</b></td><td>스타벅스·이마트24 등 <b>계열 브랜드로 저층부를 채운다</b>. 리테일 MD 확보 리스크가 없고, 그룹 관점에서는 출점 채널이 하나 늘어난다.</td></tr>
+          <tr><td><b>④ 전용 펀드 파이프라인</b></td><td>캡스톤과의 <b>중소형 블라인드 펀드</b>가 딜을 계속 공급한다. "좋은 물건이 나오면 산다"가 아니라 <b>"사기로 정해 놓고 찾는다"</b>는 구조.</td></tr>
+          <tr><td><b>⑤ 지역 집중(성수)</b></td><td>한 지역에 복수 자산을 깔면 <b>운영 효율·브랜드 인지·임차 네트워크</b>가 누적된다. 록펠러센터·마루노우치식 <b>클러스터 전략</b>의 축소판.</td></tr>
+        </table>
+        <div class="news-source">출처: <a href="https://www.newsis.com/view/NISX20260413_0003588797" target="_blank">뉴시스(지마켓 이전)</a> · <a href="https://crletter.stibee.com/p/58" target="_blank">CR레터(아이콘 역삼)</a> · <a href="https://www.etnews.com/20220511000052" target="_blank">전자신문(스탈릿 성수)</a> · <a href="https://seoulpi.io/article/00455506757340438528" target="_blank">SPI</a></div>
+
+        <div class="section-title" style="margin-top:7px;">🇰🇷 국내에도 '미드사이즈 오피스' 자금이 만들어지고 있다</div>
+        <div class="analysis-box">
+          <div class="analysis-title">행정공제회 — 미드사이즈 전용 블라인드 펀드</div>
+          <div class="analysis-body">행정공제회는 중소·중형 오피스를 겨냥한 블라인드 펀드를 조성 중이다. <b>에쿼티 약 3,000억원</b>을 출자해 레버리지를 포함하면 <b>총 1조원 규모</b>의 투자가 가능한 구조다. 약정 총액의 약 <b>60%는 연면적 1만평 이상 대형 오피스</b>에, 나머지를 <b>5,000~1만평 미드사이즈</b>에 배분한다. 대상 지역은 서울 3대 권역에 더해 <b>송파·성수·홍대·판교</b> 등 신흥 거점을 포함한다.</div>
+        </div>
+        <div class="why-row">
+          <div class="why-num">1</div>
+          <div class="why-text"><b>논리는 단순하다 — 스톡의 70~80%가 중소형이다.</b> 대형 프라임만 쫓는 자금은 이미 포화 상태다. 반면 중소형은 <b>경쟁이 적고 매물이 많다</b>. 노무라가 도쿄에서 발견한 것과 정확히 같은 구조가 서울에도 있다.</div>
+        </div>
+        <div class="why-row">
+          <div class="why-num">2</div>
+          <div class="why-text"><b>수요 측 변화 — 분산 오피스·새틀라이트 오피스.</b> 한 건물에 본사를 몰아넣던 방식에서 <b>거점을 나누는 방식</b>으로 옮겨가면서, 중소형 오피스에 '진짜 임차 수요'가 붙기 시작했다. 일본의 미쓰이·노무라가 도심 밖으로 새틀라이트 네트워크를 넓힌 것과 같은 경로다.</div>
+        </div>
+        <div class="ref-box" style="margin-bottom:0;">
+          <div class="ref-box-title">📌 정리 — 중소형 오피스에서 승부를 가르는 세 가지</div>
+          <div class="ref-box-body"><b>① 자금(전용 펀드)</b> · <b>② 브랜드(임차인이 알아보는 이름)</b> · <b>③ 앵커 임차인·콘텐츠(공실을 미리 없애는 카드)</b>. 신세계프라퍼티는 이 셋을 <b>동시에</b> 갖췄고, 그래서 스탈릿은 단순한 작명이 아니라 <b>플랫폼</b>이다.</div>
+        </div>
+      </div>
+
+      <div class="col-45">
+        <div class="section-title">🇯🇵 벤치마크 — 노무라부동산 'PMO' 핵심 요약</div>
+
+        <div class="term-box">
+          <div><span class="term-word">PMO</span><span class="term-eng">Premium Midsize Office</span></div>
+          <div class="term-desc">
+            노무라부동산이 <b>2008년</b> 만든 중소형 오피스 브랜드. 발상은 단순했다 — <b>"중소기업이 들어가는 중소형 빌딩은 대부분 노후하다. 그렇다면 스펙을 프리미엄으로 올려주면 웃돈을 낼 것이다."</b>
+          </div>
+          <div class="mini-kpi" style="margin-top:6px;">
+            <div class="mini-kpi-card">
+              <div class="mini-kpi-label">도쿄 중소형 빌딩<br>(연면적 16,500㎡ 이하)</div>
+              <div class="mini-kpi-value">8,459동</div>
+              <div class="mini-kpi-sub">전체 스톡의 90% 이상</div>
+            </div>
+            <div class="mini-kpi-card">
+              <div class="mini-kpi-label">PMO 운영 동수<br>(2020년 기준)</div>
+              <div class="mini-kpi-value">41동</div>
+              <div class="mini-kpi-sub">공실률 극히 낮은 수준 유지</div>
+            </div>
+            <div class="mini-kpi-card">
+              <div class="mini-kpi-label">임대료 프리미엄</div>
+              <div class="mini-kpi-value">+10%</div>
+              <div class="mini-kpi-sub">인근 시세 대비</div>
+            </div>
+          </div>
+          <div class="term-example">
+            <b>핵심 인사이트:</b> 대형 디벨로퍼들이 <b>거들떠보지도 않던 시장</b>이 실은 도쿄 오피스 스톡의 <b>90% 이상</b>이었다. 경쟁이 없는 거대 시장에서 <b>브랜드와 스펙</b>만으로 10% 프리미엄을 만들어낸 것이 PMO의 성취다.
+          </div>
+          <div class="term-example">
+            <b>스탈릿과의 대비:</b> PMO는 <b>스펙 업그레이드</b>로 프리미엄을 만들었고, 스탈릿은 여기에 <b>계열 임차인 + 계열 리테일 콘텐츠</b>라는 유통 대기업만의 무기를 얹었다. 노무라가 갖지 못한 카드다.
+          </div>
+        </div>
+        <div class="news-source" style="margin-bottom:7px;">출처: <a href="https://www.sedaily.com/NewsVIew/1Z6RM9YMJD" target="_blank">서울경제 글로벌 부동산 톡톡</a> · <a href="https://seoulpi.io/article/00418564834365550592" target="_blank">SPI 「일본 디벨로퍼의 중소형 빌딩 활용법 ①」</a> · <a href="https://www.pmo-web.com/" target="_blank">PMO 공식</a></div>
+
+        <div class="section-title">🌊 그리고 반대편 — 부산 센텀 C부지</div>
+        <div class="analysis-box">
+          <div class="analysis-title">센텀시티 20년, 마지막 퍼즐</div>
+          <div class="analysis-body">
+            <b>A부지</b>(2009) = 신세계센텀시티 백화점, 개점 당시 <b>세계 최대 백화점</b> 기네스 등재. <b>B부지</b>(2016) = 센텀시티몰. 그리고 십수 년간 <b>야외 주차장</b>으로 방치됐던 <b>C부지</b>(대지 16,515㎡)가 이제 개발에 들어간다. 과거 씨푸드 테마파크·도심공항터미널 등이 검토됐으나 모두 무산됐고, 2021년경에는 <b>80층·340m·연면적 26만㎡·총사업비 1조원</b>급 럭셔리 호텔 타워안이 거론된 바 있다.
+          </div>
+        </div>
+        <div class="price-grid">
+          <div class="price-cell"><div class="price-cell-label">용적률</div><div class="price-cell-value">1,150%</div></div>
+          <div class="price-cell"><div class="price-cell-label">건폐율</div><div class="price-cell-value">50%</div></div>
+          <div class="price-cell"><div class="price-cell-label">이론상 층수</div><div class="price-cell-value">60~70층</div></div>
+        </div>
+        <div class="ref-box">
+          <div class="ref-box-title">📌 왜 이지스였나</div>
+          <div class="ref-box-body">이지스는 <b>역삼 센터필드</b>와 <b>마곡 원그로브</b>라는 국내 최대급 복합개발을 실제로 완주해 본 몇 안 되는 운용사다. 올해만 <b>케이트윈타워 우협(1조)</b>, <b>두산타워 인수(9,000억)</b>, <b>타임워크 명동 우협</b>까지 이어졌다. 연초까지 돌던 매각설·불안설과 달리, <b>대형 딜 수행 능력</b>이 시장에서 재평가받은 한 해다.</div>
+        </div>
+
+        <div class="subsection-title">🔍 센텀 C부지, 우리가 지켜볼 세 가지</div>
+        <div class="tl-row">
+          <div class="tl-date">용도조합</div>
+          <div class="tl-text"><b>호텔 + 시니어 레지던스</b>가 한 단지에서 검토된다는 점. 호텔 운영 인프라(F&amp;B·하우스키핑·컨시어지)를 <b>시니어 레지던스가 공유</b>하는 구조는 국내에서 아직 표준이 없다. <b>파르나스 관점에서 가장 주목할 지점</b>.</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-date">사업구조</div>
+          <div class="tl-text">유통사(신세계센트럴)가 <b>직접 시행하되 운용은 위탁</b>하는 형태. 개발 리스크와 자금 조달을 <b>어떤 비율로 나누는가</b>가 향후 유통 대기업 개발 사업의 참고 모델이 된다.</div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-date">일정</div>
+          <div class="tl-text">2026년 <b>하반기 착공</b>이 목표. 용적률 1,150%를 실제로 다 쓰려면 <b>건축심의·교통영향평가</b>가 관건이며, 여기서 지연되면 조 단위 사업의 금융비용이 곧바로 커진다.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 서울프라퍼티인사이트(SPI), 뉴시스, 전자신문, 서울경제, 헤럴드경제, 이데일리, CR레터, 신세계프라퍼티</div>
+    <div class="footer-page">4 / 5</div>
+  </div>
+</div>
+
+
+<!-- ==================== PAGE 5 ==================== -->
+<div class="page">
+
+  <div class="report-header">
+    <div class="header-left">
+      <span class="header-badge">RETAIL &amp; F&amp;B</span>
+      <div class="report-title">러닝 붐이 만든 1,000억 브랜드 — '호카' 총판이 이랜드로 간 이유</div>
+    </div>
+    <div class="report-meta">
+      2026년 8월 3주차 (Vol.21)<br>발행일: 2026.08.21
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <div class="intro-banner">
+      <div class="intro-banner-title">나이키·아디다스의 시대가 저물고, 러닝 전문 브랜드가 하이스트리트의 새 앵커가 됐다</div>
+      <div class="intro-banner-body">
+        지난주 우리는 한남동 디앤디파트먼트 건물에 입주한 <strong>'온(On)'</strong>을 다뤘다. 이번 주에는 그 옆자리를 노리는 <strong>호카(HOKA)</strong>의 국내 총판이 <strong>이랜드</strong>로 넘어갔다. 스포츠화 시장에서 러닝화 비중이 <strong>25% → 40% 이상</strong>으로 뛰는 동안, 이 브랜드들은 단순한 매장이 아니라 <strong>러닝 크루·트랙·클럽하우스</strong>를 품은 공간을 요구하기 시작했다. 부동산 개발자가 이 흐름을 봐야 하는 이유다.
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="col-55">
+        <div class="section-title">🏃 호카 총판 분쟁 — 8개월간 무슨 일이 있었나</div>
+
+        <table class="grade-table grade-table-compact">
+          <tr><th style="width:20%">시점</th><th>사건</th></tr>
+          <tr><td><b>2025.12</b></td><td>조이웍스 조성환 전 대표의 <b>폭행 사건</b>이 알려짐. 파장이 커지며 브랜드 이미지에 직격탄</td></tr>
+          <tr><td><b>2026.01</b></td><td>미국 <b>데커스브랜즈</b>, 사건이 공론화된 지 <b>나흘 만에</b> 조이웍스에 계약 해지 통보</td></tr>
+          <tr><td><b>2026.02~</b></td><td>조이웍스, 미국 <b>국제분쟁해결센터(ICDR)</b>에 중재 신청 — "판권을 빼앗기 위해 기획된 일"이라 주장</td></tr>
+          <tr><td><b>2026.04·06</b></td><td>ICDR, <b>조이웍스에 유리한 임시 명령</b> 두 차례. 사업권은 일단 유지</td></tr>
+          <tr><td><b>2026.08.10</b></td><td>조성환 전 대표, 기자회견 열고 사건 경위 공개 반박</td></tr>
+          <tr><td><b>2026.08.20</b></td><td><b>데커스, 이랜드를 새 국내 총판으로 공식 선임</b> — "이랜드와의 파트너십으로 한국 시장 성장 기대"</td></tr>
+        </table>
+
+        <div class="subsection-title">📊 숫자로 보는 브랜드 — 왜 다들 이걸 원했나</div>
+        <div class="mini-kpi">
+          <div class="mini-kpi-card">
+            <div class="mini-kpi-label">조이웍스 매출<br>2022년</div>
+            <div class="mini-kpi-value">249억</div>
+            <div class="mini-kpi-sub">호카 비중 80~90%</div>
+          </div>
+          <div class="mini-kpi-card">
+            <div class="mini-kpi-label">조이웍스 매출<br>2025년</div>
+            <div class="mini-kpi-value">1,065억</div>
+            <div class="mini-kpi-sub">3년 만에 <b>4.3배</b></div>
+          </div>
+          <div class="mini-kpi-card">
+            <div class="mini-kpi-label">스포츠화 중<br>러닝화 비중</div>
+            <div class="mini-kpi-value">40%+</div>
+            <div class="mini-kpi-sub">과거 25% → 급등</div>
+          </div>
+          <div class="mini-kpi-card">
+            <div class="mini-kpi-label">이랜드월드 패션<br>2026 상반기</div>
+            <div class="mini-kpi-value">1.85조</div>
+            <div class="mini-kpi-sub">뉴발란스가 약 28%</div>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <div class="analysis-title">🧩 왜 이랜드였나 — 그리고 새 총판이 떠안는 숙제</div>
+          <div class="analysis-body">
+            이랜드는 2008년부터 <b>뉴발란스</b>를 운영하며 연 <b>250억 → 1조</b> 규모로 키운 실적이 있다. 후보로 거론됐던 무신사(IPO 준비)·신세계인터내셔날(어그 운영)·LF 중에서 <b>"러닝 카테고리를 실제로 키워본 회사"</b>가 결정적 차별점이었다는 평가다.<br>
+            다만 숙제도 명확하다 — ① 조이웍스가 쌓아둔 <b>재고(약 252억)</b>와 <b>단기차입(약 364억)</b>의 처리 ② 주요 <b>오프라인 매장 운영권</b>이 조이웍스 자회사로 이관돼 있는 문제 ③ ICDR 중재가 <b>아직 최종 종결되지 않았다</b>는 법적 불확실성.
+          </div>
+        </div>
+        <div class="news-source">출처: <a href="https://biz.heraldcorp.com/article/10846435" target="_blank">헤럴드경제</a> · <a href="https://www.hankyung.com/article/202608201650g" target="_blank">한국경제</a> · <a href="https://www.sedaily.com/article/20081440" target="_blank">서울경제</a> · <a href="https://www.bloter.net/news/articleView.html?idxno=670628" target="_blank">블로터</a> · <a href="https://www.hankyung.com/article/202606244326g" target="_blank">한국경제(ICDR 명령)</a></div>
+
+        <div class="section-title" style="margin-top:7px;">🛍️ 이번 주 리테일·F&amp;B 단신 — 한국 브랜드의 '해외 상권' 진출이 동시에 터졌다</div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-retail">일본</span>
+            <a class="news-title" href="https://tnnews.co.kr/archives/291064" target="_blank">빽다방, 도쿄 '오피스 상권'에 상륙 — 신바시 하루 1,000잔</a>
+          </div>
+          <div class="news-body">더본코리아 빽다방이 <b>8월 6일 신바시점</b>, <b>8월 18일 칸다점</b>을 연달아 열었다. 두 곳 모두 <b>전형적인 오피스 상권</b>이다. 아메리카노 <b>250엔</b>·라떼 380엔의 가격과 <b>스마트 픽업</b>을 앞세워 신바시점은 평일 하루 <b>1,000잔 이상</b>을 판다. 전용 앱은 출시 4일 만에 4,000명이 가입해 <b>전체 주문의 30%</b>를 흡수했다.</div>
+          <div class="news-point">▸ 오피스 상권 저층부 리테일의 정답이 <b>'고단가 카페'에서 '초회전 픽업 매장'</b>으로 이동 중이라는 신호. 9월 대만, 연내 중국 진출 예정.</div>
+        </div>
+
+        <div class="news-item">
+          <div class="news-header">
+            <span class="news-tag tag-retail">싱가포르</span>
+            <a class="news-title" href="https://tnnews.co.kr/archives/291049" target="_blank">맘스터치 싱가포르 1호점, CBD 한복판에서 목표 매출 2배</a>
+          </div>
+          <div class="news-body">8월 14일 싱가포르 <b>CBD 사우스브릿지로드</b>에 'MOM'S TOUCH 18 CROSS'를 열었다. 오픈 당일 <b>200명 이상</b>이 줄을 섰고, 초기 5일 매출은 현지 목표의 <b>약 2배</b>. <b>2년 이상 R&amp;D를 거친 할랄 기준</b> 원재료와 전용 공정을 적용한 것이 핵심이었다. 버거 6.95 SGD.</div>
+          <div class="news-point">▸ 연내 <b>주거 상권</b>에 2호점, 2027년 싱가포르 전역 확대. 글로벌 목표는 <b>2027년 220개 매장</b>(현재 일본 16개).</div>
+        </div>
+
+        <div class="analysis-box" style="margin-bottom:0;">
+          <div class="analysis-title">🧭 부동산 개발자 관점에서 왜 이 두 건을 봐야 하나</div>
+          <div class="analysis-body">두 브랜드 모두 <b>①오피스/CBD 상권을 첫 타깃</b>으로 잡았고 <b>②현지화 R&amp;D를 선행</b>했으며 <b>③가격을 낮게 걸고 회전율로 승부</b>했다. 이는 국내 상업시설 MD에도 그대로 적용된다 — <b>오피스 저층부 리테일의 성패는 '객단가'가 아니라 '점심 1시간의 회전율'</b>에서 갈린다. 임대차 조건을 짤 때 <b>매출연동임대료(Vol.20)</b>의 기준선을 어디에 두느냐가 곧 이 회전율 설계와 직결된다.</div>
+        </div>
+      </div>
+
+      <div class="col-45">
+        <div class="section-title">🏙️ 러닝 브랜드가 바꾸는 리테일 공간의 문법</div>
+
+        <div class="three-col" style="margin-bottom:7px;">
+          <div class="case-card">
+            <div class="case-name">호카</div>
+            <div class="case-sub">HOKA · 데커스브랜즈</div>
+            <div class="case-body">두꺼운 미드솔(맥시멀리즘)로 <b>러닝 입문자·장거리 러너</b>를 흡수. 국내 총판 매출만 <b>1,000억대</b>. 새 총판 이랜드의 <b>유통망 확장</b>이 관전 포인트.</div>
+          </div>
+          <div class="case-card gold">
+            <div class="case-name">온</div>
+            <div class="case-sub">On Running · 스위스</div>
+            <div class="case-body">한남동 <b>디앤디파트먼트 건물</b>에 입점(Vol.18에서 다룸). '클라우드' 시리즈로 <b>패션 러닝</b> 시장을 선점. 하이스트리트 <b>앵커</b>로 자리 잡는 중.</div>
+          </div>
+          <div class="case-card green">
+            <div class="case-name">살로몬</div>
+            <div class="case-sub">Salomon · 아머스포츠</div>
+            <div class="case-body">성수 <b>국내 최대 플래그십</b>, 서촌에 <b>세계 최초 트레일러닝 전문 스토어</b>. 크림 거래량 <b>4배</b> 증가로 리셀 시장에서도 급부상.</div>
+          </div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">1</div>
+          <div class="why-text"><b>매장이 '판매공간'에서 '집결지'로 바뀐다.</b> 러닝 크루의 출발·도착 거점, 러너용 샤워·물품보관, 트레드밀 피팅 랩까지 요구된다. <b>면적은 커지고 층고·설비 요구는 높아진다</b> — 임대인에게는 핏아웃 협의가 늘어나는 대신 <b>장기 임차</b>를 기대할 수 있다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">2</div>
+          <div class="why-text"><b>입지 논리가 '유동인구'에서 '러닝 코스'로 옮겨간다.</b> 한강·서울숲·남산·경의선숲길 <b>접근성</b>이 새로운 입지 변수다. 성수·한남·서촌에 러닝 브랜드가 몰리는 것은 우연이 아니다.</div>
+        </div>
+
+        <div class="why-row">
+          <div class="why-num">3</div>
+          <div class="why-text"><b>총판이 바뀌면 출점 전략이 통째로 바뀐다.</b> 이랜드는 뉴발란스에서 <b>백화점·아울렛·가두점</b>을 아우르는 채널 운영을 해온 회사다. 조이웍스 체제의 도심 편집숍 중심 전개와는 다른 <b>출점 파이프라인</b>이 나올 가능성이 크다 — 상업시설 MD 담당자가 지금 주목해야 할 지점.</div>
+        </div>
+
+        <div class="gspnl-box">
+          <div class="gspnl-title">💡 GS P&amp;L 신사업 관점 시사점</div>
+          <div class="gspnl-item">▸ <strong>① 자산 선별 기준에 '임차인의 미래'를 넣자.</strong> 임대율 99.9%의 타임스퀘어가 안 팔리는 이유는 공실이 아니라 <b>콜센터라는 업종의 미래</b>였다. 신규 자산 검토 시 임차인 구성을 <b>업종 존속성</b> 관점에서 스코어링하는 절차를 넣을 필요가 있다.</div>
+          <div class="gspnl-item">▸ <strong>② 라지 플레이트는 '지을 때' 결정된다.</strong> 파르나스 계열의 향후 신축·리모델링 검토 시 <b>기준층 면적과 채광 깊이</b>는 준공 후 되돌릴 수 없는 변수다. 1,000평 이상 확보 가능성은 초기 배치 단계에서 판단해야 한다.</div>
+          <div class="gspnl-item">▸ <strong>③ '스탈릿 모델'은 GS P&amp;L에 가장 이식 가능한 전략이다.</strong> 계열 임차인(그룹사 사무 수요) + 계열 리테일 콘텐츠(후레쉬미트·GS 계열 F&amp;B) + 브랜드. 신세계가 지금 하는 일은 <b>유통 대기업이 디벨로퍼가 되는 표준 경로</b>이며, 우리는 호텔 운영 역량이라는 카드를 하나 더 갖고 있다.</div>
+          <div class="gspnl-item">▸ <strong>④ 대형 복합개발은 '운용사 선택'이 절반이다.</strong> 신세계센트럴이 이지스를 고른 근거는 <b>센터필드·원그로브라는 완주 이력</b>이었다. 우리도 파트너 평가 시 AUM보다 <b>동종 규모 복합개발 완주 경험</b>을 우선 지표로 두는 것이 합리적이다.</div>
+          <div class="gspnl-item">▸ <strong>⑤ 러닝 카테고리를 리테일 MD 후보군에 정식 편입하자.</strong> 호카·온·살로몬은 <b>장기 임차 의향과 브랜드 집객력</b>을 동시에 가진 드문 테넌트다. 특히 한강·공원 접근성이 좋은 자산이라면 <b>앵커급 협상</b>이 가능하다.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="report-footer">
+    <div class="footer-source">출처: 헤럴드경제, 한국경제, 서울경제, 블로터, 머니투데이, 어패럴뉴스, 아이즈매거진, 살로몬코리아 / 작성: GS P&amp;L 신사업부문</div>
+    <div class="footer-page">5 / 5</div>
+  </div>
+</div>
+
+
+</body>
+</html>
