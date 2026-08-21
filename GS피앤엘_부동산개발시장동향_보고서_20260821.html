@@ -18,6 +18,9 @@
     color: #333;
     background: #e8ecf0;
     padding: 16px 0;
+    /* 한글이 단어 중간에서 잘리지 않게 어절 단위로 줄바꿈 (조판 정돈 규칙) */
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   /* ===== PAGE ===== */
@@ -106,16 +109,20 @@
     flex: 1;
     background: #F4F6FB;
     border-radius: 7px;
-    padding: 6px 9px;
+    padding: 7px 9px 8px;
     text-align: center;
     border-top: 3px solid #1B3A6B;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3px;
   }
 
-  .snapshot-label { font-size: 8.5pt; color: #666; margin-bottom: 1px; line-height: 1.2; }
-  .snapshot-value { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.0; }
-  .snapshot-change { font-size: 8.5pt; margin-top: 0px; font-weight: 600; line-height: 1.3; }
-  .snapshot-footnote { font-size: 8.5pt; color: #999; line-height: 1.3; margin-top: -3px; margin-bottom: 7px; }
-  .snapshot-sub { font-size: 8.5pt; color: #999; margin-top: 0px; line-height: 1.2; }
+  .snapshot-label  { font-size: 8.5pt; color: #666; line-height: 1.45; }
+  .snapshot-value  { font-size: 20pt; font-weight: 900; color: #1B3A6B; line-height: 1.32; letter-spacing: -0.5px; margin: 1px 0 0; }
+  .snapshot-change { font-size: 8.5pt; font-weight: 600; line-height: 1.45; }
+  .snapshot-sub    { font-size: 8.5pt; color: #999; line-height: 1.45; }
+  .snapshot-footnote { font-size: 8.5pt; color: #999; line-height: 1.45; margin-top: 4px; margin-bottom: 7px; }
   .up { color: #C53030; }
   .down { color: #2B6CB0; }
   .flat { color: #718096; }
@@ -493,20 +500,41 @@
 
   .mini-kpi { display: flex; gap: 7px; margin-bottom: 7px; }
   .mini-kpi-card {
-    flex: 1; background: #F4F6FB; border-radius: 6px; padding: 5px 7px; text-align: center;
+    flex: 1; background: #F4F6FB; border-radius: 6px; padding: 6px 7px 7px; text-align: center;
     border-left: 3px solid #C9A84C;
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 2px;
   }
-  .mini-kpi-label { font-size: 8.5pt; color: #777; line-height: 1.25; }
-  .mini-kpi-value { font-size: 14pt; font-weight: 900; color: #1B3A6B; line-height: 1.15; }
-  .mini-kpi-sub   { font-size: 8.5pt; color: #999; line-height: 1.25; }
+  .mini-kpi-label { font-size: 8.5pt; color: #777; line-height: 1.42; }
+  .mini-kpi-value { font-size: 14pt; font-weight: 900; color: #1B3A6B; line-height: 1.3; margin: 1px 0 0; }
+  .mini-kpi-sub   { font-size: 8.5pt; color: #999; line-height: 1.42; }
 
   .price-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; margin: 5px 0; }
   .price-cell {
     background: #fff; border: 1px solid #E0E8F0; border-radius: 5px;
-    padding: 4px 6px; text-align: center;
+    padding: 5px 6px 6px; text-align: center;
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 2px;
   }
-  .price-cell-label { font-size: 9pt; color: #888; line-height: 1.25; }
-  .price-cell-value { font-size: 11pt; font-weight: 800; color: #1B3A6B; line-height: 1.25; }
+  .price-cell-label { font-size: 9pt; color: #888; line-height: 1.4; }
+  .price-cell-value { font-size: 11pt; font-weight: 800; color: #1B3A6B; line-height: 1.3; }
+
+  /* ===== 조판 정돈 규칙 (Vol.21 확정) =====
+     제목·라벨류는 줄을 균등 분배(balance), 본문류는 고아 단어 방지(pretty).
+     짧은 중앙정렬 블록은 HTML에서 <br>로 줄바꿈을 직접 지정하는 것이 원칙이며
+     아래 규칙은 자동 줄바꿈이 발생했을 때의 안전망이다. */
+  .report-title, .section-title, .subsection-title, .analysis-title,
+  .intro-banner-title, .news-title, a.news-title, .deal-name, a.deal-name,
+  .case-name, .case-sub, .case-verdict, .term-word, .term-sub, .gspnl-title,
+  .ref-box-title, .conflict-party-name, .trend-card-label, .deal-tag,
+  .snapshot-label, .snapshot-change, .snapshot-sub, .snapshot-footnote,
+  .mini-kpi-label, .mini-kpi-sub, .price-cell-label, .tl-date {
+    text-wrap: balance;
+  }
+  .news-body, .news-point, .news-source, .deal-desc, .term-desc, .term-example,
+  .analysis-body, .why-text, .tl-text, .case-body, .ref-box-body,
+  .gspnl-item, .gspnl-body, .intro-banner-body, .trend-card-text,
+  .conflict-party-body, .grade-table td {
+    text-wrap: pretty;
+  }
 
 </style>
 <body>
@@ -529,28 +557,28 @@
     <!-- SNAPSHOT ROW -->
     <div class="snapshot-row">
       <div class="snapshot-card">
-        <div class="snapshot-label">서울 오피스 공실률 (2026년 2분기)</div>
+        <div class="snapshot-label">서울 오피스 공실률<br>(2026년 2분기)</div>
         <div class="snapshot-value">6.5%</div>
-        <div class="snapshot-change up">▲ 전분기 +0.4%p · CBD 7.3%</div>
-        <div class="snapshot-sub">그런데 GBD 초대형 오피스는 <b>0.3%</b> — 양극화의 숫자</div>
+        <div class="snapshot-change up">▲ 전분기 대비 +0.4%p<br>CBD 4.9% → 7.3%</div>
+        <div class="snapshot-sub">GBD 초대형 오피스는 <b>0.3%</b><br>같은 서울, 20배 넘는 격차</div>
       </div>
       <div class="snapshot-card">
-        <div class="snapshot-label">영등포 타임스퀘어 오피스 우협가(평당)</div>
+        <div class="snapshot-label">영등포 타임스퀘어<br>오피스 우협가 (평당)</div>
         <div class="snapshot-value">2,500만</div>
-        <div class="snapshot-change down">▼ YBD 최고가(하나증권 사옥) 3,840만원의 65%</div>
-        <div class="snapshot-sub">명동·홍대 코어 자산(5,000만원대) 대비 <b>약 1/2</b></div>
+        <div class="snapshot-change down">▼ YBD 최고가 3,840만원의<br>65% 수준</div>
+        <div class="snapshot-sub">명동·홍대 코어 5,000만원대<br>대비 <b>약 1/2</b></div>
       </div>
       <div class="snapshot-card">
-        <div class="snapshot-label">부산 센텀 C부지 대지면적</div>
+        <div class="snapshot-label">부산 센텀 C부지<br>대지면적</div>
         <div class="snapshot-value">16,515㎡</div>
-        <div class="snapshot-change flat">◆ 용적률 1,150% · 건폐율 50% (60~70층 가능)</div>
-        <div class="snapshot-sub">이지스, 신세계센트럴 위탁운용사 <b>우협 선정</b>(8/20)</div>
+        <div class="snapshot-change flat">◆ 용적률 1,150% · 건폐율 50%<br>이론상 60~70층 가능</div>
+        <div class="snapshot-sub">이지스, 신세계센트럴<br>위탁운용사 <b>우협</b> (8/20)</div>
       </div>
       <div class="snapshot-card">
-        <div class="snapshot-label">호카 국내 총판 매출(조이웍스, 2025년)</div>
+        <div class="snapshot-label">호카 국내 총판 매출<br>(조이웍스, 2025년)</div>
         <div class="snapshot-value">1,065억</div>
-        <div class="snapshot-change up">▲ 2022년 249억 대비 3년 만에 4.3배</div>
-        <div class="snapshot-sub">새 총판은 <b>이랜드</b> — 8/20 데커스 공식 발표</div>
+        <div class="snapshot-change up">▲ 2022년 249억 대비<br>3년 만에 4.3배</div>
+        <div class="snapshot-sub">새 총판은 <b>이랜드</b><br>8/20 데커스 공식 발표</div>
       </div>
     </div>
     <div class="snapshot-footnote">
@@ -1039,12 +1067,12 @@
             <div class="mini-kpi-card">
               <div class="mini-kpi-label">PMO 운영 동수<br>(2020년 기준)</div>
               <div class="mini-kpi-value">41동</div>
-              <div class="mini-kpi-sub">공실률 극히 낮은 수준 유지</div>
+              <div class="mini-kpi-sub">공실률 극히 낮은 수준</div>
             </div>
             <div class="mini-kpi-card">
-              <div class="mini-kpi-label">임대료 프리미엄</div>
+              <div class="mini-kpi-label">임대료 프리미엄<br>(인근 시세 대비)</div>
               <div class="mini-kpi-value">+10%</div>
-              <div class="mini-kpi-sub">인근 시세 대비</div>
+              <div class="mini-kpi-sub">중소기업도 웃돈을 낸다</div>
             </div>
           </div>
           <div class="term-example">
@@ -1167,7 +1195,7 @@
         </div>
         <div class="news-source">출처: <a href="https://biz.heraldcorp.com/article/10846435" target="_blank">헤럴드경제</a> · <a href="https://www.hankyung.com/article/202608201650g" target="_blank">한국경제</a> · <a href="https://www.sedaily.com/article/20081440" target="_blank">서울경제</a> · <a href="https://www.bloter.net/news/articleView.html?idxno=670628" target="_blank">블로터</a> · <a href="https://www.hankyung.com/article/202606244326g" target="_blank">한국경제(ICDR 명령)</a></div>
 
-        <div class="section-title" style="margin-top:7px;">🛍️ 이번 주 리테일·F&amp;B 단신 — 한국 브랜드의 '해외 상권' 진출이 동시에 터졌다</div>
+        <div class="section-title" style="margin-top:7px;">🛍️ 이번 주 리테일·F&amp;B 단신<br>— 한국 브랜드의 '해외 상권' 진출이 동시에 터졌다</div>
 
         <div class="news-item">
           <div class="news-header">
